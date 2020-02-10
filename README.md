@@ -6,6 +6,7 @@ This is a standalone GUI tool for checking COBie Construction and Design files.
 
 PRE-REQS:
 Java 1.8
+Apache Maven
 
 RECOMMENDED:
 The Java bin folder should be part of your Environment path for convenience. 
