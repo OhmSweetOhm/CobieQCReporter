@@ -1,0 +1,1060 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svrl:schematron-output xmlns:cfn="http://docs.buildingsmartalliance.org/nbims03/cobie/schematron/functions" xmlns:iso="http://purl.oclc.org/dsdl/schematron" xmlns:saxon="http://saxon.sf.net/" xmlns:schold="http://www.ascc.net/xml/schematron" xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" title="COBie Validation Rules:  includes design and construction" schemaVersion="ISO19757-3" phase="Construction">
+	<!--   
+		   
+		   
+		 -->
+	<svrl:active-pattern document="file:///C:/Users/Bogen/Documents/Java/BIMserver-1.4.0-FINAL-2015-11-04/COBieCommandLineTools/xsl_xml/incoming.xml" id="COBieValidation.Information" name="Worksheet Counts"/>
+	<svrl:fired-rule context="//Contacts" id="COBie.Contacts" role="WorksheetCount"/>
+	<svrl:successful-report test="Contact" id="Contacts.ReportNumberOf">
+		<svrl:text>1 Contacts<location xmlns="http://purl.oclc.org/dsdl/schematron">Contacts[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:fired-rule context="//Facilities" id="COBie.Facilities" role="WorksheetCount"/>
+	<svrl:successful-report test="Facility" id="Facilities.ReportNumberOf">
+		<svrl:text>1 Facilities<location xmlns="http://purl.oclc.org/dsdl/schematron">Facilities[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:fired-rule context="//Floors" id="COBie.Floors" role="WorksheetCount"/>
+	<svrl:successful-report test="Floor" id="Floors.ReportNumberOf">
+		<svrl:text>4 Floors<location xmlns="http://purl.oclc.org/dsdl/schematron">Floors[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:fired-rule context="//Spaces" id="COBie.Spaces" role="WorksheetCount"/>
+	<svrl:successful-report test="Space" id="Spaces.ReportNumberOf">
+		<svrl:text>1 Spaces<location xmlns="http://purl.oclc.org/dsdl/schematron">Spaces[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:fired-rule context="//Zones" id="COBie.Zones" role="WorksheetCount"/>
+	<svrl:fired-rule context="//Types" id="COBie.Types" role="WorksheetCount"/>
+	<svrl:successful-report test="Type" id="Types.ReportNumberOf">
+		<svrl:text>2 Types<location xmlns="http://purl.oclc.org/dsdl/schematron">Types[6]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:fired-rule context="//Components" id="COBie.Components" role="WorksheetCount"/>
+	<svrl:successful-report test="Component" id="Components.ReportNumberOf">
+		<svrl:text>4 Components<location xmlns="http://purl.oclc.org/dsdl/schematron">Components[7]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:fired-rule context="//Systems" id="COBie.Systems" role="WorksheetCount"/>
+	<svrl:fired-rule context="//Assemblies" id="COBie.Assemblies" role="WorksheetCount"/>
+	<svrl:fired-rule context="//Connections" id="COBie.Connections" role="WorksheetCount"/>
+	<svrl:fired-rule context="//Spares" id="COBie.Spares" role="WorksheetCount"/>
+	<svrl:fired-rule context="//Resources" id="COBie.Resources" role="WorksheetCount"/>
+	<svrl:fired-rule context="//Jobs" id="COBie.Jobs" role="WorksheetCount"/>
+	<svrl:fired-rule context="//Documents" id="COBie.Documents" role="WorksheetCount"/>
+	<svrl:fired-rule context="//Attributes" id="COBie.Attributes" role="WorksheetCount"/>
+	<svrl:active-pattern document="file:///C:/Users/Bogen/Documents/Java/BIMserver-1.4.0-FINAL-2015-11-04/COBieCommandLineTools/xsl_xml/incoming.xml" id="Construction.COBieValidation.Errors" name="COBie Checking Rules"/>
+	<svrl:fired-rule context="//Contacts" id="COBie.Contacts" role="WorksheetErrors"/>
+	<svrl:successful-report test="true()" id="Contact.Count.Check" flag="ContactSheet">
+		<svrl:text>Contacts.AtLeastOneRowPresent
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Contacts[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:fired-rule context="//Contacts/Contact" id="COBie.Contacts.Contact" role="WorksheetErrors"/>
+	<svrl:successful-report test="true()" id="Contact.Email.Check" flag="Email">
+		<svrl:text>Email.Unique, Email.NotNull, Email.Format, Email.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Contact[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Contact.CreatedBy.Check" flag="CreatedBy">
+		<svrl:text>CreatedBy.CrossReference, CreatedBy.NotNull, CreatedBy.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Contact[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Contact.CreatedOn.Check" flag="CreatedOn">
+		<svrl:text>CreatedOn.NotNull,CreatedOn.Valid (ISO DateTime), CreatedOn.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Contact[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Contact.ExternalSystem.Check" flag="ExternalSystem">
+		<svrl:text>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Contact[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Contact.ExternalObject.Check" flag="ExternalObject">
+		<svrl:text>ExternalObject.NotEmpty, ExternalObject.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Contact[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Contact.ExternalIdentifier.Check" flag="ExternalIdentifier">
+		<svrl:text>ExternalIdentifier.NotEmpty, ExternalIdentifier.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Contact[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Contact.Category.Check" flag="Category">
+		<svrl:text>Category.NotNull, Category.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Contact[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Contact.Company.Check" flag="Company">
+		<svrl:text>Company.NotNull, Company.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Contact[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Contact.Phone.Check" flag="Phone">
+		<svrl:text>Phone.NotNull, Phone.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Contact[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Contact.Department.Check" flag="Department">
+		<svrl:text>Department.NotEmpty, Department.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Contact[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Contact.OrganizationCode.Check" flag="OrganizationCode">
+		<svrl:text>OrganizationCode.NotEmpty, OrganizationCode.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Contact[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Contact.GivenName.Check" flag="GivenName">
+		<svrl:text>GivenName.NotEmpty, GivenName.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Contact[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Contact.FamilyName.Check" flag="FamilyName">
+		<svrl:text>FamilyName.NotEmpty, FamilyName.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Contact[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Contact.Street.Check" flag="Street">
+		<svrl:text>Street.NotEmpty, Street.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Contact[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Contact.PostalBox.Check" flag="PostalBox">
+		<svrl:text>PostalBox.NotEmpty, PostalBox.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Contact[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Contact.Town.Check" flag="Town">
+		<svrl:text>Town.NotEmpty, Town.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Contact[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Contact.StateRegion.Check" flag="StateRegion">
+		<svrl:text>StateRegion.NotEmpty, StateRegion.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Contact[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Contact.PostalCode.Check" flag="PostalCode">
+		<svrl:text>PostalCode.NotEmpty, PostalCode.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Contact[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Contact.Country.Check" flag="Country">
+		<svrl:text>Country.NotEmpty, Country.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Contact[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:fired-rule context="//Facilities" id="COBie.Facilities" role="WorksheetErrors"/>
+	<svrl:successful-report test="true()" id="Facilities.AtLeastOne.Check" flag="FacilitySheet">
+		<svrl:text>Facilities.OneAndOnlyOneFacilityFound
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Facilities[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:fired-rule context="//Facilities/Facility" id="COBie.Facilities.Facility" role="WorksheetErrors"/>
+	<svrl:successful-report test="true()" id="Common.Name.Check" flag="Name">
+		<svrl:text>Name.NotNotNull, Name.Unique, Name.Picklist,Name.RowHasRequiredAttributes
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Facility[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.CreatedBy.Check" flag="CreatedBy">
+		<svrl:text>CreatedBy.CrossReference (ToContact), CreatedBy.NotNull, CreatedBy.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Facility[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.CreatedOn.Check" flag="CreatedOn">
+		<svrl:text>CreatedOn.NotNull, CreatedOn.Valid (Valid ISO DateTime), CreatedOn.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Facility[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.Category.Check" flag="Category">
+		<svrl:text>Category.NotNull, Category.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Facility[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.Description.Check" flag="Description">
+		<svrl:text>Description.NotEmpty, Description.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Facility[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Facility.ProjectName.Check" flag="ProjectName">
+		<svrl:text>ProjectName.NotNull, ProjectName.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Facility[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Facility.SiteName.Check" flag="SiteName">
+		<svrl:text>SiteName.NotNull, SiteName.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Facility[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Facility.LinearUnits.Check" flag="LinearUnits">
+		<svrl:text>LinearUnits.NotNull, LinearUnits.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Facility[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Facility.AreaUnits.Check" flag="AreaUnits">
+		<svrl:text>AreaUnits.NotNull, AreaUnits.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Facility[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Facility.VolumeUnits.Check" flag="VolumeUnits">
+		<svrl:text>VolumeUnits.NotNull, VolumeUnits.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Facility[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Facility.CurrencyUnit.Check" flag="CurrencyUnit">
+		<svrl:text>Currency.NotNull, Currency.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Facility[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Facility.AreaMeasurement.Check" flag="AreaMeasurement">
+		<svrl:text>AreaMeasurement.NotNull, AreaMeasurement.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Facility[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Facility.ExternalSystem.Check" flag="ExternalSystem">
+		<svrl:text>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Facility[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Facility.ExternalProjectObject.Check" flag="ExternalProjectObject">
+		<svrl:text>ExternalProjectObject.NotEmpty, ExternalProjectObject.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Facility[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Facility.ExternalProjectIdentifier.Check" flag="ExternalProjectIdentifier">
+		<svrl:text>ExternalProjectIdentifier.NotEmpty, ExternalProjectIdentifier.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Facility[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Facility.ExternalSiteObject.Check" flag="ExternalSiteObject">
+		<svrl:text>ExternalSiteObject.NotEmpty, ExternalSiteObject.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Facility[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Facility.ExternalSiteIdentifier.Check" flag="ExternalSiteIdentifier">
+		<svrl:text>ExternalSiteIdentifier.NotEmpty, ExternalSiteIdentifier.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Facility[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Facility.ExternalFacilityObject.Check" flag="ExternalFacilityObject">
+		<svrl:text>ExternalFacilityObject.NotEmpty, ExternalFacilityObject.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Facility[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Facility.ExternalFacilityIdentifier.Check" flag="ExternalFacilityIdentifier">
+		<svrl:text>ExternalFacilityIdentifier.NotEmpty, ExternalFacilityIdentifier.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Facility[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:fired-rule context="//Floors" id="COBie.Floors" role="WorksheetErrors"/>
+	<svrl:successful-report test="true()" id="Floor.Count.Check" flag="FloorSheet">
+		<svrl:text>Floors.AtLeastOneRowPresent
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floors[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:fired-rule context="//Floors/Floor" id="COBie.Floors.Floor" role="WorksheetErrors"/>
+	<svrl:successful-report test="true()" id="Common.Name.Check" flag="Name">
+		<svrl:text>Name.NotNotNull, Name.Unique, Name.Picklist,Name.RowHasRequiredAttributes
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.CreatedBy.Check" flag="CreatedBy">
+		<svrl:text>CreatedBy.CrossReference (ToContact), CreatedBy.NotNull, CreatedBy.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.CreatedOn.Check" flag="CreatedOn">
+		<svrl:text>CreatedOn.NotNull, CreatedOn.Valid (Valid ISO DateTime), CreatedOn.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalSystem.Check" flag="ExtSystem">
+		<svrl:text>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalObject.Check" flag="ExtObject">
+		<svrl:text>ExternalObject.NotEmpty, ExternalObject.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalIdentifier.Check" flag="ExtIdentifier">
+		<svrl:text>ExtIdentifier.NotEmpty, ExtIdentifier.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.Category.Check" flag="Category">
+		<svrl:text>Category.NotNull, Category.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Floor.Elevation.Check" flag="Elevation">
+		<svrl:text>Floor.Elevation.ValidNumberOrNA,Floor.Elevation.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Floor.Height.Check" flag="Height">
+		<svrl:text>Floor.Height.ZeroOrGreaterOrNA, Floor.Height.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:fired-rule context="//Floors/Floor" id="COBie.Floors.Floor" role="WorksheetErrors"/>
+	<svrl:successful-report test="true()" id="Common.Name.Check" flag="Name">
+		<svrl:text>Name.NotNotNull, Name.Unique, Name.Picklist,Name.RowHasRequiredAttributes
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.CreatedBy.Check" flag="CreatedBy">
+		<svrl:text>CreatedBy.CrossReference (ToContact), CreatedBy.NotNull, CreatedBy.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.CreatedOn.Check" flag="CreatedOn">
+		<svrl:text>CreatedOn.NotNull, CreatedOn.Valid (Valid ISO DateTime), CreatedOn.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalSystem.Check" flag="ExtSystem">
+		<svrl:text>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalObject.Check" flag="ExtObject">
+		<svrl:text>ExternalObject.NotEmpty, ExternalObject.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalIdentifier.Check" flag="ExtIdentifier">
+		<svrl:text>ExtIdentifier.NotEmpty, ExtIdentifier.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.Category.Check" flag="Category">
+		<svrl:text>Category.NotNull, Category.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Floor.Elevation.Check" flag="Elevation">
+		<svrl:text>Floor.Elevation.ValidNumberOrNA,Floor.Elevation.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Floor.Height.Check" flag="Height">
+		<svrl:text>Floor.Height.ZeroOrGreaterOrNA, Floor.Height.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:fired-rule context="//Floors/Floor" id="COBie.Floors.Floor" role="WorksheetErrors"/>
+	<svrl:successful-report test="true()" id="Common.Name.Check" flag="Name">
+		<svrl:text>Name.NotNotNull, Name.Unique, Name.Picklist,Name.RowHasRequiredAttributes
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.CreatedBy.Check" flag="CreatedBy">
+		<svrl:text>CreatedBy.CrossReference (ToContact), CreatedBy.NotNull, CreatedBy.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.CreatedOn.Check" flag="CreatedOn">
+		<svrl:text>CreatedOn.NotNull, CreatedOn.Valid (Valid ISO DateTime), CreatedOn.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalSystem.Check" flag="ExtSystem">
+		<svrl:text>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalObject.Check" flag="ExtObject">
+		<svrl:text>ExternalObject.NotEmpty, ExternalObject.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalIdentifier.Check" flag="ExtIdentifier">
+		<svrl:text>ExtIdentifier.NotEmpty, ExtIdentifier.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.Category.Check" flag="Category">
+		<svrl:text>Category.NotNull, Category.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Floor.Elevation.Check" flag="Elevation">
+		<svrl:text>Floor.Elevation.ValidNumberOrNA,Floor.Elevation.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Floor.Height.Check" flag="Height">
+		<svrl:text>Floor.Height.ZeroOrGreaterOrNA, Floor.Height.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:fired-rule context="//Floors/Floor" id="COBie.Floors.Floor" role="WorksheetErrors"/>
+	<svrl:successful-report test="true()" id="Common.Name.Check" flag="Name">
+		<svrl:text>Name.NotNotNull, Name.Unique, Name.Picklist,Name.RowHasRequiredAttributes
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.CreatedBy.Check" flag="CreatedBy">
+		<svrl:text>CreatedBy.CrossReference (ToContact), CreatedBy.NotNull, CreatedBy.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.CreatedOn.Check" flag="CreatedOn">
+		<svrl:text>CreatedOn.NotNull, CreatedOn.Valid (Valid ISO DateTime), CreatedOn.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalSystem.Check" flag="ExtSystem">
+		<svrl:text>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalObject.Check" flag="ExtObject">
+		<svrl:text>ExternalObject.NotEmpty, ExternalObject.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalIdentifier.Check" flag="ExtIdentifier">
+		<svrl:text>ExtIdentifier.NotEmpty, ExtIdentifier.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.Category.Check" flag="Category">
+		<svrl:text>Category.NotNull, Category.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Floor.Elevation.Check" flag="Elevation">
+		<svrl:text>Floor.Elevation.ValidNumberOrNA,Floor.Elevation.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Floor.Height.Check" flag="Height">
+		<svrl:text>Floor.Height.ZeroOrGreaterOrNA, Floor.Height.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Floor[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:fired-rule context="//Spaces" id="COBie.Spaces" role="WorksheetErrors"/>
+	<svrl:successful-report test="true()" id="Space.Count.Check" flag="SpaceSheet">
+		<svrl:text>Spaces.AtLeastOneRowPresent
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Spaces[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:fired-rule context="//Spaces/Space" id="COBie.Spaces.Space" role="WorksheetErrors"/>
+	<svrl:successful-report test="true()" id="Common.Name.Check" flag="Name">
+		<svrl:text>Name.NotNotNull, Name.Unique, Name.Picklist,Name.RowHasRequiredAttributes
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Space[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.CreatedBy.Check" flag="CreatedBy">
+		<svrl:text>CreatedBy.CrossReference (ToContact), CreatedBy.NotNull, CreatedBy.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Space[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.CreatedOn.Check" flag="CreatedOn">
+		<svrl:text>CreatedOn.NotNull, CreatedOn.Valid (Valid ISO DateTime), CreatedOn.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Space[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalSystem.Check" flag="ExtSystem">
+		<svrl:text>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Space[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalObject.Check" flag="ExtObject">
+		<svrl:text>ExternalObject.NotEmpty, ExternalObject.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Space[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalIdentifier.Check" flag="ExtIdentifier">
+		<svrl:text>ExtIdentifier.NotEmpty, ExtIdentifier.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Space[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.Category.Check" flag="Category">
+		<svrl:text>Category.NotNull, Category.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Space[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Space.FloorName.Check" flag="FloorName">
+		<svrl:text>FloorName.NotNull, FloorName.CrossReference, FloorName.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Space[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Space.Description.Check" flag="Description">
+		<svrl:text>Description.NotNull, Description.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Space[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Space.RoomTag.Check" flag="RoomTag">
+		<svrl:text>RoomTag.NotEmpty, RoomTag.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Space[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Space.UsableHeight.Check" flag="UsableHeight">
+		<svrl:text>UsableHeight.ZeroOrGreaterOrNA, UsableHeight.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Space[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Space.GrossArea.Check" flag="GrossArea">
+		<svrl:text>GrossArea.ZeroOrGreaterOrNA, GrossArea.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Space[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Space.NetArea.Check" flag="NetArea">
+		<svrl:text>NetArea.ZeroOrGreaterOrNA, NetArea.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Space[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:fired-rule context="//Zones"/>
+	<svrl:fired-rule context="//Types" id="COBie.Types" role="WorksheetErrors"/>
+	<svrl:successful-report test="true()" id="Type.Count.Check" flag="TypeSheet">
+		<svrl:text>Types.AtLeastOneRowPresent
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Types[6]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:fired-rule context="//Types/Type" id="COBie.Types.Type" role="WorksheetErrors"/>
+	<svrl:successful-report test="true()" id="Common.Name.Check" flag="Name">
+		<svrl:text>Name.NotNotNull, Name.Unique, Name.Picklist,Name.RowHasRequiredAttributes
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.CreatedBy.Check" flag="CreatedBy">
+		<svrl:text>CreatedBy.CrossReference (ToContact), CreatedBy.NotNull, CreatedBy.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.CreatedOn.Check" flag="CreatedOn">
+		<svrl:text>CreatedOn.NotNull, CreatedOn.Valid (Valid ISO DateTime), CreatedOn.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.Category.Check" flag="Category">
+		<svrl:text>Category.NotNull, Category.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalSystem.Check" flag="ExtSystem">
+		<svrl:text>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalObject.Check" flag="ExtObject">
+		<svrl:text>ExternalObject.NotEmpty, ExternalObject.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalIdentifier.Check" flag="ExtIdentifier">
+		<svrl:text>ExtIdentifier.NotEmpty, ExtIdentifier.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.ComponentCount.Check" flag="TypeComponentSheets">
+		<svrl:text>Type.Component.AComponentForEachType
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.AssetType.Check" flag="AssetType">
+		<svrl:text>AssetType.NotNull, AssetType.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.Manufacturer.Check" flag="Manufacturer">
+		<svrl:text>Manufacturer.NotNull, Manufacturer.CrossReference (Contact Sheet), Manufacturer.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:failed-assert test="cfn:validString(Manufacturer)" id="Type.Manufacturer.NotNull" flag="Manufacturer">
+		<svrl:text>Type.FSA-DoorExt-Double_Glazed Door Double_T2_Glazed:  Type.Manufacturer must be provided (n/a is unacceptable)<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:failed-assert test="key('ContactKey',normalize-space(lower-case(Manufacturer)))" id="Type.Manufacturer.CrossReference" flag="Manufacturer">
+		<svrl:text>Type.FSA-DoorExt-Double_Glazed Door Double_T2_Glazed:  Type.Manufacturer must exist in Contact.Email<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:successful-report test="true()" id="Type.ModelNumber.Check" flag="ModelNumber">
+		<svrl:text>ModelNumber.NotNull, ModelNumber.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:failed-assert test="cfn:validString(ModelNumber)" id="Type.ModelNumber.NotNull" flag="ModelNumber">
+		<svrl:text>Type.FSA-DoorExt-Double_Glazed Door Double_T2_Glazed:  Type.ModelNumber must be provided (n/a is unacceptable)<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:successful-report test="true()" id="Type.WarrantyGuarantorParts.Check" flag="WarrantyGuarantorParts">
+		<svrl:text>WarrantyGuarantorParts.NotNull, WarrantyGuarantorParts.CrossReference (Contact Sheet), WarrantyGuarantorParts.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:failed-assert test="cfn:validString(WarrantyGuarantorParts)" id="Type.WarrantyGuarantorParts.NotNull" flag="WarrantyGuarantorParts">
+		<svrl:text>Type.FSA-DoorExt-Double_Glazed Door Double_T2_Glazed:  Type.WarrantyGuarantorParts must be provided (n/a is unacceptable)<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:failed-assert test="key('ContactKey',normalize-space(lower-case(WarrantyGuarantorParts)))" id="Type.WarrantyGuarantorParts.CrossReference" flag="WarrantyGuarantorParts">
+		<svrl:text>Type.FSA-DoorExt-Double_Glazed Door Double_T2_Glazed:  Type.WarrantyGuarantorParts must exist in Contact.Email<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:successful-report test="true()" id="Type.WarrantyDurationParts.Check" flag="WarrantyDurationParts">
+		<svrl:text>WarrantyDurationParts.validNumberZeroOrGreaterOrNA, WarrantyDurationParts.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.WarrantyGuarantorLabor.Check" flag="WarrantyGuarantorLabor">
+		<svrl:text>WarrantyGuarantorLabor.NotNull, WarrantyGuarantorLabor.CrossReference (Contact Sheet), WarrantyGuarantorLabor.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:failed-assert test="cfn:validString(WarrantyGuarantorLabor)" id="Type.WarrantyGuarantorLabor.NotNull" flag="WarrantyGuarantorLabor">
+		<svrl:text>Type.FSA-DoorExt-Double_Glazed Door Double_T2_Glazed:  Type.WarrantyGuarantorLabor must be provided (n/a is unacceptable)<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:failed-assert test="key('ContactKey',normalize-space(lower-case(WarrantyGuarantorLabor)))" id="Type.WarrantyGuarantorLabor.CrossReference" flag="WarrantyGuarantorLabor">
+		<svrl:text>Type.FSA-DoorExt-Double_Glazed Door Double_T2_Glazed:  Type.WarrantyGuarantorLabor, must exist in Contact.Email<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:successful-report test="true()" id="Type.WarrantyDurationLabor.Check" flag="WarrantyDurationLabor">
+		<svrl:text>WarrantyDurationLabor.ZeroOrGreaterOrNA, WarrantyDurationLabor.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.WarrantyDurationUnit.Check" flag="WarrantyDurationUnit">
+		<svrl:text>WarrantyDurationUnit.NotNull, WarrantyDurationUnit.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:failed-assert test="cfn:validString(WarrantyDurationUnit)" id="Type.WarrantyDurationUnit.NotNull" flag="WarrantyDurationUnit">
+		<svrl:text>Type.FSA-DoorExt-Double_Glazed Door Double_T2_Glazed:  Type.WarrantyDurationUnit must be provided (n/a is unacceptable)<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:successful-report test="true()" id="Type.ReplacementCost.Check" flag="ReplacementCost">
+		<svrl:text>ReplacementCost.ZeroOrGreaterOrNA, ReplacementCost.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.ExpectedLife.Check" flag="ExpectedLife">
+		<svrl:text>ExpectedLife.ZeroOrGreaterOrNA, ExpectedLife.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.DurationUnit.Check" flag="DurationUnit">
+		<svrl:text>DurationUnit.NotNull, DurationUnit.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:failed-assert test="cfn:validString(DurationUnit)" id="Type.DurationUnit.NotNull" flag="DurationUnit">
+		<svrl:text>Type.FSA-DoorExt-Double_Glazed Door Double_T2_Glazed:  Type.DurationUnit must be provided (n/a is unacceptable)<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:successful-report test="true()" id="Type.WarrantyDescription.Check" flag="WarrantyDescription">
+		<svrl:text>WarrantyDescription.NotEmpty, WarrantyDescription.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.NominalLength.Check" flag="NominalLength">
+		<svrl:text>NominalLength.ZeroOrGreaterOrNA, NominalLength.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.NominalWidth.Check" flag="NominalWidth">
+		<svrl:text>NominalWidth.ZeroOrGreaterOrNA, NominalWidth.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.NominalHeight.Check" flag="NominalHeight">
+		<svrl:text>NominalHeight.ZeroOrGreater, NominalHeight.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.ModelReference.Check" flag="ModelReference">
+		<svrl:text>ModelReference.NotEmpty, ModelReference.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.Shape.Check" flag="Shape">
+		<svrl:text>Shape.NotEmpty, Shape.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.Size.Check" flag="Size">
+		<svrl:text>Size.NotEmpty, Size.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.Color.Check" flag="Color">
+		<svrl:text>Color.NotEmpty, Color.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.Finish.Check" flag="Finish">
+		<svrl:text>Finish.NotEmpty, Finish.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.Grade.Check" flag="Grade">
+		<svrl:text>Grade.NotEmpty, Grade.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.Material.Check" flag="Material">
+		<svrl:text>Material.NotEmpty, Material.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.Constituents.Check" flag="Constituents">
+		<svrl:text>Constituents.NotEmpty, Constituents.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.Features.Check" flag="Features">
+		<svrl:text>Features.NotEmpty, Features.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.AccessibilityPerformance.Check" flag="AccessibilityPerformance">
+		<svrl:text>AccessibilityPerformance.NotEmpty, AccessibilityPerformance.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.CodePerformance.Check" flag="CodePerformance">
+		<svrl:text>CodePerformance.NotEmpty, CodePerformance.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.SustainabilityPerformance.Check" flag="SustainabilityPerformance">
+		<svrl:text>SustainabilityPerformance.NotEmpty, SustainabilityPerformance.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:fired-rule context="//Types/Type" id="COBie.Types.Type" role="WorksheetErrors"/>
+	<svrl:successful-report test="true()" id="Common.Name.Check" flag="Name">
+		<svrl:text>Name.NotNotNull, Name.Unique, Name.Picklist,Name.RowHasRequiredAttributes
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.CreatedBy.Check" flag="CreatedBy">
+		<svrl:text>CreatedBy.CrossReference (ToContact), CreatedBy.NotNull, CreatedBy.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.CreatedOn.Check" flag="CreatedOn">
+		<svrl:text>CreatedOn.NotNull, CreatedOn.Valid (Valid ISO DateTime), CreatedOn.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.Category.Check" flag="Category">
+		<svrl:text>Category.NotNull, Category.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalSystem.Check" flag="ExtSystem">
+		<svrl:text>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalObject.Check" flag="ExtObject">
+		<svrl:text>ExternalObject.NotEmpty, ExternalObject.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalIdentifier.Check" flag="ExtIdentifier">
+		<svrl:text>ExtIdentifier.NotEmpty, ExtIdentifier.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.ComponentCount.Check" flag="TypeComponentSheets">
+		<svrl:text>Type.Component.AComponentForEachType
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.AssetType.Check" flag="AssetType">
+		<svrl:text>AssetType.NotNull, AssetType.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.Manufacturer.Check" flag="Manufacturer">
+		<svrl:text>Manufacturer.NotNull, Manufacturer.CrossReference (Contact Sheet), Manufacturer.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:failed-assert test="cfn:validString(Manufacturer)" id="Type.Manufacturer.NotNull" flag="Manufacturer">
+		<svrl:text>Type.FSA-DoorInt-Flexible PVC Strip Curtain_PVC Strip Curtain_T1_4500 x 4500:  Type.Manufacturer must be provided (n/a is unacceptable)<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:failed-assert test="key('ContactKey',normalize-space(lower-case(Manufacturer)))" id="Type.Manufacturer.CrossReference" flag="Manufacturer">
+		<svrl:text>Type.FSA-DoorInt-Flexible PVC Strip Curtain_PVC Strip Curtain_T1_4500 x 4500:  Type.Manufacturer must exist in Contact.Email<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:successful-report test="true()" id="Type.ModelNumber.Check" flag="ModelNumber">
+		<svrl:text>ModelNumber.NotNull, ModelNumber.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:failed-assert test="cfn:validString(ModelNumber)" id="Type.ModelNumber.NotNull" flag="ModelNumber">
+		<svrl:text>Type.FSA-DoorInt-Flexible PVC Strip Curtain_PVC Strip Curtain_T1_4500 x 4500:  Type.ModelNumber must be provided (n/a is unacceptable)<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:successful-report test="true()" id="Type.WarrantyGuarantorParts.Check" flag="WarrantyGuarantorParts">
+		<svrl:text>WarrantyGuarantorParts.NotNull, WarrantyGuarantorParts.CrossReference (Contact Sheet), WarrantyGuarantorParts.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:failed-assert test="cfn:validString(WarrantyGuarantorParts)" id="Type.WarrantyGuarantorParts.NotNull" flag="WarrantyGuarantorParts">
+		<svrl:text>Type.FSA-DoorInt-Flexible PVC Strip Curtain_PVC Strip Curtain_T1_4500 x 4500:  Type.WarrantyGuarantorParts must be provided (n/a is unacceptable)<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:failed-assert test="key('ContactKey',normalize-space(lower-case(WarrantyGuarantorParts)))" id="Type.WarrantyGuarantorParts.CrossReference" flag="WarrantyGuarantorParts">
+		<svrl:text>Type.FSA-DoorInt-Flexible PVC Strip Curtain_PVC Strip Curtain_T1_4500 x 4500:  Type.WarrantyGuarantorParts must exist in Contact.Email<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:successful-report test="true()" id="Type.WarrantyDurationParts.Check" flag="WarrantyDurationParts">
+		<svrl:text>WarrantyDurationParts.validNumberZeroOrGreaterOrNA, WarrantyDurationParts.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.WarrantyGuarantorLabor.Check" flag="WarrantyGuarantorLabor">
+		<svrl:text>WarrantyGuarantorLabor.NotNull, WarrantyGuarantorLabor.CrossReference (Contact Sheet), WarrantyGuarantorLabor.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:failed-assert test="cfn:validString(WarrantyGuarantorLabor)" id="Type.WarrantyGuarantorLabor.NotNull" flag="WarrantyGuarantorLabor">
+		<svrl:text>Type.FSA-DoorInt-Flexible PVC Strip Curtain_PVC Strip Curtain_T1_4500 x 4500:  Type.WarrantyGuarantorLabor must be provided (n/a is unacceptable)<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:failed-assert test="key('ContactKey',normalize-space(lower-case(WarrantyGuarantorLabor)))" id="Type.WarrantyGuarantorLabor.CrossReference" flag="WarrantyGuarantorLabor">
+		<svrl:text>Type.FSA-DoorInt-Flexible PVC Strip Curtain_PVC Strip Curtain_T1_4500 x 4500:  Type.WarrantyGuarantorLabor, must exist in Contact.Email<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:successful-report test="true()" id="Type.WarrantyDurationLabor.Check" flag="WarrantyDurationLabor">
+		<svrl:text>WarrantyDurationLabor.ZeroOrGreaterOrNA, WarrantyDurationLabor.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.WarrantyDurationUnit.Check" flag="WarrantyDurationUnit">
+		<svrl:text>WarrantyDurationUnit.NotNull, WarrantyDurationUnit.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:failed-assert test="cfn:validString(WarrantyDurationUnit)" id="Type.WarrantyDurationUnit.NotNull" flag="WarrantyDurationUnit">
+		<svrl:text>Type.FSA-DoorInt-Flexible PVC Strip Curtain_PVC Strip Curtain_T1_4500 x 4500:  Type.WarrantyDurationUnit must be provided (n/a is unacceptable)<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:successful-report test="true()" id="Type.ReplacementCost.Check" flag="ReplacementCost">
+		<svrl:text>ReplacementCost.ZeroOrGreaterOrNA, ReplacementCost.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.ExpectedLife.Check" flag="ExpectedLife">
+		<svrl:text>ExpectedLife.ZeroOrGreaterOrNA, ExpectedLife.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.DurationUnit.Check" flag="DurationUnit">
+		<svrl:text>DurationUnit.NotNull, DurationUnit.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:failed-assert test="cfn:validString(DurationUnit)" id="Type.DurationUnit.NotNull" flag="DurationUnit">
+		<svrl:text>Type.FSA-DoorInt-Flexible PVC Strip Curtain_PVC Strip Curtain_T1_4500 x 4500:  Type.DurationUnit must be provided (n/a is unacceptable)<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:successful-report test="true()" id="Type.WarrantyDescription.Check" flag="WarrantyDescription">
+		<svrl:text>WarrantyDescription.NotEmpty, WarrantyDescription.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.NominalLength.Check" flag="NominalLength">
+		<svrl:text>NominalLength.ZeroOrGreaterOrNA, NominalLength.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.NominalWidth.Check" flag="NominalWidth">
+		<svrl:text>NominalWidth.ZeroOrGreaterOrNA, NominalWidth.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.NominalHeight.Check" flag="NominalHeight">
+		<svrl:text>NominalHeight.ZeroOrGreater, NominalHeight.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.ModelReference.Check" flag="ModelReference">
+		<svrl:text>ModelReference.NotEmpty, ModelReference.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.Shape.Check" flag="Shape">
+		<svrl:text>Shape.NotEmpty, Shape.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.Size.Check" flag="Size">
+		<svrl:text>Size.NotEmpty, Size.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.Color.Check" flag="Color">
+		<svrl:text>Color.NotEmpty, Color.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.Finish.Check" flag="Finish">
+		<svrl:text>Finish.NotEmpty, Finish.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.Grade.Check" flag="Grade">
+		<svrl:text>Grade.NotEmpty, Grade.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.Material.Check" flag="Material">
+		<svrl:text>Material.NotEmpty, Material.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.Constituents.Check" flag="Constituents">
+		<svrl:text>Constituents.NotEmpty, Constituents.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.Features.Check" flag="Features">
+		<svrl:text>Features.NotEmpty, Features.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.AccessibilityPerformance.Check" flag="AccessibilityPerformance">
+		<svrl:text>AccessibilityPerformance.NotEmpty, AccessibilityPerformance.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.CodePerformance.Check" flag="CodePerformance">
+		<svrl:text>CodePerformance.NotEmpty, CodePerformance.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Type.SustainabilityPerformance.Check" flag="SustainabilityPerformance">
+		<svrl:text>SustainabilityPerformance.NotEmpty, SustainabilityPerformance.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Type[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:fired-rule context="//Components" id="COBie.Components" role="WorksheetErrors"/>
+	<svrl:successful-report test="true()" id="Component.Count.Check" flag="ComponentSheet">
+		<svrl:text>Components.AtLeastOneRowPresent
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Components[7]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:fired-rule context="//Components/Component" id="COBie.Components.Component" role="WorksheetErrors"/>
+	<svrl:successful-report test="true()" id="Common.Name.Check" flag="Name">
+		<svrl:text>Name.NotNotNull, Name.Unique, Name.Picklist,Name.RowHasRequiredAttributes
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.CreatedBy.Check" flag="CreatedBy">
+		<svrl:text>CreatedBy.CrossReference (ToContact), CreatedBy.NotNull, CreatedBy.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.CreatedOn.Check" flag="CreatedOn">
+		<svrl:text>CreatedOn.NotNull, CreatedOn.Valid (Valid ISO DateTime), CreatedOn.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalSystem.Check" flag="ExtSystem">
+		<svrl:text>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalObject.Check" flag="ExtObject">
+		<svrl:text>ExternalObject.NotEmpty, ExternalObject.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalIdentifier.Check" flag="ExtIdentifier">
+		<svrl:text>ExtIdentifier.NotEmpty, ExtIdentifier.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Component.TypeName.Check" flag="TypeName">
+		<svrl:text>TypeName.NotNull,TypeName.CrossReference (Type Worksheet), TypeName.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Component.Space.Check" flag="Space">
+		<svrl:text>Space.NotNull, Space.CrossReference (Component Worksheet), Space.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:failed-assert test="cfn:componentSpaceKeyMatch(Space,ExtObject,/,.)" id="Component.Space.CrossReference" flag="Space">
+		<svrl:text>Component.ED-00-002:  Component.Space must exist in Space.Name.  If component is a window or door it may be placed in up to two spaces, but only one otherwise.<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[1]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:successful-report test="true()" id="Component.Description.Check" flag="Description">
+		<svrl:text>Description.NotNull, Description.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Component.SerialNumber.Check" flag="SerialNumber">
+		<svrl:text>SerialNumber.NotEmpty, SerialNumber.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Component.InstallationDate.Check" flag="InstallationDate">
+		<svrl:text>InstallationDate.NotNull, InstallationDate.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:failed-assert test="cfn:validString(InstallationDate)" id="Component.InstallationDate.NotNull" flag="InstallationDate">
+		<svrl:text>Component.ED-00-002:  Component.InstallationDate must be provided (n/a is unacceptable)<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[1]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:successful-report test="true()" id="Component.WarrantyStartDate.Check" flag="WarrantyStartDate">
+		<svrl:text>WarrantyStartDate.NotNull, WarrantyStartDate.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:failed-assert test="cfn:validString(WarrantyStartDate)" id="Component.WarrantyStartDate.NotNull" flag="WarrantyStartDate">
+		<svrl:text>Component.ED-00-002:  Component.WarrantyStartDate must be provided (n/a is unacceptable)<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[1]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:successful-report test="true()" id="Component.TagNumber.Check" flag="TagNumber">
+		<svrl:text>TagNumber.NotEmpty, TagNumber.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Component.BarCode.Check" flag="BarCode">
+		<svrl:text>BarCode.NotEmpty, BarCode.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Component.AssetIdentifier.Check" flag="AssetIdentifier">
+		<svrl:text>AssetIdentifier.NotEmpty, AssetIdentifier.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[1]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:fired-rule context="//Components/Component" id="COBie.Components.Component" role="WorksheetErrors"/>
+	<svrl:successful-report test="true()" id="Common.Name.Check" flag="Name">
+		<svrl:text>Name.NotNotNull, Name.Unique, Name.Picklist,Name.RowHasRequiredAttributes
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.CreatedBy.Check" flag="CreatedBy">
+		<svrl:text>CreatedBy.CrossReference (ToContact), CreatedBy.NotNull, CreatedBy.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.CreatedOn.Check" flag="CreatedOn">
+		<svrl:text>CreatedOn.NotNull, CreatedOn.Valid (Valid ISO DateTime), CreatedOn.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalSystem.Check" flag="ExtSystem">
+		<svrl:text>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalObject.Check" flag="ExtObject">
+		<svrl:text>ExternalObject.NotEmpty, ExternalObject.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalIdentifier.Check" flag="ExtIdentifier">
+		<svrl:text>ExtIdentifier.NotEmpty, ExtIdentifier.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Component.TypeName.Check" flag="TypeName">
+		<svrl:text>TypeName.NotNull,TypeName.CrossReference (Type Worksheet), TypeName.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Component.Space.Check" flag="Space">
+		<svrl:text>Space.NotNull, Space.CrossReference (Component Worksheet), Space.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:failed-assert test="cfn:componentSpaceKeyMatch(Space,ExtObject,/,.)" id="Component.Space.CrossReference" flag="Space">
+		<svrl:text>Component.ED-00-010:  Component.Space must exist in Space.Name.  If component is a window or door it may be placed in up to two spaces, but only one otherwise.<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[2]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:successful-report test="true()" id="Component.Description.Check" flag="Description">
+		<svrl:text>Description.NotNull, Description.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Component.SerialNumber.Check" flag="SerialNumber">
+		<svrl:text>SerialNumber.NotEmpty, SerialNumber.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Component.InstallationDate.Check" flag="InstallationDate">
+		<svrl:text>InstallationDate.NotNull, InstallationDate.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:failed-assert test="cfn:validString(InstallationDate)" id="Component.InstallationDate.NotNull" flag="InstallationDate">
+		<svrl:text>Component.ED-00-010:  Component.InstallationDate must be provided (n/a is unacceptable)<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[2]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:successful-report test="true()" id="Component.WarrantyStartDate.Check" flag="WarrantyStartDate">
+		<svrl:text>WarrantyStartDate.NotNull, WarrantyStartDate.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:failed-assert test="cfn:validString(WarrantyStartDate)" id="Component.WarrantyStartDate.NotNull" flag="WarrantyStartDate">
+		<svrl:text>Component.ED-00-010:  Component.WarrantyStartDate must be provided (n/a is unacceptable)<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[2]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:successful-report test="true()" id="Component.TagNumber.Check" flag="TagNumber">
+		<svrl:text>TagNumber.NotEmpty, TagNumber.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Component.BarCode.Check" flag="BarCode">
+		<svrl:text>BarCode.NotEmpty, BarCode.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Component.AssetIdentifier.Check" flag="AssetIdentifier">
+		<svrl:text>AssetIdentifier.NotEmpty, AssetIdentifier.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[2]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:fired-rule context="//Components/Component" id="COBie.Components.Component" role="WorksheetErrors"/>
+	<svrl:successful-report test="true()" id="Common.Name.Check" flag="Name">
+		<svrl:text>Name.NotNotNull, Name.Unique, Name.Picklist,Name.RowHasRequiredAttributes
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.CreatedBy.Check" flag="CreatedBy">
+		<svrl:text>CreatedBy.CrossReference (ToContact), CreatedBy.NotNull, CreatedBy.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.CreatedOn.Check" flag="CreatedOn">
+		<svrl:text>CreatedOn.NotNull, CreatedOn.Valid (Valid ISO DateTime), CreatedOn.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalSystem.Check" flag="ExtSystem">
+		<svrl:text>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalObject.Check" flag="ExtObject">
+		<svrl:text>ExternalObject.NotEmpty, ExternalObject.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalIdentifier.Check" flag="ExtIdentifier">
+		<svrl:text>ExtIdentifier.NotEmpty, ExtIdentifier.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Component.TypeName.Check" flag="TypeName">
+		<svrl:text>TypeName.NotNull,TypeName.CrossReference (Type Worksheet), TypeName.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Component.Space.Check" flag="Space">
+		<svrl:text>Space.NotNull, Space.CrossReference (Component Worksheet), Space.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:failed-assert test="cfn:componentSpaceKeyMatch(Space,ExtObject,/,.)" id="Component.Space.CrossReference" flag="Space">
+		<svrl:text>Component.ED-00-0024:  Component.Space must exist in Space.Name.  If component is a window or door it may be placed in up to two spaces, but only one otherwise.<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[3]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:successful-report test="true()" id="Component.Description.Check" flag="Description">
+		<svrl:text>Description.NotNull, Description.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Component.SerialNumber.Check" flag="SerialNumber">
+		<svrl:text>SerialNumber.NotEmpty, SerialNumber.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Component.InstallationDate.Check" flag="InstallationDate">
+		<svrl:text>InstallationDate.NotNull, InstallationDate.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:failed-assert test="cfn:validString(InstallationDate)" id="Component.InstallationDate.NotNull" flag="InstallationDate">
+		<svrl:text>Component.ED-00-0024:  Component.InstallationDate must be provided (n/a is unacceptable)<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[3]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:successful-report test="true()" id="Component.WarrantyStartDate.Check" flag="WarrantyStartDate">
+		<svrl:text>WarrantyStartDate.NotNull, WarrantyStartDate.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:failed-assert test="cfn:validString(WarrantyStartDate)" id="Component.WarrantyStartDate.NotNull" flag="WarrantyStartDate">
+		<svrl:text>Component.ED-00-0024:  Component.WarrantyStartDate must be provided (n/a is unacceptable)<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[3]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:successful-report test="true()" id="Component.TagNumber.Check" flag="TagNumber">
+		<svrl:text>TagNumber.NotEmpty, TagNumber.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Component.BarCode.Check" flag="BarCode">
+		<svrl:text>BarCode.NotEmpty, BarCode.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Component.AssetIdentifier.Check" flag="AssetIdentifier">
+		<svrl:text>AssetIdentifier.NotEmpty, AssetIdentifier.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[3]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:fired-rule context="//Components/Component" id="COBie.Components.Component" role="WorksheetErrors"/>
+	<svrl:successful-report test="true()" id="Common.Name.Check" flag="Name">
+		<svrl:text>Name.NotNotNull, Name.Unique, Name.Picklist,Name.RowHasRequiredAttributes
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.CreatedBy.Check" flag="CreatedBy">
+		<svrl:text>CreatedBy.CrossReference (ToContact), CreatedBy.NotNull, CreatedBy.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.CreatedOn.Check" flag="CreatedOn">
+		<svrl:text>CreatedOn.NotNull, CreatedOn.Valid (Valid ISO DateTime), CreatedOn.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalSystem.Check" flag="ExtSystem">
+		<svrl:text>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalObject.Check" flag="ExtObject">
+		<svrl:text>ExternalObject.NotEmpty, ExternalObject.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Common.ExternalIdentifier.Check" flag="ExtIdentifier">
+		<svrl:text>ExtIdentifier.NotEmpty, ExtIdentifier.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Component.TypeName.Check" flag="TypeName">
+		<svrl:text>TypeName.NotNull,TypeName.CrossReference (Type Worksheet), TypeName.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Component.Space.Check" flag="Space">
+		<svrl:text>Space.NotNull, Space.CrossReference (Component Worksheet), Space.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:failed-assert test="cfn:validString(Space)" id="Component.Space.NotNull" flag="Space">
+		<svrl:text>Component.ED-00-002452:  Component.Space must be provided (n/a is unacceptable)<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[4]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:failed-assert test="cfn:componentSpaceKeyMatch(Space,ExtObject,/,.)" id="Component.Space.CrossReference" flag="Space">
+		<svrl:text>Component.ED-00-002452:  Component.Space must exist in Space.Name.  If component is a window or door it may be placed in up to two spaces, but only one otherwise.<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[4]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:successful-report test="true()" id="Component.Description.Check" flag="Description">
+		<svrl:text>Description.NotNull, Description.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Component.SerialNumber.Check" flag="SerialNumber">
+		<svrl:text>SerialNumber.NotEmpty, SerialNumber.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Component.InstallationDate.Check" flag="InstallationDate">
+		<svrl:text>InstallationDate.NotNull, InstallationDate.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:failed-assert test="cfn:validString(InstallationDate)" id="Component.InstallationDate.NotNull" flag="InstallationDate">
+		<svrl:text>Component.ED-00-002452:  Component.InstallationDate must be provided (n/a is unacceptable)<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[4]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:successful-report test="true()" id="Component.WarrantyStartDate.Check" flag="WarrantyStartDate">
+		<svrl:text>WarrantyStartDate.NotNull, WarrantyStartDate.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:failed-assert test="cfn:validString(WarrantyStartDate)" id="Component.WarrantyStartDate.NotNull" flag="WarrantyStartDate">
+		<svrl:text>Component.ED-00-002452:  Component.WarrantyStartDate must be provided (n/a is unacceptable)<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[4]</location></svrl:text>
+	</svrl:failed-assert>
+	<svrl:successful-report test="true()" id="Component.TagNumber.Check" flag="TagNumber">
+		<svrl:text>TagNumber.NotEmpty, TagNumber.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Component.BarCode.Check" flag="BarCode">
+		<svrl:text>BarCode.NotEmpty, BarCode.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:successful-report test="true()" id="Component.AssetIdentifier.Check" flag="AssetIdentifier">
+		<svrl:text>AssetIdentifier.NotEmpty, AssetIdentifier.Picklist
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Component[4]</location></svrl:text>
+	</svrl:successful-report>
+	<svrl:fired-rule context="//Systems"/>
+	<svrl:fired-rule context="//Assemblies"/>
+	<svrl:fired-rule context="//Connections"/>
+	<svrl:fired-rule context="//Spares"/>
+	<svrl:fired-rule context="//Resources"/>
+	<svrl:fired-rule context="//Jobs"/>
+	<svrl:fired-rule context="//Documents"/>
+	<svrl:fired-rule context="//Attributes"/>
+	<svrl:successful-report test="true()">
+		<svrl:text>
+			<location xmlns="http://purl.oclc.org/dsdl/schematron">Attributes[16]</location>
+		</svrl:text>
+	</svrl:successful-report>
+</svrl:schematron-output>

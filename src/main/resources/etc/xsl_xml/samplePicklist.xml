@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CobiePicklists xmlns="picklist.cobie.prairiesky.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="picklist.cobie.prairiesky.org file:///C:/Users/Bogen/Documents/Java/BIMserver-1.4.0-FINAL-2015-11-04/COBieCommandLineTools/xsl_xml/Picklist.xsd">
+	<SheetPicklists SheetName="Type">
+		<Picklist ColumnName="Category">
+			<PicklistValue>Pumps</PicklistValue>
+			<PicklistValue>Valves</PicklistValue>
+			<PicklistValue>Motors</PicklistValue>
+		</Picklist>
+		<Picklist ColumnName="Shape">
+			<PicklistValue>Circle</PicklistValue>
+			<PicklistValue>Triangle</PicklistValue>
+			<PicklistValue>Square</PicklistValue>
+		</Picklist>
+	</SheetPicklists>
+	<SheetPicklists SheetName="Space">
+		<Picklist ColumnName="Category">
+			<PicklistValue>Bathrooms</PicklistValue>
+			<PicklistValue>Mechanical Rooms</PicklistValue>
+		</Picklist>
+	</SheetPicklists>
+</CobiePicklists>

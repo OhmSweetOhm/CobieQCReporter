@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="rootContainer" minHeight="218.0" minWidth="434.0" prefHeight="258.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prairiesky.cobie.qc.gui.CobieQCController">
+  <children>
+    <MenuBar minWidth="434.0" prefHeight="25.0" prefWidth="434.0" VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+              <Menu mnemonicParsing="false" text="Import" fx:id="importMenu">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#handleImportPickListRules" text="PickList Rules" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleImportAttributeRules" text="Attribute Rules" />
+                  </items>
+              </Menu>
+            <MenuItem mnemonicParsing="false" onAction="#handleQuit" text="Quit" />
+          </items>
+        </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="About" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleGetHelp" text="Get Help" />
+              </items>
+            </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane fx:id="anchorPane" maxWidth="-1.0" minHeight="196.0" minWidth="432.0" prefHeight="225.0" prefWidth="434.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Pane fx:id="reportPane" layoutX="3.0" layoutY="77.0" prefHeight="143.0" prefWidth="420.0">
+               <children>
+                  <Button fx:id="outputFileButton" layoutX="395.0" layoutY="80.0" mnemonicParsing="false" onAction="#handleSelectOutputAction" text="..." />
+                  <TextField fx:id="outputFilePath" editable="false" layoutX="130.0" layoutY="80.0" prefHeight="25.0" prefWidth="254.0" />
+                  <Label layoutX="5.0" layoutY="84.0" text="5.  Save Output To:" />
+                  <Button fx:id="picklistFileButton" layoutX="393.0" layoutY="11.0" mnemonicParsing="false" onAction="#handleSelectPicklistAction" text="..." />
+                  <TextField fx:id="picklistFilePath" editable="false" layoutX="128.0" layoutY="11.0" prefHeight="25.0" prefWidth="254.0" />
+                  <Label layoutX="3.0" layoutY="15.0" text="3. (opt.)Picklist Rules" />
+                  <Button fx:id="attributeFileButton" layoutX="393.0" layoutY="46.0" mnemonicParsing="false" onAction="#handleSelectAttributeAction" text="..." />
+                  <TextField fx:id="attributeFilePath" editable="false" layoutX="128.0" layoutY="46.0" prefHeight="25.0" prefWidth="254.0" />
+                  <Label layoutX="4.0" layoutY="50.0" text="4. (opt.)Attribute Rules" />
+                  <Button fx:id="submitButton" layoutX="130.0" layoutY="117.0" mnemonicParsing="false" onAction="#handleSubmit" prefHeight="25.0" prefWidth="107.0" text="Run QC Report" />
+               </children>
+            </Pane>
+            <Label layoutX="5.0" layoutY="24.0" text="1. Select COBie File:" />
+            <TextField fx:id="cobieFilePath" layoutX="124.0" layoutY="18.0" prefHeight="25.0" prefWidth="254.0" />
+            <Button fx:id="cobieFileButton" layoutX="397.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleOpenAction" text="..." />
+            <ComboBox fx:id="phase" layoutX="129.0" layoutY="54.0" prefHeight="25.0" prefWidth="290.0" promptText="Select Phase" />
+      		<Label layoutX="5.0" layoutY="61.0" text="2. Select Phase:">Select Phase</Label>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>

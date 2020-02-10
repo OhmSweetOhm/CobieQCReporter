@@ -1,0 +1,8 @@
+.idea
+.idea/**
+**/application.properties
+target/**
+incoming.xml
+/var/application.properties
+/out
+

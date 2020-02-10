@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="picklist.cobie.prairiesky.org" xmlns:ps="picklist.cobie.prairiesky.org" targetNamespace="picklist.cobie.prairiesky.org" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:element name="PicklistValue" type="xs:string"/>
+	<xs:element name="Picklist" type="PicklistType"/>
+	<xs:element name="SheetPicklists" type="SheetPicklistCollectionType"/>
+	<xs:element name="CobiePicklists" type="CobiePicklistsType"/>
+	<xs:complexType name="CobiePicklistsType">
+		<xs:sequence>
+			<xs:element ref="SheetPicklists" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SheetPicklistCollectionType">
+		<xs:sequence>
+			<xs:element ref="Picklist" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="SheetName" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="PicklistType">
+		<xs:sequence>
+			<xs:element ref="PicklistValue" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ColumnName" type="xs:string" use="required" form="unqualified"/>
+	</xs:complexType>
+</xs:schema>

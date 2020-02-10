@@ -1,0 +1,4089 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title></title>
+		<meta http-equiv="X-UA-Compatible" content="IE=7" />
+		<style type="text/css">
+/*<![CDATA[/* */
+body { background:#fff;
+font:76%/160% "Trebuchet MS",Verdana,Arial,Helvetica,sans-serif;
+ }
+ table { border-right:1px solid #e5eff8;
+border-top:1px solid #e5eff8;
+width:90%;
+ }
+ tr.odd td { background:#f7fbff;
+ }
+ tr.odd .column1 { background:#f4f9fe;
+ }
+ .column1 { background:#f9fcfe;
+ }
+ td { border-bottom:1px solid #e5eff8;
+border-left:1px solid #e5eff8;
+color:#678197;
+padding:1em 1em;
+text-align:center;
+ }
+ th { border-bottom:1px solid #e5eff8;
+border-left:1px solid #e5eff8;
+color:#678197;
+font-weight:normal;
+padding:.3em 1em;
+text-align:left;
+ }
+ thead th { background:#f4f9fe;
+color:#66a3d3;
+font:bold 1.2em/2em "Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif;
+text-align:center;
+ }
+ tfoot th { background:#f4f9fe;
+text-align:center;
+ }
+ tfoot th strong { color:#66a3d3;
+font:bold 1.2em "Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif;
+margin:.5em .5em .5em 0;
+ }
+ tfoot th em { color:#f03b58;
+font-size:1.1em;
+font-style:normal;
+font-weight:bold;
+ }
+ table a, table a:link, table a:visited { border:none;
+ }
+ a:hover,a:focus { border-bottom:1px solid #f03b58;
+color:#f03b58;
+text-decoration:none;
+ }
+ a:visited { border-bottom:none;
+color:rgb(0, 138, 255);
+text-decoration:none;
+ }
+ a:link { border-bottom:1px dotted rgb(0, 138, 255);
+color:rgb(0, 138, 255);
+text-decoration:none;
+ }
+ html, body, form, fieldset, h1, h2, h3, h4, h5, h6, pre, blockquote, ul, ol, dl, address { margin:10px;
+padding:0;
+ }
+ p { font-size:small;
+margin-left:20px;
+ }
+ h2 { font-size:xx-large;
+ }
+ h3 { font-size:x-large;
+ }
+ h4 { font-size:large;
+ }
+ h5 { font-size:medium;
+ }
+/*]]>/* */
+</style>
+		<!--[if IE]><STYLE type="text/css">.altova-rotate-left-textbox{filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3)} .altova-rotate-right-textbox{filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1)} </STYLE><![endif]-->
+		<!--[if !IE]><!-->
+		<style type="text/css">.altova-rotate-left-textbox{-webkit-transform: rotate(-90deg) translate(-100%, 0%); -webkit-transform-origin: 0% 0%;-moz-transform: rotate(-90deg) translate(-100%, 0%); -moz-transform-origin: 0% 0%;-ms-transform: rotate(-90deg) translate(-100%, 0%); -ms-transform-origin: 0% 0%;}.altova-rotate-right-textbox{-webkit-transform: rotate(90deg) translate(0%, -100%); -webkit-transform-origin: 0% 0%;-moz-transform: rotate(90deg) translate(0%, -100%); -moz-transform-origin: 0% 0%;-ms-transform: rotate(90deg) translate(0%, -100%); -ms-transform-origin: 0% 0%;}</style>
+		<!--<![endif]-->
+		<style type="text/css">@page { margin-left:0.60in; margin-right:0.60in; margin-top:0.79in; margin-bottom:0.79in } @media print { br.altova-page-break { page-break-before: always; } }</style>
+	</head>
+	<body>
+		<h1>COBie QC report - Design Deliverable</h1>
+		<p>
+			<span>2017-04-30T14:11:16</span>
+		</p>
+		<p style="text-align:justify; ">
+			<span>Note:&nbsp; This checking routine only validates the internal quality of the COBie file.&nbsp; It does not validate the quality of the data with respect to the actual project.&nbsp; For more information on the COBie checker please visit the COBie Means and Methods page at:</span>
+		</p>
+		<a href="http://www.buildingsmartalliance.org/index.php/projects/cobie">
+			<p>
+				<span>http://www.buildingsmartalliance.org/index.php/projects/cobie</span>
+			</p>
+		</a>
+		<hr />
+		<h2>
+			<span style="font-weight:bold; ">Instructions</span>
+		</h2>
+		<p style="text-align:justify; ">
+			<span>Save a new copy of your COBie model (either IFC or Spreadsheet) to a new file name so that you have a backup.&nbsp; Based on the information in this report update the copied file to correct each issue.&nbsp; To find the error in the COBie file, match the issue by Worksheet Name, Row Number, and object name to the data in your file.&nbsp; For example, a problem with the fifth space in the space worksheet, pertaining to the room named "Vestibule" would be listed as Space[5]:Vestibule.&nbsp; Once each relevant issue is fixed, re-run your file and see the impact of your changes. Note that this report provides a generic test, therefore, some issues may be allowed if the terms and conditions of your contract differ from those assumed in this reporting tool.&nbsp; Please consult your contract to evaluate the specific requirements for specific COBie deliverables on your projects.</span>
+		</p>
+		<hr />
+		<br />
+		<div style="text-align:left; ">
+			<a name="TOC">
+				<h1 style="text-align:left; ">
+					<span>Table of Contents</span>
+				</h1>
+				<br />
+				<h3 style="text-align:left; ">
+					<a href="#idmarkerx16777217x59">
+						<span>&nbsp;1 QC Summary</span>
+					</a>
+				</h3>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x73">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;1.1 COBie Summary Table</span>
+					</a>
+				</h4>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x301">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;1.2&nbsp;COBie.Contacts&nbsp; (row count check)</span>
+					</a>
+				</h4>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x387">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;1.3&nbsp;COBie.Contacts.Contact&nbsp; (checked 58 rows)</span>
+					</a>
+				</h4>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x638">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;1.4&nbsp;COBie.Facilities&nbsp; (row count check)</span>
+					</a>
+				</h4>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x724">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;1.5&nbsp;COBie.Facilities.Facility&nbsp; (checked 1 row)</span>
+					</a>
+				</h4>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x975">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;1.6&nbsp;COBie.Floors&nbsp; (row count check)</span>
+					</a>
+				</h4>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x1061">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;1.7&nbsp;COBie.Floors.Floor&nbsp; (checked 4 rows)</span>
+					</a>
+				</h4>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x1222">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;1.8&nbsp;COBie.Spaces&nbsp; (row count check)</span>
+					</a>
+				</h4>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x1308">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;1.9&nbsp;COBie.Spaces.Space&nbsp; (checked 22 rows)</span>
+					</a>
+				</h4>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x1505">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;1.10&nbsp;COBie.Zones.Zone&nbsp; (checked 20 rows)</span>
+					</a>
+				</h4>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x1675">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;1.11&nbsp;COBie.Types&nbsp; (row count check)</span>
+					</a>
+				</h4>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x1761">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;1.12&nbsp;COBie.Types.Type&nbsp; (checked 43 rows)</span>
+					</a>
+				</h4>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x2156">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;1.13&nbsp;COBie.Components&nbsp; (row count check)</span>
+					</a>
+				</h4>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x2242">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;1.14&nbsp;COBie.Components.Component&nbsp; (checked 232 rows)</span>
+					</a>
+				</h4>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x2457">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;1.15&nbsp;COBie.Systems.System&nbsp; (checked 36 rows)</span>
+					</a>
+				</h4>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x2618">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;1.16&nbsp;COBie.Spares.Spare&nbsp; (checked 3 rows)</span>
+					</a>
+				</h4>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x2815">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;1.17&nbsp;COBie.Resources.Resource&nbsp; (checked 10 rows)</span>
+					</a>
+				</h4>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x2967">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;1.18&nbsp;COBie.Jobs.Job&nbsp; (checked 94 rows)</span>
+					</a>
+				</h4>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x3227">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;1.19&nbsp;COBie.Documents.Document&nbsp; (checked 48 rows)</span>
+					</a>
+				</h4>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x3451">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;1.20&nbsp;COBie.Attributes.Attribute&nbsp; (checked 94 rows)</span>
+					</a>
+				</h4>
+				<h3 style="text-align:left; ">
+					<a href="#idmarkerx16777217x3652">
+						<span>&nbsp;2 Detailed Error Report Grouped by Error/Warning Type</span>
+					</a>
+				</h3>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x3663">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;2.1&nbsp;COBie.Spaces.Space (9 invalid rows, 0 warnings)</span>
+					</a>
+				</h4>
+				<h5 style="text-align:left; "></h5>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x3771">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;2.2&nbsp;COBie.Types.Type (1 invalid row , 0 warnings)</span>
+					</a>
+				</h4>
+				<h5 style="text-align:left; "></h5>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x3837">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;2.3&nbsp;COBie.Jobs.Job (4 invalid rows, 0 warnings)</span>
+					</a>
+				</h4>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x4002">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;2.4&nbsp;COBie.Documents.Document (3 invalid rows, 0 warnings)</span>
+					</a>
+				</h4>
+				<h5 style="text-align:left; "></h5>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x4080">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;2.5&nbsp;COBie.Attributes.Attribute (42 invalid rows, 0 warnings)</span>
+					</a>
+				</h4>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h3 style="text-align:left; ">
+					<a href="#idmarkerx16777217x4481">
+						<span>&nbsp;3 Detailed Error Report Grouped by Row</span>
+					</a>
+				</h3>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x4492">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;3.1&nbsp;COBie.Spaces.Space (9 invalid rows, 0 warnings)</span>
+					</a>
+				</h4>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x4996">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;3.2&nbsp;COBie.Types.Type (1 invalid row , 0 warnings)</span>
+					</a>
+				</h4>
+				<h5 style="text-align:left; "></h5>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x5076">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;3.3&nbsp;COBie.Jobs.Job (4 invalid rows, 0 warnings)</span>
+					</a>
+				</h4>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x5331">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;3.4&nbsp;COBie.Documents.Document (3 invalid rows, 0 warnings)</span>
+					</a>
+				</h4>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h4 style="text-align:left; ">
+					<a href="#idmarkerx16777217x5517">
+						<span>&nbsp;&nbsp; </span>
+						<span>&nbsp;3.5&nbsp;COBie.Attributes.Attribute (42 invalid rows, 0 warnings)</span>
+					</a>
+				</h4>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+				<h5 style="text-align:left; "></h5>
+			</a>
+			<hr />
+			<a name="idmarkerx16777217x59"></a>
+			<span>&nbsp;</span>
+			<h2>
+				<span>1</span>
+				<span> QC Summary</span>
+			</h2>
+			<p>
+				<span>Note: Row/Column checks are only listed for worksheets containing at least one row, but row count checks are listed for Contact, Facility, Space, Type, and Component (worksheets that must contain data) regardless of row count. </span>
+			</p>
+			<a name="idmarkerx16777217x73"></a>
+			<span>&nbsp;</span>
+			<h3>
+				<span>1.1</span>
+				<span> COBie Summary Table</span>
+			</h3>
+			<table border="1">
+				<thead>
+					<tr>
+						<th>
+							<span>Worksheet</span>
+						</th>
+						<th>
+							<span>Has Rows?</span>
+						</th>
+						<th>
+							<span>Row Count</span>
+						</th>
+						<th>
+							<span>Row Warning Count</span>
+						</th>
+						<th>
+							<span>Row Error Count</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#COBie.Contacts.Contact">Contact</a>
+						</td>
+						<td>true</td>
+						<td>58</td>
+						<td>0</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#COBie.Facilities.Facility">Facility</a>
+						</td>
+						<td>true</td>
+						<td>1</td>
+						<td>0</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#COBie.Floors.Floor">Floor</a>
+						</td>
+						<td>true</td>
+						<td>4</td>
+						<td>0</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#COBie.Spaces.Space">Space</a>
+						</td>
+						<td>true</td>
+						<td>22</td>
+						<td>0</td>
+						<td>9</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#COBie.Zones.Zone">Zone</a>
+						</td>
+						<td>true</td>
+						<td>20</td>
+						<td>0</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#COBie.Types.Type">Type</a>
+						</td>
+						<td>true</td>
+						<td>43</td>
+						<td>0</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#COBie.Components.Component">Component</a>
+						</td>
+						<td>true</td>
+						<td>232</td>
+						<td>0</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#COBie.Systems.System">System</a>
+						</td>
+						<td>true</td>
+						<td>36</td>
+						<td>0</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td>Assembly</td>
+						<td>false</td>
+						<td>
+							<span>0</span>
+						</td>
+						<td>n/a</td>
+						<td>n/a</td>
+					</tr>
+					<tr>
+						<td>Connection</td>
+						<td>false</td>
+						<td>
+							<span>0</span>
+						</td>
+						<td>n/a</td>
+						<td>n/a</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#COBie.Spares.Spare">Spare</a>
+						</td>
+						<td>true</td>
+						<td>3</td>
+						<td>0</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#COBie.Resources.Resource">Resource</a>
+						</td>
+						<td>true</td>
+						<td>10</td>
+						<td>0</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#COBie.Jobs.Job">Job</a>
+						</td>
+						<td>true</td>
+						<td>94</td>
+						<td>0</td>
+						<td>4</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#COBie.Documents.Document">Document</a>
+						</td>
+						<td>true</td>
+						<td>48</td>
+						<td>0</td>
+						<td>3</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#COBie.Attributes.Attribute">Attribute</a>
+						</td>
+						<td>true</td>
+						<td>94</td>
+						<td>0</td>
+						<td>42</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<a name="idmarkerx16777217x301"></a>
+			<span>&nbsp;</span>
+			<a name="COBie.Contacts">
+				<h4><span>1.2</span><span>&nbsp;</span>COBie.Contacts<span>&nbsp; </span><span>(row count check)</span></h4>
+			</a>
+			<p style="text-align:left; "><span style="font-style:italic; ">Total </span><span style="font-style:italic; ">correct </span><span style="font-style:italic; ">COBie.Contacts</span><span> items</span><span style="font-style:italic; ">&nbsp;</span><span style="font-style:italic; "> = </span>1<span style="font-style:italic; "> of </span><span style="font-style:italic; ">1</span><span style="font-style:italic; "> (</span><span style="font-style:italic; ">100</span><span style="font-style:italic; ">% correct</span><span style="font-style:italic; ">)</span></p>
+			<h5>
+				<span style="text-decoration:underline; ">Checks Performed</span>
+			</h5>
+			<p style="text-align:left; ">Contacts.AtLeastOneRowPresent
+			</p>
+			<h5>
+				<span style="text-decoration:underline; ">Field Error Counts</span>
+			</h5>
+			<p style="text-align:left; ">ContactSheet: 0</p>
+			<br />
+			<h5>
+				<span style="text-decoration:underline; ">Field Warning Counts</span>
+			</h5>
+			<p style="text-align:left; ">ContactSheet: 0</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<a name="idmarkerx16777217x387"></a>
+			<span>&nbsp;</span>
+			<a name="COBie.Contacts.Contact">
+				<h4><span>1.3</span><span>&nbsp;</span>COBie.Contacts.Contact<span>&nbsp; </span><span>(checked </span>58<span> rows)</span></h4>
+			</a>
+			<p style="text-align:left; "><span style="font-style:italic; ">Total </span><span style="font-style:italic; ">correct </span><span style="font-style:italic; ">COBie.Contacts.Contact</span><span> items</span><span style="font-style:italic; ">&nbsp;</span><span style="font-style:italic; "> = </span>58<span style="font-style:italic; "> of </span><span style="font-style:italic; ">58</span><span style="font-style:italic; "> (</span><span style="font-style:italic; ">100</span><span style="font-style:italic; ">% correct</span><span style="font-style:italic; ">)</span></p>
+			<h5>
+				<span style="text-decoration:underline; ">Checks Performed</span>
+			</h5>
+			<p style="text-align:left; ">Email.Unique, Email.NotNull, Email.Format, Email.Picklist
+			<span>, </span>CreatedBy.CrossReference, CreatedBy.NotNull, CreatedBy.Picklist
+			<span>, </span>CreatedOn.NotNull,CreatedOn.Valid (ISO DateTime), CreatedOn.Picklist
+			<span>, </span>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<span>, </span>ExternalObject.NotEmpty, ExternalObject.Picklist
+			<span>, </span>ExternalIdentifier.NotEmpty, ExternalIdentifier.Picklist
+			<span>, </span>Category.NotNull, Category.Picklist
+			<span>, </span>Company.NotNull, Company.Picklist
+			<span>, </span>Phone.NotNull, Phone.Picklist
+			<span>, </span>Department.NotEmpty, Department.Picklist
+			<span>, </span>OrganizationCode.NotEmpty, OrganizationCode.Picklist
+			<span>, </span>GivenName.NotEmpty, GivenName.Picklist
+			<span>, </span>FamilyName.NotEmpty, FamilyName.Picklist
+			<span>, </span>Street.NotEmpty, Street.Picklist
+			<span>, </span>PostalBox.NotEmpty, PostalBox.Picklist
+			<span>, </span>Town.NotEmpty, Town.Picklist
+			<span>, </span>StateRegion.NotEmpty, StateRegion.Picklist
+			<span>, </span>PostalCode.NotEmpty, PostalCode.Picklist
+			<span>, </span>Country.NotEmpty, Country.Picklist
+			</p>
+			<h5>
+				<span style="text-decoration:underline; ">Field Error Counts</span>
+			</h5>
+			<p style="text-align:left; ">Email: 0<span>, </span>CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>ExternalSystem: 0<span>, </span>ExternalObject: 0<span>, </span>ExternalIdentifier: 0<span>, </span>Category: 0<span>, </span>Company: 0<span>, </span>Phone: 0<span>, </span>Department: 0<span>, </span>OrganizationCode: 0<span>, </span>GivenName: 0<span>, </span>FamilyName: 0<span>, </span>Street: 0<span>, </span>PostalBox: 0<span>, </span>Town: 0<span>, </span>StateRegion: 0<span>, </span>PostalCode: 0<span>, </span>Country: 0</p>
+			<br />
+			<h5>
+				<span style="text-decoration:underline; ">Field Warning Counts</span>
+			</h5>
+			<p style="text-align:left; ">Email: 0<span>, </span>CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>ExternalSystem: 0<span>, </span>ExternalObject: 0<span>, </span>ExternalIdentifier: 0<span>, </span>Category: 0<span>, </span>Company: 0<span>, </span>Phone: 0<span>, </span>Department: 0<span>, </span>OrganizationCode: 0<span>, </span>GivenName: 0<span>, </span>FamilyName: 0<span>, </span>Street: 0<span>, </span>PostalBox: 0<span>, </span>Town: 0<span>, </span>StateRegion: 0<span>, </span>PostalCode: 0<span>, </span>Country: 0</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<a name="idmarkerx16777217x638"></a>
+			<span>&nbsp;</span>
+			<a name="COBie.Facilities">
+				<h4><span>1.4</span><span>&nbsp;</span>COBie.Facilities<span>&nbsp; </span><span>(row count check)</span></h4>
+			</a>
+			<p style="text-align:left; "><span style="font-style:italic; ">Total </span><span style="font-style:italic; ">correct </span><span style="font-style:italic; ">COBie.Facilities</span><span> items</span><span style="font-style:italic; ">&nbsp;</span><span style="font-style:italic; "> = </span>1<span style="font-style:italic; "> of </span><span style="font-style:italic; ">1</span><span style="font-style:italic; "> (</span><span style="font-style:italic; ">100</span><span style="font-style:italic; ">% correct</span><span style="font-style:italic; ">)</span></p>
+			<h5>
+				<span style="text-decoration:underline; ">Checks Performed</span>
+			</h5>
+			<p style="text-align:left; ">Facilities.OneAndOnlyOneFacilityFound
+			</p>
+			<h5>
+				<span style="text-decoration:underline; ">Field Error Counts</span>
+			</h5>
+			<p style="text-align:left; ">FacilitySheet: 0</p>
+			<br />
+			<h5>
+				<span style="text-decoration:underline; ">Field Warning Counts</span>
+			</h5>
+			<p style="text-align:left; ">FacilitySheet: 0</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<a name="idmarkerx16777217x724"></a>
+			<span>&nbsp;</span>
+			<a name="COBie.Facilities.Facility">
+				<h4><span>1.5</span><span>&nbsp;</span>COBie.Facilities.Facility<span>&nbsp; </span><span>(checked </span>1<span> row)</span></h4>
+			</a>
+			<p style="text-align:left; "><span style="font-style:italic; ">Total </span><span style="font-style:italic; ">correct </span><span style="font-style:italic; ">COBie.Facilities.Facility</span><span> items</span><span style="font-style:italic; ">&nbsp;</span><span style="font-style:italic; "> = </span>1<span style="font-style:italic; "> of </span><span style="font-style:italic; ">1</span><span style="font-style:italic; "> (</span><span style="font-style:italic; ">100</span><span style="font-style:italic; ">% correct</span><span style="font-style:italic; ">)</span></p>
+			<h5>
+				<span style="text-decoration:underline; ">Checks Performed</span>
+			</h5>
+			<p style="text-align:left; ">Name.NotNotNull, Name.Unique, Name.Picklist,Name.RowHasRequiredAttributes
+			<span>, </span>CreatedBy.CrossReference (ToContact), CreatedBy.NotNull, CreatedBy.Picklist
+			<span>, </span>CreatedOn.NotNull, CreatedOn.Valid (Valid ISO DateTime), CreatedOn.Picklist
+			<span>, </span>Category.NotNull, Category.Picklist
+			<span>, </span>Description.NotEmpty, Description.Picklist
+			<span>, </span>ProjectName.NotNull, ProjectName.Picklist
+			<span>, </span>SiteName.NotNull, SiteName.Picklist
+			<span>, </span>LinearUnits.NotNull, LinearUnits.Picklist
+			<span>, </span>AreaUnits.NotNull, AreaUnits.Picklist
+			<span>, </span>VolumeUnits.NotNull, VolumeUnits.Picklist
+			<span>, </span>Currency.NotNull, Currency.Picklist
+			<span>, </span>AreaMeasurement.NotNull, AreaMeasurement.Picklist
+			<span>, </span>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<span>, </span>ExternalProjectObject.NotEmpty, ExternalProjectObject.Picklist
+			<span>, </span>ExternalProjectIdentifier.NotEmpty, ExternalProjectIdentifier.Picklist
+			<span>, </span>ExternalSiteObject.NotEmpty, ExternalSiteObject.Picklist
+			<span>, </span>ExternalSiteIdentifier.NotEmpty, ExternalSiteIdentifier.Picklist
+			<span>, </span>ExternalFacilityObject.NotEmpty, ExternalFacilityObject.Picklist
+			<span>, </span>ExternalFacilityIdentifier.NotEmpty, ExternalFacilityIdentifier.Picklist
+			</p>
+			<h5>
+				<span style="text-decoration:underline; ">Field Error Counts</span>
+			</h5>
+			<p style="text-align:left; ">Name: 0<span>, </span>CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>Category: 0<span>, </span>Description: 0<span>, </span>ProjectName: 0<span>, </span>SiteName: 0<span>, </span>LinearUnits: 0<span>, </span>AreaUnits: 0<span>, </span>VolumeUnits: 0<span>, </span>CurrencyUnit: 0<span>, </span>AreaMeasurement: 0<span>, </span>ExternalSystem: 0<span>, </span>ExternalProjectObject: 0<span>, </span>ExternalProjectIdentifier: 0<span>, </span>ExternalSiteObject: 0<span>, </span>ExternalSiteIdentifier: 0<span>, </span>ExternalFacilityObject: 0<span>, </span>ExternalFacilityIdentifier: 0</p>
+			<br />
+			<h5>
+				<span style="text-decoration:underline; ">Field Warning Counts</span>
+			</h5>
+			<p style="text-align:left; ">Name: 0<span>, </span>CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>Category: 0<span>, </span>Description: 0<span>, </span>ProjectName: 0<span>, </span>SiteName: 0<span>, </span>LinearUnits: 0<span>, </span>AreaUnits: 0<span>, </span>VolumeUnits: 0<span>, </span>CurrencyUnit: 0<span>, </span>AreaMeasurement: 0<span>, </span>ExternalSystem: 0<span>, </span>ExternalProjectObject: 0<span>, </span>ExternalProjectIdentifier: 0<span>, </span>ExternalSiteObject: 0<span>, </span>ExternalSiteIdentifier: 0<span>, </span>ExternalFacilityObject: 0<span>, </span>ExternalFacilityIdentifier: 0</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<a name="idmarkerx16777217x975"></a>
+			<span>&nbsp;</span>
+			<a name="COBie.Floors">
+				<h4><span>1.6</span><span>&nbsp;</span>COBie.Floors<span>&nbsp; </span><span>(row count check)</span></h4>
+			</a>
+			<p style="text-align:left; "><span style="font-style:italic; ">Total </span><span style="font-style:italic; ">correct </span><span style="font-style:italic; ">COBie.Floors</span><span> items</span><span style="font-style:italic; ">&nbsp;</span><span style="font-style:italic; "> = </span>1<span style="font-style:italic; "> of </span><span style="font-style:italic; ">1</span><span style="font-style:italic; "> (</span><span style="font-style:italic; ">100</span><span style="font-style:italic; ">% correct</span><span style="font-style:italic; ">)</span></p>
+			<h5>
+				<span style="text-decoration:underline; ">Checks Performed</span>
+			</h5>
+			<p style="text-align:left; ">Floors.AtLeastOneRowPresent
+			</p>
+			<h5>
+				<span style="text-decoration:underline; ">Field Error Counts</span>
+			</h5>
+			<p style="text-align:left; ">FloorSheet: 0</p>
+			<br />
+			<h5>
+				<span style="text-decoration:underline; ">Field Warning Counts</span>
+			</h5>
+			<p style="text-align:left; ">FloorSheet: 0</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<a name="idmarkerx16777217x1061"></a>
+			<span>&nbsp;</span>
+			<a name="COBie.Floors.Floor">
+				<h4><span>1.7</span><span>&nbsp;</span>COBie.Floors.Floor<span>&nbsp; </span><span>(checked </span>4<span> rows)</span></h4>
+			</a>
+			<p style="text-align:left; "><span style="font-style:italic; ">Total </span><span style="font-style:italic; ">correct </span><span style="font-style:italic; ">COBie.Floors.Floor</span><span> items</span><span style="font-style:italic; ">&nbsp;</span><span style="font-style:italic; "> = </span>4<span style="font-style:italic; "> of </span><span style="font-style:italic; ">4</span><span style="font-style:italic; "> (</span><span style="font-style:italic; ">100</span><span style="font-style:italic; ">% correct</span><span style="font-style:italic; ">)</span></p>
+			<h5>
+				<span style="text-decoration:underline; ">Checks Performed</span>
+			</h5>
+			<p style="text-align:left; ">Name.NotNotNull, Name.Unique, Name.Picklist,Name.RowHasRequiredAttributes
+			<span>, </span>CreatedBy.CrossReference (ToContact), CreatedBy.NotNull, CreatedBy.Picklist
+			<span>, </span>CreatedOn.NotNull, CreatedOn.Valid (Valid ISO DateTime), CreatedOn.Picklist
+			<span>, </span>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<span>, </span>ExternalObject.NotEmpty, ExternalObject.Picklist
+			<span>, </span>ExtIdentifier.NotEmpty, ExtIdentifier.Picklist
+			<span>, </span>Category.NotNull, Category.Picklist
+			<span>, </span>Floor.Elevation.ValidNumberOrNA,Floor.Elevation.Picklist
+			<span>, </span>Floor.Height.ZeroOrGreaterOrNA, Floor.Height.Picklist
+			</p>
+			<h5>
+				<span style="text-decoration:underline; ">Field Error Counts</span>
+			</h5>
+			<p style="text-align:left; ">Name: 0<span>, </span>CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>ExtSystem: 0<span>, </span>ExtObject: 0<span>, </span>ExtIdentifier: 0<span>, </span>Category: 0<span>, </span>Elevation: 0<span>, </span>Height: 0</p>
+			<br />
+			<h5>
+				<span style="text-decoration:underline; ">Field Warning Counts</span>
+			</h5>
+			<p style="text-align:left; ">Name: 0<span>, </span>CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>ExtSystem: 0<span>, </span>ExtObject: 0<span>, </span>ExtIdentifier: 0<span>, </span>Category: 0<span>, </span>Elevation: 0<span>, </span>Height: 0</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<a name="idmarkerx16777217x1222"></a>
+			<span>&nbsp;</span>
+			<a name="COBie.Spaces">
+				<h4><span>1.8</span><span>&nbsp;</span>COBie.Spaces<span>&nbsp; </span><span>(row count check)</span></h4>
+			</a>
+			<p style="text-align:left; "><span style="font-style:italic; ">Total </span><span style="font-style:italic; ">correct </span><span style="font-style:italic; ">COBie.Spaces</span><span> items</span><span style="font-style:italic; ">&nbsp;</span><span style="font-style:italic; "> = </span>1<span style="font-style:italic; "> of </span><span style="font-style:italic; ">1</span><span style="font-style:italic; "> (</span><span style="font-style:italic; ">100</span><span style="font-style:italic; ">% correct</span><span style="font-style:italic; ">)</span></p>
+			<h5>
+				<span style="text-decoration:underline; ">Checks Performed</span>
+			</h5>
+			<p style="text-align:left; ">Spaces.AtLeastOneRowPresent
+			</p>
+			<h5>
+				<span style="text-decoration:underline; ">Field Error Counts</span>
+			</h5>
+			<p style="text-align:left; ">SpaceSheet: 0</p>
+			<br />
+			<h5>
+				<span style="text-decoration:underline; ">Field Warning Counts</span>
+			</h5>
+			<p style="text-align:left; ">SpaceSheet: 0</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<a name="idmarkerx16777217x1308"></a>
+			<span>&nbsp;</span>
+			<a name="COBie.Spaces.Space">
+				<h4><span>1.9</span><span>&nbsp;</span>COBie.Spaces.Space<span>&nbsp; </span><span>(checked </span>22<span> rows)</span></h4>
+			</a>
+			<p style="text-align:left; "><span style="font-style:italic; ">Total </span><span style="font-style:italic; ">correct </span><span style="font-style:italic; ">COBie.Spaces.Space</span><span> items</span><span style="font-style:italic; ">&nbsp;</span><span style="font-style:italic; "> = </span>13<span style="font-style:italic; "> of </span><span style="font-style:italic; ">22</span><span style="font-style:italic; "> (</span><span style="font-style:italic; ">59.09</span><span style="font-style:italic; ">% correct</span><span style="font-style:italic; ">)</span></p>
+			<h5>
+				<span style="text-decoration:underline; ">Checks Performed</span>
+			</h5>
+			<p style="text-align:left; ">Name.NotNotNull, Name.Unique, Name.Picklist,Name.RowHasRequiredAttributes
+			<span>, </span>CreatedBy.CrossReference (ToContact), CreatedBy.NotNull, CreatedBy.Picklist
+			<span>, </span>CreatedOn.NotNull, CreatedOn.Valid (Valid ISO DateTime), CreatedOn.Picklist
+			<span>, </span>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<span>, </span>ExternalObject.NotEmpty, ExternalObject.Picklist
+			<span>, </span>ExtIdentifier.NotEmpty, ExtIdentifier.Picklist
+			<span>, </span>Category.NotNull, Category.Picklist
+			<span>, </span>FloorName.NotNull, FloorName.CrossReference, FloorName.Picklist
+			<span>, </span>Description.NotNull, Description.Picklist
+			<span>, </span>RoomTag.NotEmpty, RoomTag.Picklist
+			<span>, </span>UsableHeight.ZeroOrGreaterOrNA, UsableHeight.Picklist
+			<span>, </span>GrossArea.ZeroOrGreaterOrNA, GrossArea.Picklist
+			<span>, </span>NetArea.ZeroOrGreaterOrNA, NetArea.Picklist
+			</p>
+			<h5>
+				<span style="text-decoration:underline; ">Field Error Counts</span>
+			</h5>
+			<p style="text-align:left; ">Name: 9<span>, </span>CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>ExtSystem: 0<span>, </span>ExtObject: 0<span>, </span>ExtIdentifier: 0<span>, </span>Category: 0<span>, </span>FloorName: 0<span>, </span>Description: 0<span>, </span>RoomTag: 0<span>, </span>UsableHeight: 0<span>, </span>GrossArea: 0<span>, </span>NetArea: 0</p>
+			<br />
+			<h5>
+				<span style="text-decoration:underline; ">Field Warning Counts</span>
+			</h5>
+			<p style="text-align:left; ">Name: 0<span>, </span>CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>ExtSystem: 0<span>, </span>ExtObject: 0<span>, </span>ExtIdentifier: 0<span>, </span>Category: 0<span>, </span>FloorName: 0<span>, </span>Description: 0<span>, </span>RoomTag: 0<span>, </span>UsableHeight: 0<span>, </span>GrossArea: 0<span>, </span>NetArea: 0</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<a name="idmarkerx16777217x1505"></a>
+			<span>&nbsp;</span>
+			<a name="COBie.Zones.Zone">
+				<h4><span>1.10</span><span>&nbsp;</span>COBie.Zones.Zone<span>&nbsp; </span><span>(checked </span>20<span> rows)</span></h4>
+			</a>
+			<p style="text-align:left; "><span style="font-style:italic; ">Total </span><span style="font-style:italic; ">correct </span><span style="font-style:italic; ">COBie.Zones.Zone</span><span> items</span><span style="font-style:italic; ">&nbsp;</span><span style="font-style:italic; "> = </span>20<span style="font-style:italic; "> of </span><span style="font-style:italic; ">20</span><span style="font-style:italic; "> (</span><span style="font-style:italic; ">100</span><span style="font-style:italic; ">% correct</span><span style="font-style:italic; ">)</span></p>
+			<h5>
+				<span style="text-decoration:underline; ">Checks Performed</span>
+			</h5>
+			<p style="text-align:left; ">CreatedBy.CrossReference (ToContact), CreatedBy.NotNull, CreatedBy.Picklist
+			<span>, </span>CreatedOn.NotNull, CreatedOn.Valid (Valid ISO DateTime), CreatedOn.Picklist
+			<span>, </span>Category.NotNull, Category.Picklist
+			<span>, </span>Description.NotEmpty, Description.Picklist
+			<span>, </span>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<span>, </span>ExternalObject.NotEmpty, ExternalObject.Picklist
+			<span>, </span>ExtIdentifier.NotEmpty, ExtIdentifier.Picklist
+			<span>, </span>Name.NotNull, Name.Picklist
+			<span>, </span>PrimaryKey.Unique (Name, Category, SpaceNames)
+			<span>, </span>SpaceNames.NotNull, SpaceNames.CrossReference
+			</p>
+			<h5>
+				<span style="text-decoration:underline; ">Field Error Counts</span>
+			</h5>
+			<p style="text-align:left; ">CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>Category: 0<span>, </span>Description: 0<span>, </span>ExtSystem: 0<span>, </span>ExtObject: 0<span>, </span>ExtIdentifier: 0<span>, </span>Name: 0<span>, </span>PrimaryKey: 0<span>, </span>SpaceNames: 0</p>
+			<br />
+			<h5>
+				<span style="text-decoration:underline; ">Field Warning Counts</span>
+			</h5>
+			<p style="text-align:left; ">CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>Category: 0<span>, </span>Description: 0<span>, </span>ExtSystem: 0<span>, </span>ExtObject: 0<span>, </span>ExtIdentifier: 0<span>, </span>Name: 0<span>, </span>PrimaryKey: 0<span>, </span>SpaceNames: 0</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<a name="idmarkerx16777217x1675"></a>
+			<span>&nbsp;</span>
+			<a name="COBie.Types">
+				<h4><span>1.11</span><span>&nbsp;</span>COBie.Types<span>&nbsp; </span><span>(row count check)</span></h4>
+			</a>
+			<p style="text-align:left; "><span style="font-style:italic; ">Total </span><span style="font-style:italic; ">correct </span><span style="font-style:italic; ">COBie.Types</span><span> items</span><span style="font-style:italic; ">&nbsp;</span><span style="font-style:italic; "> = </span>1<span style="font-style:italic; "> of </span><span style="font-style:italic; ">1</span><span style="font-style:italic; "> (</span><span style="font-style:italic; ">100</span><span style="font-style:italic; ">% correct</span><span style="font-style:italic; ">)</span></p>
+			<h5>
+				<span style="text-decoration:underline; ">Checks Performed</span>
+			</h5>
+			<p style="text-align:left; ">Types.AtLeastOneRowPresent
+			</p>
+			<h5>
+				<span style="text-decoration:underline; ">Field Error Counts</span>
+			</h5>
+			<p style="text-align:left; ">TypeSheet: 0</p>
+			<br />
+			<h5>
+				<span style="text-decoration:underline; ">Field Warning Counts</span>
+			</h5>
+			<p style="text-align:left; ">TypeSheet: 0</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<a name="idmarkerx16777217x1761"></a>
+			<span>&nbsp;</span>
+			<a name="COBie.Types.Type">
+				<h4><span>1.12</span><span>&nbsp;</span>COBie.Types.Type<span>&nbsp; </span><span>(checked </span>43<span> rows)</span></h4>
+			</a>
+			<p style="text-align:left; "><span style="font-style:italic; ">Total </span><span style="font-style:italic; ">correct </span><span style="font-style:italic; ">COBie.Types.Type</span><span> items</span><span style="font-style:italic; ">&nbsp;</span><span style="font-style:italic; "> = </span>42<span style="font-style:italic; "> of </span><span style="font-style:italic; ">43</span><span style="font-style:italic; "> (</span><span style="font-style:italic; ">97.67</span><span style="font-style:italic; ">% correct</span><span style="font-style:italic; ">)</span></p>
+			<h5>
+				<span style="text-decoration:underline; ">Checks Performed</span>
+			</h5>
+			<p style="text-align:left; ">Name.NotNotNull, Name.Unique, Name.Picklist,Name.RowHasRequiredAttributes
+			<span>, </span>CreatedBy.CrossReference (ToContact), CreatedBy.NotNull, CreatedBy.Picklist
+			<span>, </span>CreatedOn.NotNull, CreatedOn.Valid (Valid ISO DateTime), CreatedOn.Picklist
+			<span>, </span>Category.NotNull, Category.Picklist
+			<span>, </span>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<span>, </span>ExternalObject.NotEmpty, ExternalObject.Picklist
+			<span>, </span>ExtIdentifier.NotEmpty, ExtIdentifier.Picklist
+			<span>, </span>Type.Component.AComponentForEachType
+			<span>, </span>AssetType.NotNull, AssetType.Picklist
+			<span>, </span>Manufacturer.NotNull, Manufacturer.CrossReference (Contact Sheet), Manufacturer.Picklist
+			<span>, </span>ModelNumber.NotNull, ModelNumber.Picklist
+			<span>, </span>WarrantyGuarantorParts.NotNull, WarrantyGuarantorParts.CrossReference (Contact Sheet), WarrantyGuarantorParts.Picklist
+			<span>, </span>WarrantyDurationParts.validNumberZeroOrGreaterOrNA, WarrantyDurationParts.Picklist
+			<span>, </span>WarrantyGuarantorLabor.NotNull, WarrantyGuarantorLabor.CrossReference (Contact Sheet), WarrantyGuarantorLabor.Picklist
+			<span>, </span>WarrantyDurationLabor.ZeroOrGreaterOrNA, WarrantyDurationLabor.Picklist
+			<span>, </span>WarrantyDurationUnit.NotNull, WarrantyDurationUnit.Picklist
+			<span>, </span>ReplacementCost.ZeroOrGreaterOrNA, ReplacementCost.Picklist
+			<span>, </span>ExpectedLife.ZeroOrGreaterOrNA, ExpectedLife.Picklist
+			<span>, </span>DurationUnit.NotNull, DurationUnit.Picklist
+			<span>, </span>WarrantyDescription.NotEmpty, WarrantyDescription.Picklist
+			<span>, </span>NominalLength.ZeroOrGreaterOrNA, NominalLength.Picklist
+			<span>, </span>NominalWidth.ZeroOrGreaterOrNA, NominalWidth.Picklist
+			<span>, </span>NominalHeight.ZeroOrGreater, NominalHeight.Picklist
+			<span>, </span>ModelReference.NotEmpty, ModelReference.Picklist
+			<span>, </span>Shape.NotEmpty, Shape.Picklist
+			<span>, </span>Size.NotEmpty, Size.Picklist
+			<span>, </span>Color.NotEmpty, Color.Picklist
+			<span>, </span>Finish.NotEmpty, Finish.Picklist
+			<span>, </span>Grade.NotEmpty, Grade.Picklist
+			<span>, </span>Material.NotEmpty, Material.Picklist
+			<span>, </span>Constituents.NotEmpty, Constituents.Picklist
+			<span>, </span>Features.NotEmpty, Features.Picklist
+			<span>, </span>AccessibilityPerformance.NotEmpty, AccessibilityPerformance.Picklist
+			<span>, </span>CodePerformance.NotEmpty, CodePerformance.Picklist
+			<span>, </span>SustainabilityPerformance.NotEmpty, SustainabilityPerformance.Picklist
+			</p>
+			<h5>
+				<span style="text-decoration:underline; ">Field Error Counts</span>
+			</h5>
+			<p style="text-align:left; ">Name: 0<span>, </span>CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>Category: 0<span>, </span>ExtSystem: 0<span>, </span>ExtObject: 0<span>, </span>ExtIdentifier: 0<span>, </span>TypeComponentSheets: 0<span>, </span>AssetType: 0<span>, </span>Manufacturer: 0<span>, </span>ModelNumber: 0<span>, </span>WarrantyGuarantorParts: 0<span>, </span>WarrantyDurationParts: 0<span>, </span>WarrantyGuarantorLabor: 0<span>, </span>WarrantyDurationLabor: 0<span>, </span>WarrantyDurationUnit: 0<span>, </span>ReplacementCost: 0<span>, </span>ExpectedLife: 0<span>, </span>DurationUnit: 1<span>, </span>WarrantyDescription: 0<span>, </span>NominalLength: 0<span>, </span>NominalWidth: 0<span>, </span>NominalHeight: 0<span>, </span>ModelReference: 0<span>, </span>Shape: 0<span>, </span>Size: 0<span>, </span>Color: 0<span>, </span>Finish: 0<span>, </span>Grade: 0<span>, </span>Material: 0<span>, </span>Constituents: 0<span>, </span>Features: 0<span>, </span>AccessibilityPerformance: 0<span>, </span>CodePerformance: 0<span>, </span>SustainabilityPerformance: 0</p>
+			<br />
+			<h5>
+				<span style="text-decoration:underline; ">Field Warning Counts</span>
+			</h5>
+			<p style="text-align:left; ">Name: 0<span>, </span>CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>Category: 0<span>, </span>ExtSystem: 0<span>, </span>ExtObject: 0<span>, </span>ExtIdentifier: 0<span>, </span>TypeComponentSheets: 0<span>, </span>AssetType: 0<span>, </span>Manufacturer: 0<span>, </span>ModelNumber: 0<span>, </span>WarrantyGuarantorParts: 0<span>, </span>WarrantyDurationParts: 0<span>, </span>WarrantyGuarantorLabor: 0<span>, </span>WarrantyDurationLabor: 0<span>, </span>WarrantyDurationUnit: 0<span>, </span>ReplacementCost: 0<span>, </span>ExpectedLife: 0<span>, </span>DurationUnit: 0<span>, </span>WarrantyDescription: 0<span>, </span>NominalLength: 0<span>, </span>NominalWidth: 0<span>, </span>NominalHeight: 0<span>, </span>ModelReference: 0<span>, </span>Shape: 0<span>, </span>Size: 0<span>, </span>Color: 0<span>, </span>Finish: 0<span>, </span>Grade: 0<span>, </span>Material: 0<span>, </span>Constituents: 0<span>, </span>Features: 0<span>, </span>AccessibilityPerformance: 0<span>, </span>CodePerformance: 0<span>, </span>SustainabilityPerformance: 0</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<a name="idmarkerx16777217x2156"></a>
+			<span>&nbsp;</span>
+			<a name="COBie.Components">
+				<h4><span>1.13</span><span>&nbsp;</span>COBie.Components<span>&nbsp; </span><span>(row count check)</span></h4>
+			</a>
+			<p style="text-align:left; "><span style="font-style:italic; ">Total </span><span style="font-style:italic; ">correct </span><span style="font-style:italic; ">COBie.Components</span><span> items</span><span style="font-style:italic; ">&nbsp;</span><span style="font-style:italic; "> = </span>1<span style="font-style:italic; "> of </span><span style="font-style:italic; ">1</span><span style="font-style:italic; "> (</span><span style="font-style:italic; ">100</span><span style="font-style:italic; ">% correct</span><span style="font-style:italic; ">)</span></p>
+			<h5>
+				<span style="text-decoration:underline; ">Checks Performed</span>
+			</h5>
+			<p style="text-align:left; ">Components.AtLeastOneRowPresent
+			</p>
+			<h5>
+				<span style="text-decoration:underline; ">Field Error Counts</span>
+			</h5>
+			<p style="text-align:left; ">ComponentSheet: 0</p>
+			<br />
+			<h5>
+				<span style="text-decoration:underline; ">Field Warning Counts</span>
+			</h5>
+			<p style="text-align:left; ">ComponentSheet: 0</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<a name="idmarkerx16777217x2242"></a>
+			<span>&nbsp;</span>
+			<a name="COBie.Components.Component">
+				<h4><span>1.14</span><span>&nbsp;</span>COBie.Components.Component<span>&nbsp; </span><span>(checked </span>232<span> rows)</span></h4>
+			</a>
+			<p style="text-align:left; "><span style="font-style:italic; ">Total </span><span style="font-style:italic; ">correct </span><span style="font-style:italic; ">COBie.Components.Component</span><span> items</span><span style="font-style:italic; ">&nbsp;</span><span style="font-style:italic; "> = </span>232<span style="font-style:italic; "> of </span><span style="font-style:italic; ">232</span><span style="font-style:italic; "> (</span><span style="font-style:italic; ">100</span><span style="font-style:italic; ">% correct</span><span style="font-style:italic; ">)</span></p>
+			<h5>
+				<span style="text-decoration:underline; ">Checks Performed</span>
+			</h5>
+			<p style="text-align:left; ">Name.NotNotNull, Name.Unique, Name.Picklist,Name.RowHasRequiredAttributes
+			<span>, </span>CreatedBy.CrossReference (ToContact), CreatedBy.NotNull, CreatedBy.Picklist
+			<span>, </span>CreatedOn.NotNull, CreatedOn.Valid (Valid ISO DateTime), CreatedOn.Picklist
+			<span>, </span>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<span>, </span>ExternalObject.NotEmpty, ExternalObject.Picklist
+			<span>, </span>ExtIdentifier.NotEmpty, ExtIdentifier.Picklist
+			<span>, </span>TypeName.NotNull,TypeName.CrossReference (Type Worksheet), TypeName.Picklist
+			<span>, </span>Space.NotNull, Space.CrossReference (Component Worksheet), Space.Picklist
+			<span>, </span>Description.NotNull, Description.Picklist
+			<span>, </span>SerialNumber.NotEmpty, SerialNumber.Picklist
+			<span>, </span>InstallationDate.NotNull, InstallationDate.Picklist
+			<span>, </span>WarrantyStartDate.NotNull, WarrantyStartDate.Picklist
+			<span>, </span>TagNumber.NotEmpty, TagNumber.Picklist
+			<span>, </span>BarCode.NotEmpty, BarCode.Picklist
+			<span>, </span>AssetIdentifier.NotEmpty, AssetIdentifier.Picklist
+			</p>
+			<h5>
+				<span style="text-decoration:underline; ">Field Error Counts</span>
+			</h5>
+			<p style="text-align:left; ">Name: 0<span>, </span>CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>ExtSystem: 0<span>, </span>ExtObject: 0<span>, </span>ExtIdentifier: 0<span>, </span>TypeName: 0<span>, </span>Space: 0<span>, </span>Description: 0<span>, </span>SerialNumber: 0<span>, </span>InstallationDate: 0<span>, </span>WarrantyStartDate: 0<span>, </span>TagNumber: 0<span>, </span>BarCode: 0<span>, </span>AssetIdentifier: 0</p>
+			<br />
+			<h5>
+				<span style="text-decoration:underline; ">Field Warning Counts</span>
+			</h5>
+			<p style="text-align:left; ">Name: 0<span>, </span>CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>ExtSystem: 0<span>, </span>ExtObject: 0<span>, </span>ExtIdentifier: 0<span>, </span>TypeName: 0<span>, </span>Space: 0<span>, </span>Description: 0<span>, </span>SerialNumber: 0<span>, </span>InstallationDate: 0<span>, </span>WarrantyStartDate: 0<span>, </span>TagNumber: 0<span>, </span>BarCode: 0<span>, </span>AssetIdentifier: 0</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<a name="idmarkerx16777217x2457"></a>
+			<span>&nbsp;</span>
+			<a name="COBie.Systems.System">
+				<h4><span>1.15</span><span>&nbsp;</span>COBie.Systems.System<span>&nbsp; </span><span>(checked </span>36<span> rows)</span></h4>
+			</a>
+			<p style="text-align:left; "><span style="font-style:italic; ">Total </span><span style="font-style:italic; ">correct </span><span style="font-style:italic; ">COBie.Systems.System</span><span> items</span><span style="font-style:italic; ">&nbsp;</span><span style="font-style:italic; "> = </span>36<span style="font-style:italic; "> of </span><span style="font-style:italic; ">36</span><span style="font-style:italic; "> (</span><span style="font-style:italic; ">100</span><span style="font-style:italic; ">% correct</span><span style="font-style:italic; ">)</span></p>
+			<h5>
+				<span style="text-decoration:underline; ">Checks Performed</span>
+			</h5>
+			<p style="text-align:left; ">CreatedBy.CrossReference (ToContact), CreatedBy.NotNull, CreatedBy.Picklist
+			<span>, </span>CreatedOn.NotNull, CreatedOn.Valid (Valid ISO DateTime), CreatedOn.Picklist
+			<span>, </span>Category.NotNull, Category.Picklist
+			<span>, </span>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<span>, </span>ExternalObject.NotEmpty, ExternalObject.Picklist
+			<span>, </span>ExtIdentifier.NotEmpty, ExtIdentifier.Picklist
+			<span>, </span>Description.NotEmpty, Description.Picklist
+			<span>, </span>PrimaryKey.Unique (Name, Category, ComponentNames), Name.NotNull, Name.Picklist
+			<span>, </span>ComponentNames.NotNull, ComponentNames.CrossReference, ComponentNames.Picklist
+			</p>
+			<h5>
+				<span style="text-decoration:underline; ">Field Error Counts</span>
+			</h5>
+			<p style="text-align:left; ">CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>Category: 0<span>, </span>ExtSystem: 0<span>, </span>ExtObject: 0<span>, </span>ExtIdentifier: 0<span>, </span>Description: 0<span>, </span>PrimaryKey: 0<span>, </span>ComponentNames: 0</p>
+			<br />
+			<h5>
+				<span style="text-decoration:underline; ">Field Warning Counts</span>
+			</h5>
+			<p style="text-align:left; ">CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>Category: 0<span>, </span>ExtSystem: 0<span>, </span>ExtObject: 0<span>, </span>ExtIdentifier: 0<span>, </span>Description: 0<span>, </span>PrimaryKey: 0<span>, </span>ComponentNames: 0</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<a name="idmarkerx16777217x2618"></a>
+			<span>&nbsp;</span>
+			<a name="COBie.Spares.Spare">
+				<h4><span>1.16</span><span>&nbsp;</span>COBie.Spares.Spare<span>&nbsp; </span><span>(checked </span>3<span> rows)</span></h4>
+			</a>
+			<p style="text-align:left; "><span style="font-style:italic; ">Total </span><span style="font-style:italic; ">correct </span><span style="font-style:italic; ">COBie.Spares.Spare</span><span> items</span><span style="font-style:italic; ">&nbsp;</span><span style="font-style:italic; "> = </span>3<span style="font-style:italic; "> of </span><span style="font-style:italic; ">3</span><span style="font-style:italic; "> (</span><span style="font-style:italic; ">100</span><span style="font-style:italic; ">% correct</span><span style="font-style:italic; ">)</span></p>
+			<h5>
+				<span style="text-decoration:underline; ">Checks Performed</span>
+			</h5>
+			<p style="text-align:left; ">CreatedBy.CrossReference (ToContact), CreatedBy.NotNull, CreatedBy.Picklist
+			<span>, </span>CreatedOn.NotNull, CreatedOn.Valid (Valid ISO DateTime), CreatedOn.Picklist
+			<span>, </span>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<span>, </span>ExternalObject.NotEmpty, ExternalObject.Picklist
+			<span>, </span>ExtIdentifier.NotEmpty, ExtIdentifier.Picklist
+			<span>, </span>Description.NotEmpty, Description.Picklist
+			<span>, </span>Category.NotNull, Category.Picklist
+			<span>, </span>Name.NotNull, Name.Picklist
+			<span>, </span>PrimaryKey.Unique (Name, TypeName)
+			<span>, </span>TypeName.NotNull, TypeName.CrossReference, TypeName.Picklist
+			<span>, </span>Suppliers.NotNull, Suppliers.CrossReference (Contact Sheet), Suppliers.Picklist
+			<span>, </span>SetNumber.NotEmpty, SetNumber.Picklist
+			<span>, </span>PartNumber.NotEmpty, PartNumber.Picklist
+			</p>
+			<h5>
+				<span style="text-decoration:underline; ">Field Error Counts</span>
+			</h5>
+			<p style="text-align:left; ">CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>ExtSystem: 0<span>, </span>ExtObject: 0<span>, </span>ExtIdentifier: 0<span>, </span>Description: 0<span>, </span>Category: 0<span>, </span>Name: 0<span>, </span>PrimaryKey: 0<span>, </span>TypeName: 0<span>, </span>Suppliers: 0<span>, </span>SetNumber: 0<span>, </span>PartNumber: 0</p>
+			<br />
+			<h5>
+				<span style="text-decoration:underline; ">Field Warning Counts</span>
+			</h5>
+			<p style="text-align:left; ">CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>ExtSystem: 0<span>, </span>ExtObject: 0<span>, </span>ExtIdentifier: 0<span>, </span>Description: 0<span>, </span>Category: 0<span>, </span>Name: 0<span>, </span>PrimaryKey: 0<span>, </span>TypeName: 0<span>, </span>Suppliers: 0<span>, </span>SetNumber: 0<span>, </span>PartNumber: 0</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<a name="idmarkerx16777217x2815"></a>
+			<span>&nbsp;</span>
+			<a name="COBie.Resources.Resource">
+				<h4><span>1.17</span><span>&nbsp;</span>COBie.Resources.Resource<span>&nbsp; </span><span>(checked </span>10<span> rows)</span></h4>
+			</a>
+			<p style="text-align:left; "><span style="font-style:italic; ">Total </span><span style="font-style:italic; ">correct </span><span style="font-style:italic; ">COBie.Resources.Resource</span><span> items</span><span style="font-style:italic; ">&nbsp;</span><span style="font-style:italic; "> = </span>10<span style="font-style:italic; "> of </span><span style="font-style:italic; ">10</span><span style="font-style:italic; "> (</span><span style="font-style:italic; ">100</span><span style="font-style:italic; ">% correct</span><span style="font-style:italic; ">)</span></p>
+			<h5>
+				<span style="text-decoration:underline; ">Checks Performed</span>
+			</h5>
+			<p style="text-align:left; ">Name.NotNotNull, Name.Unique, Name.Picklist,Name.RowHasRequiredAttributes
+			<span>, </span>CreatedBy.CrossReference (ToContact), CreatedBy.NotNull, CreatedBy.Picklist
+			<span>, </span>CreatedOn.NotNull, CreatedOn.Valid (Valid ISO DateTime), CreatedOn.Picklist
+			<span>, </span>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<span>, </span>ExternalObject.NotEmpty, ExternalObject.Picklist
+			<span>, </span>ExtIdentifier.NotEmpty, ExtIdentifier.Picklist
+			<span>, </span>Description.NotEmpty, Description.Picklist
+			<span>, </span>Category.NotNull, Category.Picklist
+			</p>
+			<h5>
+				<span style="text-decoration:underline; ">Field Error Counts</span>
+			</h5>
+			<p style="text-align:left; ">Name: 0<span>, </span>CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>ExtSystem: 0<span>, </span>ExtObject: 0<span>, </span>ExtIdentifier: 0<span>, </span>Description: 0<span>, </span>Category: 0</p>
+			<br />
+			<h5>
+				<span style="text-decoration:underline; ">Field Warning Counts</span>
+			</h5>
+			<p style="text-align:left; ">Name: 0<span>, </span>CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>ExtSystem: 0<span>, </span>ExtObject: 0<span>, </span>ExtIdentifier: 0<span>, </span>Description: 0<span>, </span>Category: 0</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<a name="idmarkerx16777217x2967"></a>
+			<span>&nbsp;</span>
+			<a name="COBie.Jobs.Job">
+				<h4><span>1.18</span><span>&nbsp;</span>COBie.Jobs.Job<span>&nbsp; </span><span>(checked </span>94<span> rows)</span></h4>
+			</a>
+			<p style="text-align:left; "><span style="font-style:italic; ">Total </span><span style="font-style:italic; ">correct </span><span style="font-style:italic; ">COBie.Jobs.Job</span><span> items</span><span style="font-style:italic; ">&nbsp;</span><span style="font-style:italic; "> = </span>90<span style="font-style:italic; "> of </span><span style="font-style:italic; ">94</span><span style="font-style:italic; "> (</span><span style="font-style:italic; ">95.74</span><span style="font-style:italic; ">% correct</span><span style="font-style:italic; ">)</span></p>
+			<h5>
+				<span style="text-decoration:underline; ">Checks Performed</span>
+			</h5>
+			<p style="text-align:left; ">CreatedBy.CrossReference (ToContact), CreatedBy.NotNull, CreatedBy.Picklist
+			<span>, </span>CreatedOn.NotNull, CreatedOn.Valid (Valid ISO DateTime), CreatedOn.Picklist
+			<span>, </span>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<span>, </span>ExternalObject.NotEmpty, ExternalObject.Picklist
+			<span>, </span>ExtIdentifier.NotEmpty, ExtIdentifier.Picklist
+			<span>, </span>Description.NotEmpty, Description.Picklist
+			<span>, </span>Category.NotNull, Category.Picklist
+			<span>, </span>Name.NotNull, Name.Picklist
+			<span>, </span>PrimaryKey.Unique (Name,TypeName,TaskNumber)
+			<span>, </span>Status.NotNull, Status.Picklist
+			<span>, </span>TypeName.NotNull, TypeName.CrossReference, TypeName.Picklist
+			<span>, </span>Duration.NotEmpty, Duration.Picklist
+			<span>, </span>DurationUnit.NotEmpty, DurationUnit.Picklist
+			<span>, </span>Start.NotEmpty, Start.Picklist
+			<span>, </span>TaskStartUnit.NotEmpty, TaskStartUnit.Picklist
+			<span>, </span>Frequency.NotEmpty, Frequency.Picklist
+			<span>, </span>FrequencyUnit.NotEmpty, FrequencyUnit.Picklist
+			<span>, </span>TaskNumber.NotEmpty, TaskNumber.Picklist
+			<span>, </span>Priors.NotEmpty, Priors.Picklist
+			<span>, </span>ResourceNames.NotEmpty, ResourceNames.CrossReference, ResourceNames.Picklist
+			</p>
+			<h5>
+				<span style="text-decoration:underline; ">Field Error Counts</span>
+			</h5>
+			<p style="text-align:left; ">CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>ExtSystem: 0<span>, </span>ExtObject: 0<span>, </span>ExtIdentifier: 0<span>, </span>Description: 0<span>, </span>Category: 0<span>, </span>Name: 0<span>, </span>PrimaryKey: 0<span>, </span>Status: 0<span>, </span>TypeName: 0<span>, </span>Duration: 0<span>, </span>DurationUnit: 0<span>, </span>Start: 0<span>, </span>TaskStartUnit: 0<span>, </span>Frequency: 0<span>, </span>FrequencyUnit: 0<span>, </span>TaskNumber: 0<span>, </span>Priors: 1<span>, </span>ResourceNames: 3</p>
+			<br />
+			<h5>
+				<span style="text-decoration:underline; ">Field Warning Counts</span>
+			</h5>
+			<p style="text-align:left; ">CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>ExtSystem: 0<span>, </span>ExtObject: 0<span>, </span>ExtIdentifier: 0<span>, </span>Description: 0<span>, </span>Category: 0<span>, </span>Name: 0<span>, </span>PrimaryKey: 0<span>, </span>Status: 0<span>, </span>TypeName: 0<span>, </span>Duration: 0<span>, </span>DurationUnit: 0<span>, </span>Start: 0<span>, </span>TaskStartUnit: 0<span>, </span>Frequency: 0<span>, </span>FrequencyUnit: 0<span>, </span>TaskNumber: 0<span>, </span>Priors: 0<span>, </span>ResourceNames: 0</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<a name="idmarkerx16777217x3227"></a>
+			<span>&nbsp;</span>
+			<a name="COBie.Documents.Document">
+				<h4><span>1.19</span><span>&nbsp;</span>COBie.Documents.Document<span>&nbsp; </span><span>(checked </span>48<span> rows)</span></h4>
+			</a>
+			<p style="text-align:left; "><span style="font-style:italic; ">Total </span><span style="font-style:italic; ">correct </span><span style="font-style:italic; ">COBie.Documents.Document</span><span> items</span><span style="font-style:italic; ">&nbsp;</span><span style="font-style:italic; "> = </span>45<span style="font-style:italic; "> of </span><span style="font-style:italic; ">48</span><span style="font-style:italic; "> (</span><span style="font-style:italic; ">93.75</span><span style="font-style:italic; ">% correct</span><span style="font-style:italic; ">)</span></p>
+			<h5>
+				<span style="text-decoration:underline; ">Checks Performed</span>
+			</h5>
+			<p style="text-align:left; ">CreatedBy.CrossReference (ToContact), CreatedBy.NotNull, CreatedBy.Picklist
+			<span>, </span>CreatedOn.NotNull, CreatedOn.Valid (Valid ISO DateTime), CreatedOn.Picklist
+			<span>, </span>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<span>, </span>ExternalObject.NotEmpty, ExternalObject.Picklist
+			<span>, </span>ExtIdentifier.NotEmpty, ExtIdentifier.Picklist
+			<span>, </span>Description.NotEmpty, Description.Picklist
+			<span>, </span>Category.NotNull, Category.Picklist
+			<span>, </span>PrimaryKey.Unique (Name, Stage, SheetName, RowName)
+			<span>, </span>Name.NotNull, Name.Picklist
+			<span>, </span>ApprovalBy.NotEmpty, ApprovalBy.Picklist
+			<span>, </span>Stage.NotNull, Stage.Picklist
+			<span>, </span>SheetName.NotNull, SheetNameRowName.CrossReference
+			<span>, </span>RowName.NotNull
+			<span>, </span>Directory.NotNull, Directory.Picklist
+			<span>, </span>File.NotNull, File.Picklist
+			<span>, </span>Reference.NotEmpty, Reference.Picklist
+			</p>
+			<h5>
+				<span style="text-decoration:underline; ">Field Error Counts</span>
+			</h5>
+			<p style="text-align:left; ">CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>ExtSystem: 0<span>, </span>ExtObject: 0<span>, </span>ExtIdentifier: 0<span>, </span>Description: 0<span>, </span>Category: 0<span>, </span>PrimaryKey: 0<span>, </span>Name: 0<span>, </span>ApprovalBy: 0<span>, </span>Stage: 0<span>, </span>SheetName: 0<span>, </span>RowName: 3<span>, </span>Directory: 0<span>, </span>File: 0<span>, </span>Reference: 0</p>
+			<br />
+			<h5>
+				<span style="text-decoration:underline; ">Field Warning Counts</span>
+			</h5>
+			<p style="text-align:left; ">CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>ExtSystem: 0<span>, </span>ExtObject: 0<span>, </span>ExtIdentifier: 0<span>, </span>Description: 0<span>, </span>Category: 0<span>, </span>PrimaryKey: 0<span>, </span>Name: 0<span>, </span>ApprovalBy: 0<span>, </span>Stage: 0<span>, </span>SheetName: 0<span>, </span>RowName: 0<span>, </span>Directory: 0<span>, </span>File: 0<span>, </span>Reference: 0</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<a name="idmarkerx16777217x3451"></a>
+			<span>&nbsp;</span>
+			<a name="COBie.Attributes.Attribute">
+				<h4><span>1.20</span><span>&nbsp;</span>COBie.Attributes.Attribute<span>&nbsp; </span><span>(checked </span>94<span> rows)</span></h4>
+			</a>
+			<p style="text-align:left; "><span style="font-style:italic; ">Total </span><span style="font-style:italic; ">correct </span><span style="font-style:italic; ">COBie.Attributes.Attribute</span><span> items</span><span style="font-style:italic; ">&nbsp;</span><span style="font-style:italic; "> = </span>52<span style="font-style:italic; "> of </span><span style="font-style:italic; ">94</span><span style="font-style:italic; "> (</span><span style="font-style:italic; ">55.32</span><span style="font-style:italic; ">% correct</span><span style="font-style:italic; ">)</span></p>
+			<h5>
+				<span style="text-decoration:underline; ">Checks Performed</span>
+			</h5>
+			<p style="text-align:left; ">CreatedBy.CrossReference (ToContact), CreatedBy.NotNull, CreatedBy.Picklist
+			<span>, </span>CreatedOn.NotNull, CreatedOn.Valid (Valid ISO DateTime), CreatedOn.Picklist
+			<span>, </span>ExternalSystem.NotEmpty, ExternalSystem.Picklist
+			<span>, </span>ExternalObject.NotEmpty, ExternalObject.Picklist
+			<span>, </span>ExtIdentifier.NotEmpty, ExtIdentifier.Picklist
+			<span>, </span>Description.NotEmpty, Description.Picklist
+			<span>, </span>Category.NotNull, Category.Picklist
+			<span>, </span>PrimaryKey.Unique (Name, SheetName, RowName) 
+			<span>, </span>Name.NotNull, Name.Picklist
+			<span>, </span>SheetNameRowName.CrossReference
+			<span>, </span>Value.NotEmpty, Value.Picklist
+			<span>, </span>Unit.NotEmpty, Unit.Picklist
+			<span>, </span>AllowedValues.NotEmpty, AllowedValues.Picklist
+			</p>
+			<h5>
+				<span style="text-decoration:underline; ">Field Error Counts</span>
+			</h5>
+			<p style="text-align:left; ">CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>ExtSystem: 0<span>, </span>ExtObject: 0<span>, </span>ExtIdentifier: 0<span>, </span>Description: 9<span>, </span>Category: 0<span>, </span>PrimaryKey: 1<span>, </span>Name: 0<span>, </span>SheetNameRowName: 0<span>, </span>Value: 0<span>, </span>Unit: 0<span>, </span>AllowedValues: 42</p>
+			<br />
+			<h5>
+				<span style="text-decoration:underline; ">Field Warning Counts</span>
+			</h5>
+			<p style="text-align:left; ">CreatedBy: 0<span>, </span>CreatedOn: 0<span>, </span>ExtSystem: 0<span>, </span>ExtObject: 0<span>, </span>ExtIdentifier: 0<span>, </span>Description: 0<span>, </span>Category: 0<span>, </span>PrimaryKey: 0<span>, </span>Name: 0<span>, </span>SheetNameRowName: 0<span>, </span>Value: 0<span>, </span>Unit: 0<span>, </span>AllowedValues: 0</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<span>&nbsp;</span>
+			<span>&nbsp;</span>
+			<a name="idmarkerx16777217x3652"></a>
+			<span>&nbsp;</span>
+			<h2>
+				<span>2</span>
+				<span> Detailed Error Report Grouped by Error/Warning Type</span>
+			</h2>
+			<a name="idmarkerx16777217x3663"></a>
+			<span>&nbsp;</span>
+			<h3><span>2.1</span><span>&nbsp;</span>COBie.Spaces.Space<span> (</span>9<span> invalid </span><span>rows</span><span>, </span>0<span> warnings)</span></h3>
+			<a name="idmarkerx16777217x3687"></a>
+			<span>&nbsp;</span>
+			<a name="Common.Name.HasRequiredAttributes">
+				<h4><span>2.1.1</span><span>&nbsp;</span><span>Error:&nbsp; </span>Common.Name.HasRequiredAttributes<span> (</span>9<span> occurence</span><span>s</span><span>)</span></h4>
+			</a>
+			<p>
+				<span style="text-decoration:underline; ">Effected Rows:&nbsp; </span>
+			</p>
+			<p style="text-align:left; ">
+				<a href="#Space[1]">2<span>, </span></a>
+				<a href="#Space[2]">3<span>, </span></a>
+				<a href="#Space[11]">12<span>, </span></a>
+				<a href="#Space[12]">13<span>, </span></a>
+				<a href="#Space[13]">14<span>, </span></a>
+				<a href="#Space[14]">15<span>, </span></a>
+				<a href="#Space[15]">16<span>, </span></a>
+				<a href="#Space[16]">17<span>, </span></a>
+				<a href="#Space[22]">23</a>
+			</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<span>&nbsp; </span>
+			<a name="idmarkerx16777217x3771"></a>
+			<span>&nbsp;</span>
+			<h3><span>2.2</span><span>&nbsp;</span>COBie.Types.Type<span> (</span>1<span> invalid </span><span>row </span><span>, </span>0<span> warnings)</span></h3>
+			<a name="idmarkerx16777217x3795"></a>
+			<span>&nbsp;</span>
+			<a name="Type.DurationUnit.NotNull">
+				<h4><span>2.2.1</span><span>&nbsp;</span><span>Error:&nbsp; </span>Type.DurationUnit.NotNull<span> (</span>1<span> occurence</span><span>)</span></h4>
+			</a>
+			<p>
+				<span style="text-decoration:underline; ">Effected Rows:&nbsp; </span>
+			</p>
+			<p style="text-align:left; ">
+				<a href="#Type[18]">19</a>
+			</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<span>&nbsp; </span>
+			<a name="idmarkerx16777217x3837"></a>
+			<span>&nbsp;</span>
+			<h3><span>2.3</span><span>&nbsp;</span>COBie.Jobs.Job<span> (</span>4<span> invalid </span><span>rows</span><span>, </span>0<span> warnings)</span></h3>
+			<a name="idmarkerx16777217x3861"></a>
+			<span>&nbsp;</span>
+			<a name="Job.Priors.NotEmpty">
+				<h4><span>2.3.1</span><span>&nbsp;</span><span>Error:&nbsp; </span>Job.Priors.NotEmpty<span> (</span>1<span> occurence</span><span>)</span></h4>
+			</a>
+			<p>
+				<span style="text-decoration:underline; ">Effected Rows:&nbsp; </span>
+			</p>
+			<p style="text-align:left; ">
+				<a href="#Job[26]">27</a>
+			</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<a name="idmarkerx16777217x3901"></a>
+			<span>&nbsp;</span>
+			<a name="Job.ResourceNames.NotEmpty">
+				<h4><span>2.3.2</span><span>&nbsp;</span><span>Error:&nbsp; </span>Job.ResourceNames.NotEmpty<span> (</span>2<span> occurence</span><span>s</span><span>)</span></h4>
+			</a>
+			<p>
+				<span style="text-decoration:underline; ">Effected Rows:&nbsp; </span>
+			</p>
+			<p style="text-align:left; ">
+				<a href="#Job[44]">45<span>, </span></a>
+				<a href="#Job[86]">87</a>
+			</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<a name="idmarkerx16777217x3948"></a>
+			<span>&nbsp;</span>
+			<a name="Job.ResourceNames.CrossReference">
+				<h4><span>2.3.3</span><span>&nbsp;</span><span>Error:&nbsp; </span>Job.ResourceNames.CrossReference<span> (</span>3<span> occurence</span><span>s</span><span>)</span></h4>
+			</a>
+			<p>
+				<span style="text-decoration:underline; ">Effected Rows:&nbsp; </span>
+			</p>
+			<p style="text-align:left; ">
+				<a href="#Job[44]">45<span>, </span></a>
+				<a href="#Job[86]">87<span>, </span></a>
+				<a href="#Job[91]">92</a>
+			</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<span>&nbsp; </span>
+			<a name="idmarkerx16777217x4002"></a>
+			<span>&nbsp;</span>
+			<h3><span>2.4</span><span>&nbsp;</span>COBie.Documents.Document<span> (</span>3<span> invalid </span><span>rows</span><span>, </span>0<span> warnings)</span></h3>
+			<a name="idmarkerx16777217x4026"></a>
+			<span>&nbsp;</span>
+			<a name="Document.SheetNameRowName.Reference">
+				<h4><span>2.4.1</span><span>&nbsp;</span><span>Error:&nbsp; </span>Document.SheetNameRowName.Reference<span> (</span>3<span> occurence</span><span>s</span><span>)</span></h4>
+			</a>
+			<p>
+				<span style="text-decoration:underline; ">Effected Rows:&nbsp; </span>
+			</p>
+			<p style="text-align:left; ">
+				<a href="#Document[15]">16<span>, </span></a>
+				<a href="#Document[33]">34<span>, </span></a>
+				<a href="#Document[38]">39</a>
+			</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<span>&nbsp; </span>
+			<a name="idmarkerx16777217x4080"></a>
+			<span>&nbsp;</span>
+			<h3><span>2.5</span><span>&nbsp;</span>COBie.Attributes.Attribute<span> (</span>42<span> invalid </span><span>rows</span><span>, </span>0<span> warnings)</span></h3>
+			<a name="idmarkerx16777217x4104"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute.AllowedValues.NotEmpty">
+				<h4><span>2.5.1</span><span>&nbsp;</span><span>Error:&nbsp; </span>Attribute.AllowedValues.NotEmpty<span> (</span>42<span> occurence</span><span>s</span><span>)</span></h4>
+			</a>
+			<p>
+				<span style="text-decoration:underline; ">Effected Rows:&nbsp; </span>
+			</p>
+			<p style="text-align:left; ">
+				<a href="#Attribute[43]">44<span>, </span></a>
+				<a href="#Attribute[44]">45<span>, </span></a>
+				<a href="#Attribute[45]">46<span>, </span></a>
+				<a href="#Attribute[46]">47<span>, </span></a>
+				<a href="#Attribute[47]">48<span>, </span></a>
+				<a href="#Attribute[48]">49<span>, </span></a>
+				<a href="#Attribute[49]">50<span>, </span></a>
+				<a href="#Attribute[50]">51<span>, </span></a>
+				<a href="#Attribute[51]">52<span>, </span></a>
+				<a href="#Attribute[52]">53<span>, </span></a>
+				<a href="#Attribute[53]">54<span>, </span></a>
+				<a href="#Attribute[54]">55<span>, </span></a>
+				<a href="#Attribute[55]">56<span>, </span></a>
+				<a href="#Attribute[57]">58<span>, </span></a>
+				<a href="#Attribute[59]">60<span>, </span></a>
+				<a href="#Attribute[60]">61<span>, </span></a>
+				<a href="#Attribute[61]">62<span>, </span></a>
+				<a href="#Attribute[62]">63<span>, </span></a>
+				<a href="#Attribute[63]">64<span>, </span></a>
+				<a href="#Attribute[64]">65<span>, </span></a>
+				<p style="text-align:left; "/>
+				<a href="#Attribute[65]">66<span>, </span></a>
+				<a href="#Attribute[66]">67<span>, </span></a>
+				<a href="#Attribute[67]">68<span>, </span></a>
+				<a href="#Attribute[68]">69<span>, </span></a>
+				<a href="#Attribute[69]">70<span>, </span></a>
+				<a href="#Attribute[70]">71<span>, </span></a>
+				<a href="#Attribute[71]">72<span>, </span></a>
+				<a href="#Attribute[72]">73<span>, </span></a>
+				<a href="#Attribute[73]">74<span>, </span></a>
+				<a href="#Attribute[74]">75<span>, </span></a>
+				<a href="#Attribute[76]">77<span>, </span></a>
+				<a href="#Attribute[78]">79<span>, </span></a>
+				<a href="#Attribute[79]">80<span>, </span></a>
+				<a href="#Attribute[80]">81<span>, </span></a>
+				<a href="#Attribute[84]">85<span>, </span></a>
+				<a href="#Attribute[85]">86<span>, </span></a>
+				<a href="#Attribute[89]">90<span>, </span></a>
+				<a href="#Attribute[90]">91<span>, </span></a>
+				<a href="#Attribute[91]">92<span>, </span></a>
+				<a href="#Attribute[92]">93<span>, </span></a>
+				<p style="text-align:left; "/>
+				<a href="#Attribute[93]">94<span>, </span></a>
+				<a href="#Attribute[94]">95</a>
+			</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<a name="idmarkerx16777217x4355"></a>
+			<span>&nbsp;</span>
+			<a name="Common.Description.NotEmpty">
+				<h4><span>2.5.2</span><span>&nbsp;</span><span>Error:&nbsp; </span>Common.Description.NotEmpty<span> (</span>9<span> occurence</span><span>s</span><span>)</span></h4>
+			</a>
+			<p>
+				<span style="text-decoration:underline; ">Effected Rows:&nbsp; </span>
+			</p>
+			<p style="text-align:left; ">
+				<a href="#Attribute[63]">64<span>, </span></a>
+				<a href="#Attribute[64]">65<span>, </span></a>
+				<a href="#Attribute[65]">66<span>, </span></a>
+				<a href="#Attribute[66]">67<span>, </span></a>
+				<a href="#Attribute[67]">68<span>, </span></a>
+				<a href="#Attribute[91]">92<span>, </span></a>
+				<a href="#Attribute[92]">93<span>, </span></a>
+				<a href="#Attribute[93]">94<span>, </span></a>
+				<a href="#Attribute[94]">95</a>
+			</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<a name="idmarkerx16777217x4437"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute.PrimaryKey.Unique">
+				<h4><span>2.5.3</span><span>&nbsp;</span><span>Error:&nbsp; </span>Attribute.PrimaryKey.Unique<span> (</span>1<span> occurence</span><span>)</span></h4>
+			</a>
+			<p>
+				<span style="text-decoration:underline; ">Effected Rows:&nbsp; </span>
+			</p>
+			<p style="text-align:left; ">
+				<a href="#Attribute[79]">80</a>
+			</p>
+			<p style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</p>
+			<hr />
+			<span>&nbsp; </span>
+			<span>&nbsp;</span>
+			<a name="idmarkerx16777217x4481"></a>
+			<span>&nbsp;</span>
+			<h2>
+				<span>3</span>
+				<span> Detailed Error Report Grouped by Row</span>
+			</h2>
+			<a name="idmarkerx16777217x4492"></a>
+			<span>&nbsp;</span>
+			<h3><span>3.1</span><span>&nbsp;</span>COBie.Spaces.Space<span> (</span>9<span> invalid </span><span>rows</span><span>, </span>0<span> warnings)</span></h3>
+			<a name="idmarkerx16777217x4516"></a>
+			<span>&nbsp;</span>
+			<a name="Space[1]">
+				<h4><span>3.1.1</span><span>&nbsp;</span>Space[2]<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Common.Name.HasRequiredAttributes">
+								<span>Common.Name.HasRequiredAttributes</span>
+							</a>
+						</td>
+						<td>Bathrooms must have toiletcount attribute</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x4569"></a>
+			<span>&nbsp;</span>
+			<a name="Space[2]">
+				<h4><span>3.1.2</span><span>&nbsp;</span>Space[3]<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Common.Name.HasRequiredAttributes">
+								<span>Common.Name.HasRequiredAttributes</span>
+							</a>
+						</td>
+						<td>Bathrooms must have toiletcount attribute</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x4622"></a>
+			<span>&nbsp;</span>
+			<a name="Space[11]">
+				<h4><span>3.1.3</span><span>&nbsp;</span>Space[12]<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Common.Name.HasRequiredAttributes">
+								<span>Common.Name.HasRequiredAttributes</span>
+							</a>
+						</td>
+						<td>Bathrooms must have toiletcount attribute</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x4675"></a>
+			<span>&nbsp;</span>
+			<a name="Space[12]">
+				<h4><span>3.1.4</span><span>&nbsp;</span>Space[13]<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Common.Name.HasRequiredAttributes">
+								<span>Common.Name.HasRequiredAttributes</span>
+							</a>
+						</td>
+						<td>Bathrooms must have toiletcount attribute</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x4728"></a>
+			<span>&nbsp;</span>
+			<a name="Space[13]">
+				<h4><span>3.1.5</span><span>&nbsp;</span>Space[14]<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Common.Name.HasRequiredAttributes">
+								<span>Common.Name.HasRequiredAttributes</span>
+							</a>
+						</td>
+						<td>Space must have PerimeterBathrooms must have toiletcount attribute</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x4781"></a>
+			<span>&nbsp;</span>
+			<a name="Space[14]">
+				<h4><span>3.1.6</span><span>&nbsp;</span>Space[15]<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Common.Name.HasRequiredAttributes">
+								<span>Common.Name.HasRequiredAttributes</span>
+							</a>
+						</td>
+						<td>Bathrooms must have toiletcount attribute</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x4834"></a>
+			<span>&nbsp;</span>
+			<a name="Space[15]">
+				<h4><span>3.1.7</span><span>&nbsp;</span>Space[16]<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Common.Name.HasRequiredAttributes">
+								<span>Common.Name.HasRequiredAttributes</span>
+							</a>
+						</td>
+						<td>Bathrooms must have toiletcount attribute</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x4887"></a>
+			<span>&nbsp;</span>
+			<a name="Space[16]">
+				<h4><span>3.1.8</span><span>&nbsp;</span>Space[17]<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Common.Name.HasRequiredAttributes">
+								<span>Common.Name.HasRequiredAttributes</span>
+							</a>
+						</td>
+						<td>Bathrooms must have toiletcount attribute</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x4940"></a>
+			<span>&nbsp;</span>
+			<a name="Space[22]">
+				<h4><span>3.1.9</span><span>&nbsp;</span>Space[23]<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Common.Name.HasRequiredAttributes">
+								<span>Common.Name.HasRequiredAttributes</span>
+							</a>
+						</td>
+						<td>Space must have Perimeter</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<span>&nbsp; </span>
+			<hr />
+			<a name="idmarkerx16777217x4996"></a>
+			<span>&nbsp;</span>
+			<h3><span>3.2</span><span>&nbsp;</span>COBie.Types.Type<span> (</span>1<span> invalid </span><span>row </span><span>, </span>0<span> warnings)</span></h3>
+			<a name="idmarkerx16777217x5020"></a>
+			<span>&nbsp;</span>
+			<a name="Type[18]">
+				<h4><span>3.2.1</span><span>&nbsp;</span>Type[19]:  Fire Alarm<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Type.DurationUnit.NotNull">
+								<span>Type.DurationUnit.NotNull</span>
+							</a>
+						</td>
+						<td>Type.Fire Alarm:  Type.DurationUnit must be provided (n/a is unacceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<span>&nbsp; </span>
+			<hr />
+			<a name="idmarkerx16777217x5076"></a>
+			<span>&nbsp;</span>
+			<h3><span>3.3</span><span>&nbsp;</span>COBie.Jobs.Job<span> (</span>4<span> invalid </span><span>rows</span><span>, </span>0<span> warnings)</span></h3>
+			<a name="idmarkerx16777217x5100"></a>
+			<span>&nbsp;</span>
+			<a name="Job[26]">
+				<h4><span>3.3.1</span><span>&nbsp;</span>Job[27]:  Boiler Inspection - Bi Weekly,Boiler,B-4<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Job.Priors.NotEmpty">
+								<span>Job.Priors.NotEmpty</span>
+							</a>
+						</td>
+						<td>Job.Boiler Inspection - Bi Weekly,Boiler,B-4:  Job.Priors must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x5153"></a>
+			<span>&nbsp;</span>
+			<a name="Job[44]">
+				<h4><span>3.3.2</span><span>&nbsp;</span>Job[45]:  Emergency Lights (Closed Systems),Light Fixture Type B,0.0<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Job.ResourceNames.NotEmpty">
+								<span>Job.ResourceNames.NotEmpty</span>
+							</a>
+						</td>
+						<td>Job.Emergency Lights (Closed Systems),Light Fixture Type B,0.0:  Job.ResourceNames must be provided (n/a is acceptable)</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#Job.ResourceNames.CrossReference">
+								<span>Job.ResourceNames.CrossReference</span>
+							</a>
+						</td>
+						<td>Job.Emergency Lights (Closed Systems),Light Fixture Type B,0.0:  Job.ResourceNames must exist in Resource.Name</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x5214"></a>
+			<span>&nbsp;</span>
+			<a name="Job[86]">
+				<h4><span>3.3.3</span><span>&nbsp;</span>Job[87]:  Radiator - Annual Service,Radiator,0.0<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Job.ResourceNames.NotEmpty">
+								<span>Job.ResourceNames.NotEmpty</span>
+							</a>
+						</td>
+						<td>Job.Radiator - Annual Service,Radiator,0.0:  Job.ResourceNames must be provided (n/a is acceptable)</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#Job.ResourceNames.CrossReference">
+								<span>Job.ResourceNames.CrossReference</span>
+							</a>
+						</td>
+						<td>Job.Radiator - Annual Service,Radiator,0.0:  Job.ResourceNames must exist in Resource.Name</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x5275"></a>
+			<span>&nbsp;</span>
+			<a name="Job[91]">
+				<h4><span>3.3.4</span><span>&nbsp;</span>Job[92]:  Radiator - Annual Service,Radiator,5.0<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Job.ResourceNames.CrossReference">
+								<span>Job.ResourceNames.CrossReference</span>
+							</a>
+						</td>
+						<td>Job.Radiator - Annual Service,Radiator,5.0:  Job.ResourceNames must exist in Resource.Name</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<span>&nbsp; </span>
+			<hr />
+			<a name="idmarkerx16777217x5331"></a>
+			<span>&nbsp;</span>
+			<h3><span>3.4</span><span>&nbsp;</span>COBie.Documents.Document<span> (</span>3<span> invalid </span><span>rows</span><span>, </span>0<span> warnings)</span></h3>
+			<a name="idmarkerx16777217x5355"></a>
+			<span>&nbsp;</span>
+			<a name="Document[15]">
+				<h4><span>3.4.1</span><span>&nbsp;</span>Document[16]:  Duplex Receptacle Product Data,Submitted,Type,Duplex Receptacle Product Data<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Document.SheetNameRowName.Reference">
+								<span>Document.SheetNameRowName.Reference</span>
+							</a>
+						</td>
+						<td>Document.Duplex Receptacle Product Data,Submitted,Type,Duplex Receptacle Product Data:  Document.RowName must exist in Type.Name</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x5408"></a>
+			<span>&nbsp;</span>
+			<a name="Document[33]">
+				<h4><span>3.4.2</span><span>&nbsp;</span>Document[34]:  Shower Product Data,Submitted,Type,Shower<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Document.SheetNameRowName.Reference">
+								<span>Document.SheetNameRowName.Reference</span>
+							</a>
+						</td>
+						<td>Document.Shower Product Data,Submitted,Type,Shower:  Document.RowName must exist in Type.Name</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x5461"></a>
+			<span>&nbsp;</span>
+			<a name="Document[38]">
+				<h4><span>3.4.3</span><span>&nbsp;</span>Document[39]:  Sink Type C Product Data,Submitted,Type,Sing Type C<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Document.SheetNameRowName.Reference">
+								<span>Document.SheetNameRowName.Reference</span>
+							</a>
+						</td>
+						<td>Document.Sink Type C Product Data,Submitted,Type,Sing Type C:  Document.RowName must exist in Type.Name</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<span>&nbsp; </span>
+			<hr />
+			<a name="idmarkerx16777217x5517"></a>
+			<span>&nbsp;</span>
+			<h3><span>3.5</span><span>&nbsp;</span>COBie.Attributes.Attribute<span> (</span>42<span> invalid </span><span>rows</span><span>, </span>0<span> warnings)</span></h3>
+			<a name="idmarkerx16777217x5541"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[43]">
+				<h4><span>3.5.1</span><span>&nbsp;</span>Attribute[44]:  HasSinkHole,Component,Counter Top-1,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.HasSinkHole,Component,Counter Top-1,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x5594"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[44]">
+				<h4><span>3.5.2</span><span>&nbsp;</span>Attribute[45]:  HasSinkHole,Component,Counter Top-2,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.HasSinkHole,Component,Counter Top-2,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x5647"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[45]">
+				<h4><span>3.5.3</span><span>&nbsp;</span>Attribute[46]:  HasSinkHole,Component,Counter Top-3,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.HasSinkHole,Component,Counter Top-3,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x5700"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[46]">
+				<h4><span>3.5.4</span><span>&nbsp;</span>Attribute[47]:  HasSinkHole,Component,Counter Top-4,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.HasSinkHole,Component,Counter Top-4,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x5753"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[47]">
+				<h4><span>3.5.5</span><span>&nbsp;</span>Attribute[48]:  HasSinkHole,Component,Counter Top-5,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.HasSinkHole,Component,Counter Top-5,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x5806"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[48]">
+				<h4><span>3.5.6</span><span>&nbsp;</span>Attribute[49]:  HasSinkHole,Component,Counter Top-6,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.HasSinkHole,Component,Counter Top-6,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x5859"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[49]">
+				<h4><span>3.5.7</span><span>&nbsp;</span>Attribute[50]:  Current,Type,Duplex Receptacle,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.Current,Type,Duplex Receptacle,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x5912"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[50]">
+				<h4><span>3.5.8</span><span>&nbsp;</span>Attribute[51]:  Voltage,Type,Duplex Receptacle,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.Voltage,Type,Duplex Receptacle,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x5965"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[51]">
+				<h4><span>3.5.9</span><span>&nbsp;</span>Attribute[52]:  Power,Type,Duplex Receptacle,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.Power,Type,Duplex Receptacle,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x6018"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[52]">
+				<h4><span>3.5.10</span><span>&nbsp;</span>Attribute[53]:  Frequency,Type,Duplex Receptacle,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.Frequency,Type,Duplex Receptacle,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x6071"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[53]">
+				<h4><span>3.5.11</span><span>&nbsp;</span>Attribute[54]:  PhaseAngle,Type,Duplex Receptacle,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.PhaseAngle,Type,Duplex Receptacle,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x6124"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[54]">
+				<h4><span>3.5.12</span><span>&nbsp;</span>Attribute[55]:  PhaseReference,Type,Duplex Receptacle,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.PhaseReference,Type,Duplex Receptacle,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x6177"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[55]">
+				<h4><span>3.5.13</span><span>&nbsp;</span>Attribute[56]:  NumberOfPoles,Type,Duplex Receptacle,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.NumberOfPoles,Type,Duplex Receptacle,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x6230"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[57]">
+				<h4><span>3.5.14</span><span>&nbsp;</span>Attribute[58]:  IPCode,Type,Duplex Receptacle,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.IPCode,Type,Duplex Receptacle,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x6283"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[59]">
+				<h4><span>3.5.15</span><span>&nbsp;</span>Attribute[60]:  Reference,Type,Duplex Receptacle,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.Reference,Type,Duplex Receptacle,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x6336"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[60]">
+				<h4><span>3.5.16</span><span>&nbsp;</span>Attribute[61]:  IsPluggableOutlet,Type,Duplex Receptacle,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.IsPluggableOutlet,Type,Duplex Receptacle,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x6389"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[61]">
+				<h4><span>3.5.17</span><span>&nbsp;</span>Attribute[62]:  UNSPSC_ID,Type,Duplex Receptacle,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.UNSPSC_ID,Type,Duplex Receptacle,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x6442"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[62]">
+				<h4><span>3.5.18</span><span>&nbsp;</span>Attribute[63]:  UNSPSC_Name,Type,Duplex Receptacle,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.UNSPSC_Name,Type,Duplex Receptacle,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x6495"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[63]">
+				<h4><span>3.5.19</span><span>&nbsp;</span>Attribute[64]:  Style,Type,Duplex Receptacle,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Common.Description.NotEmpty">
+								<span>Common.Description.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.Style,Type,Duplex Receptacle,As Built:  Attribute.Description must be provided (n/a is acceptable)</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.Style,Type,Duplex Receptacle,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x6556"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[64]">
+				<h4><span>3.5.20</span><span>&nbsp;</span>Attribute[65]:  Wires,Type,Duplex Receptacle,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Common.Description.NotEmpty">
+								<span>Common.Description.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.Wires,Type,Duplex Receptacle,As Built:  Attribute.Description must be provided (n/a is acceptable)</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.Wires,Type,Duplex Receptacle,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x6617"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[65]">
+				<h4><span>3.5.21</span><span>&nbsp;</span>Attribute[66]:  WiringMethod,Type,Duplex Receptacle,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Common.Description.NotEmpty">
+								<span>Common.Description.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.WiringMethod,Type,Duplex Receptacle,As Built:  Attribute.Description must be provided (n/a is acceptable)</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.WiringMethod,Type,Duplex Receptacle,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x6678"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[66]">
+				<h4><span>3.5.22</span><span>&nbsp;</span>Attribute[67]:  HospitalGrade?,Type,Duplex Receptacle,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Common.Description.NotEmpty">
+								<span>Common.Description.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.HospitalGrade?,Type,Duplex Receptacle,As Built:  Attribute.Description must be provided (n/a is acceptable)</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.HospitalGrade?,Type,Duplex Receptacle,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x6739"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[67]">
+				<h4><span>3.5.23</span><span>&nbsp;</span>Attribute[68]:  NEMAConfig.No.,Type,Duplex Receptacle,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Common.Description.NotEmpty">
+								<span>Common.Description.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.NEMAConfig.No.,Type,Duplex Receptacle,As Built:  Attribute.Description must be provided (n/a is acceptable)</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.NEMAConfig.No.,Type,Duplex Receptacle,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x6800"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[68]">
+				<h4><span>3.5.24</span><span>&nbsp;</span>Attribute[69]:  Current,Type,Single Pole Switch,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.Current,Type,Single Pole Switch,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x6853"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[69]">
+				<h4><span>3.5.25</span><span>&nbsp;</span>Attribute[70]:  Voltage,Type,Single Pole Switch,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.Voltage,Type,Single Pole Switch,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x6906"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[70]">
+				<h4><span>3.5.26</span><span>&nbsp;</span>Attribute[71]:  Power,Type,Single Pole Switch,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.Power,Type,Single Pole Switch,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x6959"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[71]">
+				<h4><span>3.5.27</span><span>&nbsp;</span>Attribute[72]:  Frequency,Type,Single Pole Switch,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.Frequency,Type,Single Pole Switch,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x7012"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[72]">
+				<h4><span>3.5.28</span><span>&nbsp;</span>Attribute[73]:  PhaseAngle,Type,Single Pole Switch,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.PhaseAngle,Type,Single Pole Switch,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x7065"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[73]">
+				<h4><span>3.5.29</span><span>&nbsp;</span>Attribute[74]:  PhaseReference,Type,Single Pole Switch,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.PhaseReference,Type,Single Pole Switch,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x7118"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[74]">
+				<h4><span>3.5.30</span><span>&nbsp;</span>Attribute[75]:  NumberOfPoles,Type,Single Pole Switch,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.NumberOfPoles,Type,Single Pole Switch,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x7171"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[76]">
+				<h4><span>3.5.31</span><span>&nbsp;</span>Attribute[77]:  IPCode,Type,Single Pole Switch,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.IPCode,Type,Single Pole Switch,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x7224"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[78]">
+				<h4><span>3.5.32</span><span>&nbsp;</span>Attribute[79]:  Reference,Type,Single Pole Switch,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.Reference,Type,Single Pole Switch,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x7277"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[79]">
+				<h4><span>3.5.33</span><span>&nbsp;</span>Attribute[80]:  Reference,Type,Single Pole Switch,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.PrimaryKey.Unique">
+								<span>Attribute.PrimaryKey.Unique</span>
+							</a>
+						</td>
+						<td>Attribute.Reference,Type,Single Pole Switch,As Built:  Attribute.Name,SheetName,RowName,Category must be unique</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.Reference,Type,Single Pole Switch,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x7338"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[80]">
+				<h4><span>3.5.34</span><span>&nbsp;</span>Attribute[81]:  NumberOfGangs,Type,Single Pole Switch,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.NumberOfGangs,Type,Single Pole Switch,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x7391"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[84]">
+				<h4><span>3.5.35</span><span>&nbsp;</span>Attribute[85]:  Legend,Type,Single Pole Switch,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.Legend,Type,Single Pole Switch,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x7444"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[85]">
+				<h4><span>3.5.36</span><span>&nbsp;</span>Attribute[86]:  SetPoint,Type,Single Pole Switch,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.SetPoint,Type,Single Pole Switch,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x7497"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[89]">
+				<h4><span>3.5.37</span><span>&nbsp;</span>Attribute[90]:  UNSPSC_ID,Type,Single Pole Switch,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.UNSPSC_ID,Type,Single Pole Switch,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x7550"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[90]">
+				<h4><span>3.5.38</span><span>&nbsp;</span>Attribute[91]:  UNSPSC_Name,Type,Single Pole Switch,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.UNSPSC_Name,Type,Single Pole Switch,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x7603"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[91]">
+				<h4><span>3.5.39</span><span>&nbsp;</span>Attribute[92]:  HandlePositions,Type,Single Pole Switch,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Common.Description.NotEmpty">
+								<span>Common.Description.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.HandlePositions,Type,Single Pole Switch,As Built:  Attribute.Description must be provided (n/a is acceptable)</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.HandlePositions,Type,Single Pole Switch,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x7664"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[92]">
+				<h4><span>3.5.40</span><span>&nbsp;</span>Attribute[93]:  WiringStyle,Type,Single Pole Switch,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Common.Description.NotEmpty">
+								<span>Common.Description.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.WiringStyle,Type,Single Pole Switch,As Built:  Attribute.Description must be provided (n/a is acceptable)</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.WiringStyle,Type,Single Pole Switch,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x7725"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[93]">
+				<h4><span>3.5.41</span><span>&nbsp;</span>Attribute[94]:  OperatingTemperatures,Type,Single Pole Switch,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Common.Description.NotEmpty">
+								<span>Common.Description.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.OperatingTemperatures,Type,Single Pole Switch,As Built:  Attribute.Description must be provided (n/a is acceptable)</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.OperatingTemperatures,Type,Single Pole Switch,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<a name="idmarkerx16777217x7786"></a>
+			<span>&nbsp;</span>
+			<a name="Attribute[94]">
+				<h4><span>3.5.42</span><span>&nbsp;</span>Attribute[95]:  Weight,Type,Single Pole Switch,As Built<span>&nbsp;</span></h4>
+			</a>
+			<br />
+			<table border="1">
+				<thead>
+					<tr>
+						<th colspan="2">
+							<span>Errors</span>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<span>Error ID</span>
+						</th>
+						<th>
+							<span>Error Message</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="#Common.Description.NotEmpty">
+								<span>Common.Description.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.Weight,Type,Single Pole Switch,As Built:  Attribute.Description must be provided (n/a is acceptable)</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#Attribute.AllowedValues.NotEmpty">
+								<span>Attribute.AllowedValues.NotEmpty</span>
+							</a>
+						</td>
+						<td>Attribute.Weight,Type,Single Pole Switch,As Built:  Attribute.AllowedValues must be provided (n/a is acceptable)</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<span>&nbsp;</span>
+			<div style="text-align:left; ">
+				<a href="#TOC">
+					<span style="padding-left:25px; ">Table of Contents</span>
+				</a>
+			</div>
+			<span>&nbsp; </span>
+			<hr />
+		</div>
+	</body>
+</html>
