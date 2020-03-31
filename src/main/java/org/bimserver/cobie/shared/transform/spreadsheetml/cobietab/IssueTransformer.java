@@ -1,7 +1,5 @@
 package org.bimserver.cobie.shared.transform.spreadsheetml.cobietab;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +8,8 @@ import nl.fountain.xelem.excel.Row;
 import nl.fountain.xelem.excel.Workbook;
 import nl.fountain.xelem.excel.Worksheet;
 
+import org.bimserver.cobie.shared.COBieTokenUtility;
+import org.bimserver.cobie.shared.COBieTokenUtility.IssueColumnNameLiterals;
 import org.bimserver.cobie.shared.utility.COBieStringHandler;
 import org.bimserver.cobie.shared.utility.COBieUtility.CobieSheetName;
 import org.nibs.cobie.tab.COBIEType;
@@ -22,23 +22,15 @@ public class IssueTransformer extends SpreadsheetMLTransformer
         super(workbook, cobie, cobieStringWriter);
     }
 
-    public static enum IssueColumnNameLiterals
-    {
-        Name, CreatedBy, CreatedOn, Type, Risk, Chance, Impact, SheetName1, RowName1, SheetName2, RowName2, Description, Owner, Mitigation, ExtSystem
-    }
-
-    public static ArrayList<String> IssueColumnNames = new ArrayList<String>(Arrays.asList("Name", "CreatedBy", "CreatedOn", "Type", "Risk",
-            "Chance", "Impact", "SheetName1", "RowName1", "SheetName2", "RowName2", "Description", "Owner", "Mitigation", "ExtSystem"));
-
     public IssueTransformer(COBIEType cobie, Workbook workbook)
     {
         super(cobie, workbook);
-    };
+    }
 
     @Override
     protected List<String> getColumnNames()
     {
-        return IssueColumnNames;
+        return COBieTokenUtility.IssueColumnNames;
     }
 
 
@@ -92,7 +84,7 @@ public class IssueTransformer extends SpreadsheetMLTransformer
         idxDescription = columnDictionary.get(IssueColumnNameLiterals.Description.toString());
         idxOwner = columnDictionary.get(IssueColumnNameLiterals.Owner.toString());
         idxMitigation = columnDictionary.get(IssueColumnNameLiterals.Mitigation.toString());
-        idxExtSystem = columnDictionary.get(IssueColumnNameLiterals.ExtSystem.toString());
+        idxExtSystem = columnDictionary.get(IssueColumnNameLiterals.ExternalSystem.toString());
         int rowIdx;
         int firstRowIdx = Worksheet.firstRow;
         for (Row rowData : sheet.getRows())

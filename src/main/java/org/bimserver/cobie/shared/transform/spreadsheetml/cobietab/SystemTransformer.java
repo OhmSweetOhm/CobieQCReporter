@@ -71,9 +71,9 @@ public class SystemTransformer extends SpreadsheetMLTransformer
         idxCreatedOn = columnDictionary.get(SystemColumnNameLiterals.CreatedOn.toString());
         idxCategory = columnDictionary.get(SystemColumnNameLiterals.Category.toString());
         idxComponentNames = columnDictionary.get(SystemColumnNameLiterals.ComponentNames.toString());
-        idxExtSystem = columnDictionary.get(SystemColumnNameLiterals.ExtSystem.toString());
-        idxExtObject = columnDictionary.get(SystemColumnNameLiterals.ExtObject.toString());
-        idxExtIdentifier = columnDictionary.get(SystemColumnNameLiterals.ExtIdentifier.toString());
+        idxExtSystem = columnDictionary.get(SystemColumnNameLiterals.ExternalSystem.toString());
+        idxExtObject = columnDictionary.get(SystemColumnNameLiterals.ExternalObject.toString());
+        idxExtIdentifier = columnDictionary.get(SystemColumnNameLiterals.ExternalIdentifier.toString());
         idxDescription = columnDictionary.get(SystemColumnNameLiterals.Description.toString());
         int rowIdx;
         int firstRowIdx = Worksheet.firstRow;

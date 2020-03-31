@@ -1,7 +1,5 @@
 package org.bimserver.cobie.shared.transform.spreadsheetml.cobietab;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +8,8 @@ import nl.fountain.xelem.excel.Row;
 import nl.fountain.xelem.excel.Workbook;
 import nl.fountain.xelem.excel.Worksheet;
 
+import org.bimserver.cobie.shared.COBieTokenUtility;
+import org.bimserver.cobie.shared.COBieTokenUtility.ImpactColumnNameLiterals;
 import org.bimserver.cobie.shared.utility.COBieStringHandler;
 import org.bimserver.cobie.shared.utility.COBieUtility;
 import org.nibs.cobie.tab.COBIEType;
@@ -22,24 +22,15 @@ public class ImpactTransformer extends SpreadsheetMLTransformer
         super(workbook, cobie, cobieStringWriter);
     }
 
-    public static enum ImpactColumnNameLiterals
-    {
-        Name, CreatedBy, CreatedOn, ImpactType, ImpactStage, SheetName, RowName, Value, ImpactUnit, LeadInTime, Duration, LeadOutTime, ExtSystem, ExtObject, ExtIdentifier, Description
-    }
-
-    public static ArrayList<String> ImpactColumnNames = new ArrayList<String>(Arrays.asList("Name", "CreatedBy", "CreatedOn", "ImpactType",
-            "ImpactStage", "SheetName", "RowName", "Value", "ImpactUnit", "LeadInTime", "Duration", "LeadOutTime", "ExtSystem", "ExtObject",
-            "ExtIdentifier", "Description"));
-
     public ImpactTransformer(COBIEType cobie, Workbook workbook)
     {
         super(cobie, workbook);
-    };
+    }
 
     @Override
     protected List<String> getColumnNames()
     {
-        return ImpactColumnNames;
+        return COBieTokenUtility.ImpactColumnNames;
     }
 
     @Override
@@ -96,9 +87,9 @@ public class ImpactTransformer extends SpreadsheetMLTransformer
             idxLeadInTime = columnDictionary.get(ImpactColumnNameLiterals.LeadInTime.toString());
             idxDuration = columnDictionary.get(ImpactColumnNameLiterals.Duration.toString());
             idxLeadOutTime = columnDictionary.get(ImpactColumnNameLiterals.LeadOutTime.toString());
-            idxExtSystem = columnDictionary.get(ImpactColumnNameLiterals.ExtSystem.toString());
-            idxExtObject = columnDictionary.get(ImpactColumnNameLiterals.ExtObject.toString());
-            idxExtIdentifier = columnDictionary.get(ImpactColumnNameLiterals.ExtIdentifier.toString());
+            idxExtSystem = columnDictionary.get(ImpactColumnNameLiterals.ExternalSystem.toString());
+            idxExtObject = columnDictionary.get(ImpactColumnNameLiterals.ExternalObject.toString());
+            idxExtIdentifier = columnDictionary.get(ImpactColumnNameLiterals.ExternalIdentifier.toString());
             idxDescription = columnDictionary.get(ImpactColumnNameLiterals.Description.toString());
             int rowIdx;
             int firstRowIdx = Worksheet.firstRow;

@@ -92,9 +92,9 @@ public class AssemblyTransformer extends SpreadsheetMLTransformer
         idxParentName = getColumnDictionary().get(AssemblyColumnNameLiterals.ParentName.toString());
         idxChildNames = getColumnDictionary().get(AssemblyColumnNameLiterals.ChildNames.toString());
         idxAssemblyType = getColumnDictionary().get(AssemblyColumnNameLiterals.AssemblyType.toString());
-        idxExtSystem = getColumnDictionary().get(AssemblyColumnNameLiterals.ExtSystem.toString());
-        idxExtObject = getColumnDictionary().get(AssemblyColumnNameLiterals.ExtObject.toString());
-        idxExtIdentifier = getColumnDictionary().get(AssemblyColumnNameLiterals.ExtIdentifier.toString());
+        idxExtSystem = getColumnDictionary().get(AssemblyColumnNameLiterals.ExternalSystem.toString());
+        idxExtObject = getColumnDictionary().get(AssemblyColumnNameLiterals.ExternalObject.toString());
+        idxExtIdentifier = getColumnDictionary().get(AssemblyColumnNameLiterals.ExternalIdentifier.toString());
         idxDescription = getColumnDictionary().get(AssemblyColumnNameLiterals.Description.toString());
 
         int rowIdx;

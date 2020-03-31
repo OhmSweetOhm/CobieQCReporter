@@ -1,7 +1,5 @@
 package org.bimserver.cobie.shared.transform.spreadsheetml.cobietab;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +8,8 @@ import nl.fountain.xelem.excel.Row;
 import nl.fountain.xelem.excel.Workbook;
 import nl.fountain.xelem.excel.Worksheet;
 
+import org.bimserver.cobie.shared.COBieTokenUtility;
+import org.bimserver.cobie.shared.COBieTokenUtility.ResourceColumnNameLiterals;
 import org.bimserver.cobie.shared.utility.COBieStringHandler;
 import org.bimserver.cobie.shared.utility.COBieUtility.CobieSheetName;
 import org.nibs.cobie.tab.COBIEType;
@@ -22,23 +22,15 @@ public class ResourceTransformer extends SpreadsheetMLTransformer
         super(workbook, cobie, cobieStringWriter);
     }
 
-    public static enum ResourceColumnNameLiterals
-    {
-        Name, CreatedBy, CreatedOn, Category, ExtSystem, ExtObject, ExtIdentifier, Description
-    }
-
-    public static ArrayList<String> ResourceColumnNames = new ArrayList<String>(Arrays.asList("Name", "CreatedBy", "CreatedOn", "Category",
-            "ExtSystem", "ExtObject", "ExtIdentifier", "Description"));
-
     public ResourceTransformer(COBIEType cobie, Workbook workbook)
     {
         super(cobie, workbook);
-    };
+    }
 
     @Override
     protected List<String> getColumnNames()
     {
-        return ResourceColumnNames;
+        return COBieTokenUtility.ResourceColumnNames;
     }
 
     @Override
@@ -74,9 +66,9 @@ public class ResourceTransformer extends SpreadsheetMLTransformer
         idxCreatedBy = columnDictionary.get(ResourceColumnNameLiterals.CreatedBy.toString());
         idxCreatedOn = columnDictionary.get(ResourceColumnNameLiterals.CreatedOn.toString());
         idxCategory = columnDictionary.get(ResourceColumnNameLiterals.Category.toString());
-        idxExtSystem = columnDictionary.get(ResourceColumnNameLiterals.ExtSystem.toString());
-        idxExtObject = columnDictionary.get(ResourceColumnNameLiterals.ExtObject.toString());
-        idxExtIdentifier = columnDictionary.get(ResourceColumnNameLiterals.ExtIdentifier.toString());
+        idxExtSystem = columnDictionary.get(ResourceColumnNameLiterals.ExternalSystem.toString());
+        idxExtObject = columnDictionary.get(ResourceColumnNameLiterals.ExternalObject.toString());
+        idxExtIdentifier = columnDictionary.get(ResourceColumnNameLiterals.ExternalIdentifier.toString());
         idxDescription = columnDictionary.get(ResourceColumnNameLiterals.Description.toString());
         int rowIdx;
         int firstRowIdx = Worksheet.firstRow;

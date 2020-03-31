@@ -102,9 +102,9 @@ public class SpaceTransformer extends SpreadsheetMLTransformer
         idxCategory = columnDictionary.get(SpaceColumnNameLiterals.Category.toString());
         idxFloorName = columnDictionary.get(SpaceColumnNameLiterals.FloorName.toString());
         idxDescription = columnDictionary.get(SpaceColumnNameLiterals.Description.toString());
-        idxExtSystem = columnDictionary.get(SpaceColumnNameLiterals.ExtSystem.toString());
-        idxExtObject = columnDictionary.get(SpaceColumnNameLiterals.ExtObject.toString());
-        idxExtIdentifier = columnDictionary.get(SpaceColumnNameLiterals.ExtIdentifier.toString());
+        idxExtSystem = columnDictionary.get(SpaceColumnNameLiterals.ExternalSystem.toString());
+        idxExtObject = columnDictionary.get(SpaceColumnNameLiterals.ExternalObject.toString());
+        idxExtIdentifier = columnDictionary.get(SpaceColumnNameLiterals.ExternalIdentifier.toString());
         idxRoomTag = columnDictionary.get(SpaceColumnNameLiterals.RoomTag.toString());
         idxUsableHeight = columnDictionary.get(SpaceColumnNameLiterals.UsableHeight.toString());
         idxGrossArea = columnDictionary.get(SpaceColumnNameLiterals.GrossArea.toString());

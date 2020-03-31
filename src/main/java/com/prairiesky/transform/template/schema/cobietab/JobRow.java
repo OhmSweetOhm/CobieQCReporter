@@ -110,19 +110,19 @@ public class JobRow extends SpreadsheetTemplateRow
 		return frequencyUnit;
 	}
 
-	@ExcelReference(columnAddress = ColumnAddress.N, columnName = "ExtSystem", isPrimaryKey = false)
+	@ExcelReference(columnAddress = ColumnAddress.N, columnName = "ExternalSystem", isPrimaryKey = false)
 	public final Property<String> ExtSystem()
 	{
 		return extSystem;
 	}
 
-	@ExcelReference(columnAddress = ColumnAddress.O, columnName = "ExtObject", isPrimaryKey = false)
+	@ExcelReference(columnAddress = ColumnAddress.O, columnName = "ExternalObject", isPrimaryKey = false)
 	public final Property<String> ExtObject()
 	{
 		return extObject;
 	}
 
-	@ExcelReference(columnAddress = ColumnAddress.P, columnName = "ExtIdentifier", isPrimaryKey = false)
+	@ExcelReference(columnAddress = ColumnAddress.P, columnName = "ExternalIdentifier", isPrimaryKey = false)
 	public final Property<String> ExtIdentifier()
 	{
 		return extIdentifier;

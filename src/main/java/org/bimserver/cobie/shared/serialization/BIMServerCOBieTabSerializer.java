@@ -54,7 +54,7 @@ public abstract class BIMServerCOBieTabSerializer extends EmfSerializer implemen
     public void init(COBIEDocument cobie) throws SerializerException
     {
  
-        super.init(null, null, null, null, null, true);
+        super.init(null, null, null, null, true);
         setCOBie(cobie);
     }
 
@@ -65,8 +65,8 @@ public abstract class BIMServerCOBieTabSerializer extends EmfSerializer implemen
     
     {
 
-    	super.init(model, projectInfo, pluginManager, renderEnginePlugin,
-				packageMetaData, normalizeOids);
+        super.init(model, projectInfo, pluginManager,
+                   packageMetaData, normalizeOids);
         setCOBie(COBIEDocument.Factory.newInstance());
         initializeModelInverseSlots();
 	}

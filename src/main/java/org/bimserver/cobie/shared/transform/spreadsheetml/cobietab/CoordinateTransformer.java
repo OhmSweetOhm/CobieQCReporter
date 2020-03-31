@@ -1,7 +1,5 @@
 package org.bimserver.cobie.shared.transform.spreadsheetml.cobietab;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +8,8 @@ import nl.fountain.xelem.excel.Row;
 import nl.fountain.xelem.excel.Workbook;
 import nl.fountain.xelem.excel.Worksheet;
 
+import org.bimserver.cobie.shared.COBieTokenUtility;
+import org.bimserver.cobie.shared.COBieTokenUtility.CoordinateColumnNameLiterals;
 import org.bimserver.cobie.shared.utility.COBieStringHandler;
 import org.bimserver.cobie.shared.utility.COBieUtility;
 import org.nibs.cobie.tab.COBIEType;
@@ -22,24 +22,15 @@ public class CoordinateTransformer extends SpreadsheetMLTransformer
         super(workbook, cobie, cobieStringWriter);
     }
 
-    public static enum CoordinateColumnNameLiterals
-    {
-        Name, CreatedBy, CreatedOn, Category, SheetName, RowName, CoordinateXAxis, CoordinateYAxis, CoordinateZAxis, ExtSystem, ExtObject, ExtIdentifier, ClockwiseRotation, ElevationalRotation, YawRotation
-    }
-
-    public static ArrayList<String> CoordinateColumnNames = new ArrayList<String>(Arrays.asList("Name", "CreatedBy", "CreatedOn", "Category",
-            "SheetName", "RowName", "CoordinateXAxis", "CoordinateYAxis", "CoordinateZAxis", "ExtSystem", "ExtObject", "ExtIdentifier",
-            "ClockwiseRotation", "ElevationalRotation", "YawRotation"));
-
     public CoordinateTransformer(COBIEType cobie, Workbook workbook)
     {
         super(cobie, workbook);
-    };
+    }
 
     @Override
     protected List<String> getColumnNames()
     {
-        return CoordinateColumnNames;
+        return COBieTokenUtility.CoordinateColumnNames;
     }
 
     @Override
@@ -94,9 +85,9 @@ public class CoordinateTransformer extends SpreadsheetMLTransformer
         idxCoordinateXAxis = columnDictionary.get(CoordinateColumnNameLiterals.CoordinateXAxis.toString());
         idxCoordinateYAxis = columnDictionary.get(CoordinateColumnNameLiterals.CoordinateYAxis.toString());
         idxCoordinateZAxis = columnDictionary.get(CoordinateColumnNameLiterals.CoordinateZAxis.toString());
-        idxExtSystem = columnDictionary.get(CoordinateColumnNameLiterals.ExtSystem.toString());
-        idxExtObject = columnDictionary.get(CoordinateColumnNameLiterals.ExtObject.toString());
-        idxExtIdentifier = columnDictionary.get(CoordinateColumnNameLiterals.ExtIdentifier.toString());
+        idxExtSystem = columnDictionary.get(CoordinateColumnNameLiterals.ExternalSystem.toString());
+        idxExtObject = columnDictionary.get(CoordinateColumnNameLiterals.ExternalObject.toString());
+        idxExtIdentifier = columnDictionary.get(CoordinateColumnNameLiterals.ExternalIdentifier.toString());
         idxClockwiseRotation = columnDictionary.get(CoordinateColumnNameLiterals.ClockwiseRotation.toString());
         idxElevationalRotation = columnDictionary.get(CoordinateColumnNameLiterals.ElevationalRotation.toString());
         idxYawRotation = columnDictionary.get(CoordinateColumnNameLiterals.YawRotation.toString());

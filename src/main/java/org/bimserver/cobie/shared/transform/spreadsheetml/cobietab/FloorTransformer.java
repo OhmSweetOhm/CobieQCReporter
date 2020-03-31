@@ -90,9 +90,9 @@ public class FloorTransformer extends SpreadsheetMLTransformer
         idxCreatedBy = columnDictionary.get(FloorColumnNameLiterals.CreatedBy.toString());
         idxCreatedOn = columnDictionary.get(FloorColumnNameLiterals.CreatedOn.toString());
         idxCategory = columnDictionary.get(FloorColumnNameLiterals.Category.toString());
-        idxExtSystem = columnDictionary.get(FloorColumnNameLiterals.ExtSystem.toString());
-        idxExtObject = columnDictionary.get(FloorColumnNameLiterals.ExtObject.toString());
-        idxExtIdentifier = columnDictionary.get(FloorColumnNameLiterals.ExtIdentifier.toString());
+        idxExtSystem = columnDictionary.get(FloorColumnNameLiterals.ExternalSystem.toString());
+        idxExtObject = columnDictionary.get(FloorColumnNameLiterals.ExternalObject.toString());
+        idxExtIdentifier = columnDictionary.get(FloorColumnNameLiterals.ExternalIdentifier.toString());
         idxDescription = columnDictionary.get(FloorColumnNameLiterals.Description.toString());
         idxElevation = columnDictionary.get(FloorColumnNameLiterals.Elevation.toString());
         idxHeight = columnDictionary.get(FloorColumnNameLiterals.Height.toString());

@@ -114,7 +114,7 @@ public class COBieSpreadSheet
     {
         try
         {
-            Map<String, ArrayList<Map<String, String>>> cobieDocMap = new HashMap<String, ArrayList<Map<String, String>>>();
+            Map<String, ArrayList<Map<String, String>>> cobieDocMap = new HashMap<>();
             COBIEType cType = cobie.getCOBIE();
             COBIEType.Contacts contacts = cType.getContacts();
             COBIEType.Facilities facilities = cType.getFacilities();
@@ -133,8 +133,8 @@ public class COBieSpreadSheet
             COBIEType.Attributes attributes = cType.getAttributes();
             COBIEType.Coordinates coordinates = cType.getCoordinates();
             String tempMasterKey = COBieUtility.CobieSheetName.Contact.name();
-            ArrayList<Map<String, String>> tmpArray = new ArrayList<Map<String, String>>();
-            Map<String, String> tmpElementMap = new HashMap<String, String>();
+            ArrayList<Map<String, String>> tmpArray = new ArrayList<>();
+            Map<String, String> tmpElementMap = new HashMap<>();
             if ((contacts != null) && !contacts.isNil())
             {
                 for (ContactType contact : contacts.getContactArray())
@@ -334,7 +334,7 @@ public class COBieSpreadSheet
 
     public static HashMap<CobieSheetName, ArrayList<String>> getCategorizedCobieSheetNameToColumnNames()
     {
-        HashMap<CobieSheetName, ArrayList<String>> columnMappings = new HashMap<CobieSheetName, ArrayList<String>>();
+        HashMap<CobieSheetName, ArrayList<String>> columnMappings = new HashMap<>();
         columnMappings.put(CobieSheetName.Contact, COBieTokenUtility.ContactColumnNames);
         columnMappings.put(CobieSheetName.Facility, COBieTokenUtility.FacilityColumnNames);
         columnMappings.put(CobieSheetName.Floor, COBieTokenUtility.FloorColumnNames);
@@ -347,12 +347,11 @@ public class COBieSpreadSheet
 
     public static Map<String, Integer> getWorksheetColumnDictionary(Worksheet sheet, List<String> list)
     {
-        ArrayList<String> upperCaseColumnNames = new ArrayList<String>();
-        for (int idx = 0; idx < list.size(); idx++)
-        {
-            upperCaseColumnNames.add(list.get(idx).toUpperCase());
+        ArrayList<String> upperCaseColumnNames = new ArrayList<>();
+        for (String name : list) {
+            upperCaseColumnNames.add(name.toUpperCase());
         }
-        Map<String, Integer> colMap = new HashMap<String, Integer>();
+        Map<String, Integer> colMap = new HashMap<>();
         int firstRowIndex = Worksheet.firstRow;
         Row firstRow = sheet.getRowAt(firstRowIndex);
         int tmpColIndex;
@@ -403,17 +402,17 @@ public class COBieSpreadSheet
 	 */
 	private static String correctExtFields(String columnName)
 	{
-		if(columnName.equalsIgnoreCase(COBieTokenUtility.FloorColumnNameLiterals.ExtObject.name()))
+		if(columnName.equalsIgnoreCase(COBieTokenUtility.FloorColumnNameLiterals.ExternalObject.name()))
 		{
 			columnName = COBieTokenUtility.ContactColumnNameLiterals.ExternalObject.name();
 		}
 		
-		else if (columnName.equalsIgnoreCase(COBieTokenUtility.FloorColumnNameLiterals.ExtIdentifier.name()))
+		else if (columnName.equalsIgnoreCase(COBieTokenUtility.FloorColumnNameLiterals.ExternalIdentifier.name()))
 		{
 			columnName = COBieTokenUtility.ContactColumnNameLiterals.ExternalIdentifier.name();
 		}
 		
-		else if (columnName.equalsIgnoreCase(COBieTokenUtility.FloorColumnNameLiterals.ExtSystem.name()))
+		else if (columnName.equalsIgnoreCase(COBieTokenUtility.FloorColumnNameLiterals.ExternalSystem.name()))
 		{
 			columnName = COBieTokenUtility.ContactColumnNameLiterals.ExternalSystem.name();
 		}
@@ -463,21 +462,13 @@ public class COBieSpreadSheet
 
     public static boolean isWorkbook(InputStream candidateWorksheet)
     {
-        CloseShieldInputStream inputStreamCopy = new CloseShieldInputStream(candidateWorksheet);
-        boolean isWorkbook = false;
-        try
-        {
-            nl.fountain.xelem.lex.ExcelReader rdr = new nl.fountain.xelem.lex.ExcelReader();
+        try (CloseShieldInputStream inputStreamCopy = new CloseShieldInputStream(candidateWorksheet)) {
+            ExcelReader rdr = new ExcelReader();
             Workbook workbook = rdr.getWorkbook(new InputSource(inputStreamCopy));
-            isWorkbook = ((workbook != null) && workbook.hasExcelWorkbook());
-        } catch (Exception ex)
-        {
-
-        } finally
-        {
-            inputStreamCopy.close();
+            return ((workbook != null) && workbook.hasExcelWorkbook());
+        } catch (Exception ex) {
         }
-        return isWorkbook;
+        return false;
     }
 
     private COBieExportOptionsDocument exportSettings;
@@ -500,7 +491,7 @@ public class COBieSpreadSheet
 
     // map will contain all sheet tab names mapped to string array containing
     // column headings
-    public HashMap<String, String[]> templateMap = new HashMap<String, String[]>();
+    public HashMap<String, String[]> templateMap = new HashMap<>();
 
     Workbook xlWorkbook = null;
 
@@ -588,7 +579,7 @@ public class COBieSpreadSheet
             try
             {
                 COBieUtility.CobieSheetName.valueOf(sheet.getName());
-                ArrayList<Integer> rowsToDelete = new ArrayList<Integer>();
+                ArrayList<Integer> rowsToDelete = new ArrayList<>();
                 for (int i = 0; i < sheet.getRows().size(); i++)
                 {
                     if (i > 0)
@@ -692,7 +683,7 @@ public class COBieSpreadSheet
     private ArrayList<String> distinctCategoryValuesFromSheetName(CobieSheetName sheetName)
     {
 
-        ArrayList<String> distinctCategories = new ArrayList<String>();
+        ArrayList<String> distinctCategories = new ArrayList<>();
         Worksheet targetSheet = worksheetFromCobieSheetName(sheetName);
         try
         {
@@ -854,12 +845,10 @@ public class COBieSpreadSheet
                 out.print('<');
                 out.print(node.getNodeName());
                 Attr attrs[] = sortAttributes(node.getAttributes());
-                for (int i = 0; i < attrs.length; i++)
-                {
-                    Attr attr = attrs[i];
-                    if (((node.getNodeName().equalsIgnoreCase("Worksheet") || node.getNodeName().equalsIgnoreCase("ss:Worksheet")) && attr.getName()
-                            .equalsIgnoreCase("Name")) || attr.getName().equalsIgnoreCase("ss:Name"))
-                    {
+                for (Attr attr : attrs) {
+                    if (((node.getNodeName().equalsIgnoreCase("Worksheet") ||
+                          node.getNodeName().equalsIgnoreCase("ss:Worksheet")) &&
+                         attr.getName().equalsIgnoreCase("Name")) || attr.getName().equalsIgnoreCase("ss:Name")) {
                         workSheetName = normalize(attr.getNodeValue());
                     }
                     out.print(' ');
@@ -1083,7 +1072,7 @@ public class COBieSpreadSheet
 
     public void populatePickListCategoryValues(String pickListColumnName, ArrayList<String> categoryValues, Worksheet pickListSheet)
     {
-        ArrayList<String> pickListColumnNames = new ArrayList<String>();
+        ArrayList<String> pickListColumnNames = new ArrayList<>();
         pickListColumnNames.add(pickListColumnName);
         Map<String, Integer> pickListMap = getWorksheetColumnDictionary(pickListSheet, pickListColumnNames);
         int pickListColIndex = pickListMap.get(pickListColumnName);

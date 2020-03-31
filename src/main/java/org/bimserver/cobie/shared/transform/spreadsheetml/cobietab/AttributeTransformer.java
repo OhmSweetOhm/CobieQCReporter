@@ -81,9 +81,9 @@ public class AttributeTransformer extends SpreadsheetMLTransformer
         idxRowName = getColumnDictionary().get(AttributeColumnNameLiterals.RowName.toString());
         idxValue = getColumnDictionary().get(AttributeColumnNameLiterals.Value.toString());
         idxUnit = getColumnDictionary().get(AttributeColumnNameLiterals.Unit.toString());
-        idxExtSystem = getColumnDictionary().get(AttributeColumnNameLiterals.ExtSystem.toString());
-        idxExtObject = getColumnDictionary().get(AttributeColumnNameLiterals.ExtObject.toString());
-        idxExtIdentifier = getColumnDictionary().get(AttributeColumnNameLiterals.ExtIdentifier.toString());
+        idxExtSystem = getColumnDictionary().get(AttributeColumnNameLiterals.ExternalSystem.toString());
+        idxExtObject = getColumnDictionary().get(AttributeColumnNameLiterals.ExternalObject.toString());
+        idxExtIdentifier = getColumnDictionary().get(AttributeColumnNameLiterals.ExternalIdentifier.toString());
         idxDescription = getColumnDictionary().get(AttributeColumnNameLiterals.Description.toString());
         idxAllowedValues = getColumnDictionary().get(AttributeColumnNameLiterals.AllowedValues.toString());
         int rowIdx;

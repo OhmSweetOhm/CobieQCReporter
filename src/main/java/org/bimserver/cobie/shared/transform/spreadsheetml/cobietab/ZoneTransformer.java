@@ -71,9 +71,9 @@ public class ZoneTransformer extends SpreadsheetMLTransformer
         idxCreatedOn = columnDictionary.get(ZoneColumnNameLiterals.CreatedOn.toString());
         idxCategory = columnDictionary.get(ZoneColumnNameLiterals.Category.toString());
         idxSpaceNames = columnDictionary.get(ZoneColumnNameLiterals.SpaceNames.toString());
-        idxExtSystem = columnDictionary.get(ZoneColumnNameLiterals.ExtSystem.toString());
-        idxExtObject = columnDictionary.get(ZoneColumnNameLiterals.ExtObject.toString());
-        idxExtIdentifier = columnDictionary.get(ZoneColumnNameLiterals.ExtIdentifier.toString());
+        idxExtSystem = columnDictionary.get(ZoneColumnNameLiterals.ExternalSystem.toString());
+        idxExtObject = columnDictionary.get(ZoneColumnNameLiterals.ExternalObject.toString());
+        idxExtIdentifier = columnDictionary.get(ZoneColumnNameLiterals.ExternalIdentifier.toString());
         idxDescription = columnDictionary.get(ZoneColumnNameLiterals.Description.toString());
         int rowIdx;
         int firstRowIdx = Worksheet.firstRow;

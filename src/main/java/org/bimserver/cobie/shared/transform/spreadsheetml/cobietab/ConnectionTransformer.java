@@ -85,9 +85,9 @@ public class ConnectionTransformer extends SpreadsheetMLTransformer
         idxRealizingElement = columnDictionary.get(ConnectionColumnNameLiterals.RealizingElement.toString());
         idxPortName1 = columnDictionary.get(ConnectionColumnNameLiterals.PortName1.toString());
         idxPortName2 = columnDictionary.get(ConnectionColumnNameLiterals.PortName2.toString());
-        idxExtSystem = columnDictionary.get(ConnectionColumnNameLiterals.ExtSystem.toString());
-        idxExtObject = columnDictionary.get(ConnectionColumnNameLiterals.ExtObject.toString());
-        idxExtIdentifier = columnDictionary.get(ConnectionColumnNameLiterals.ExtIdentifier.toString());
+        idxExtSystem = columnDictionary.get(ConnectionColumnNameLiterals.ExternalSystem.toString());
+        idxExtObject = columnDictionary.get(ConnectionColumnNameLiterals.ExternalObject.toString());
+        idxExtIdentifier = columnDictionary.get(ConnectionColumnNameLiterals.ExternalIdentifier.toString());
         idxDescription = columnDictionary.get(ConnectionColumnNameLiterals.Description.toString());
         int rowIdx;
         int firstRowIdx = Worksheet.firstRow;

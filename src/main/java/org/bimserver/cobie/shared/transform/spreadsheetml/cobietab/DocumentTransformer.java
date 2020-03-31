@@ -87,9 +87,9 @@ public class DocumentTransformer extends SpreadsheetMLTransformer
         idxRowName = columnDictionary.get(DocumentColumnNameLiterals.RowName.toString());
         idxDirectory = columnDictionary.get(DocumentColumnNameLiterals.Directory.toString());
         idxFile = columnDictionary.get(DocumentColumnNameLiterals.File.toString());
-        idxExtSystem = columnDictionary.get(DocumentColumnNameLiterals.ExtSystem.toString());
-        idxExtObject = columnDictionary.get(DocumentColumnNameLiterals.ExtObject.toString());
-        idxExtIdentifier = columnDictionary.get(DocumentColumnNameLiterals.ExtIdentifier.toString());
+        idxExtSystem = columnDictionary.get(DocumentColumnNameLiterals.ExternalSystem.toString());
+        idxExtObject = columnDictionary.get(DocumentColumnNameLiterals.ExternalObject.toString());
+        idxExtIdentifier = columnDictionary.get(DocumentColumnNameLiterals.ExternalIdentifier.toString());
         idxDescription = columnDictionary.get(DocumentColumnNameLiterals.Description.toString());
         idxReference = columnDictionary.get(DocumentColumnNameLiterals.Reference.toString());
         int rowIdx;

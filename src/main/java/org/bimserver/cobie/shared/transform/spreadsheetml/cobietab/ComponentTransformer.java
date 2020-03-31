@@ -99,9 +99,9 @@ public class ComponentTransformer extends SpreadsheetMLTransformer
         idxTypeName = columnDictionary.get(ComponentColumnNameLiterals.TypeName.toString());
         idxSpace = columnDictionary.get(ComponentColumnNameLiterals.Space.toString());
         idxDescription = columnDictionary.get(ComponentColumnNameLiterals.Description.toString());
-        idxExtSystem = columnDictionary.get(ComponentColumnNameLiterals.ExtSystem.toString());
-        idxExtObject = columnDictionary.get(ComponentColumnNameLiterals.ExtObject.toString());
-        idxExtIdentifier = columnDictionary.get(ComponentColumnNameLiterals.ExtIdentifier.toString());
+        idxExtSystem = columnDictionary.get(ComponentColumnNameLiterals.ExternalSystem.toString());
+        idxExtObject = columnDictionary.get(ComponentColumnNameLiterals.ExternalObject.toString());
+        idxExtIdentifier = columnDictionary.get(ComponentColumnNameLiterals.ExternalIdentifier.toString());
         idxSerialNumber = columnDictionary.get(ComponentColumnNameLiterals.SerialNumber.toString());
         idxInstallationDate = columnDictionary.get(ComponentColumnNameLiterals.InstallationDate.toString());
         idxWarrantyStartDate = columnDictionary.get(ComponentColumnNameLiterals.WarrantyStartDate.toString());

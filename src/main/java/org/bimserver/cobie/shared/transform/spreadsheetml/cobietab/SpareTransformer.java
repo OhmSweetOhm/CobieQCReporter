@@ -1,7 +1,5 @@
 package org.bimserver.cobie.shared.transform.spreadsheetml.cobietab;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +8,8 @@ import nl.fountain.xelem.excel.Row;
 import nl.fountain.xelem.excel.Workbook;
 import nl.fountain.xelem.excel.Worksheet;
 
+import org.bimserver.cobie.shared.COBieTokenUtility;
+import org.bimserver.cobie.shared.COBieTokenUtility.SpareColumnNameLiterals;
 import org.bimserver.cobie.shared.utility.COBieStringHandler;
 import org.bimserver.cobie.shared.utility.COBieUtility.CobieSheetName;
 import org.nibs.cobie.tab.COBIEType;
@@ -17,23 +17,15 @@ import org.nibs.cobie.tab.SpareType;
 
 public class SpareTransformer extends SpreadsheetMLTransformer
 {
-    public static enum SpareColumnNameLiterals
-    {
-        Name, CreatedBy, CreatedOn, Category, TypeName, Suppliers, ExtSystem, ExtObject, ExtIdentifier, Description, SetNumber, PartNumber
-    }
-
-    public static ArrayList<String> SpareColumnNames = new ArrayList<String>(Arrays.asList("Name", "CreatedBy", "CreatedOn", "Category", "TypeName",
-            "Suppliers", "ExtSystem", "ExtObject", "ExtIdentifier", "Description", "SetNumber", "PartNumber"));
-
     public SpareTransformer(COBIEType cobie, Workbook workbook)
     {
         super(cobie, workbook);
-    };
+    }
 
     @Override
     protected List<String> getColumnNames()
     {
-        return SpareColumnNames;
+        return COBieTokenUtility.SpareColumnNames;
     }
 
     public SpareTransformer(COBIEType cobie, Workbook workbook, COBieStringHandler cobieStringWriter)
@@ -85,9 +77,9 @@ public class SpareTransformer extends SpreadsheetMLTransformer
         idxCategory = columnDictionary.get(SpareColumnNameLiterals.Category.toString());
         idxTypeName = columnDictionary.get(SpareColumnNameLiterals.TypeName.toString());
         idxSuppliers = columnDictionary.get(SpareColumnNameLiterals.Suppliers.toString());
-        idxExtSystem = columnDictionary.get(SpareColumnNameLiterals.ExtSystem.toString());
-        idxExtObject = columnDictionary.get(SpareColumnNameLiterals.ExtObject.toString());
-        idxExtIdentifier = columnDictionary.get(SpareColumnNameLiterals.ExtIdentifier.toString());
+        idxExtSystem = columnDictionary.get(SpareColumnNameLiterals.ExternalSystem.toString());
+        idxExtObject = columnDictionary.get(SpareColumnNameLiterals.ExternalObject.toString());
+        idxExtIdentifier = columnDictionary.get(SpareColumnNameLiterals.ExternalIdentifier.toString());
         idxDescription = columnDictionary.get(SpareColumnNameLiterals.Description.toString());
         idxSetNumber = columnDictionary.get(SpareColumnNameLiterals.SetNumber.toString());
         idxPartNumber = columnDictionary.get(SpareColumnNameLiterals.PartNumber.toString());

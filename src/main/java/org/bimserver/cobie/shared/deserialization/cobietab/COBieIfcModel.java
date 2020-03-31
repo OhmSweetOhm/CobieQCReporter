@@ -81,7 +81,7 @@ public class COBieIfcModel extends IfcModel
 
     private static ArrayList<String> getAllowMultipeSpaceComponentTypes()
     {
-        ArrayList<String> allowList = new ArrayList<String>();
+        ArrayList<String> allowList = new ArrayList<>();
         allowList.add(IFC_WINDOW_ENTITY_NAME);
         allowList.add(IFC_DOOR_ENTITY_NAME);
         return allowList;
@@ -149,15 +149,15 @@ public class COBieIfcModel extends IfcModel
         initializeHashMaps();
     }
 
-    public long add(IdEObject eObject, OidProvider<Long> oidProvider) throws IfcModelInterfaceException
+    public long add(IdEObject eObject, OidProvider oidProvider) throws IfcModelInterfaceException
     {
-        Long oid;
+        long oid;
 
         cleanupStringsForIfc(eObject);
 
         if (eObject instanceof IfcValue)
         {
-            oid = -1l;
+            oid = -1L;
 
         }
 
@@ -178,7 +178,7 @@ public class COBieIfcModel extends IfcModel
 
     public long addComponent(IfcProduct product, ComponentType component, IfcCommonHandler ifcCommonHandler) throws IfcModelInterfaceException
     {
-        Long oid = ifcCommonHandler.getOidProvider().newOid(null);
+        long oid = ifcCommonHandler.getOidProvider().newOid(null);
 
         this.add(oid, product);
 
@@ -197,7 +197,7 @@ public class COBieIfcModel extends IfcModel
     }
 
     // up to TWO coordinates per productDefinitionShape
-    public long addCoordinates(List<CoordinateType> coordinates, IfcProductDefinitionShape productDefinitionShape, OidProvider<Long> oidProvider)
+    public long addCoordinates(List<CoordinateType> coordinates, IfcProductDefinitionShape productDefinitionShape, OidProvider oidProvider)
             throws IfcModelInterfaceException
     {
         long oid = oidProvider.newOid(null);
@@ -296,7 +296,7 @@ public class COBieIfcModel extends IfcModel
 
     private void assignComponentToType(ComponentType component)
     {
-        ArrayList<String> typeComponents = new ArrayList<String>();
+        ArrayList<String> typeComponents = new ArrayList<>();
         String componentName = component.getName();
         String typeName = component.getTypeName();
         if (!COBieUtility.isNA(typeName) && TypeNameToOid.containsKey(typeName))
@@ -315,7 +315,7 @@ public class COBieIfcModel extends IfcModel
 
     private void assignSpaceToFloor(IfcSpace space, IfcBuildingStorey floor)
     {
-        ArrayList<String> floorSpaces = new ArrayList<String>();
+        ArrayList<String> floorSpaces = new ArrayList<>();
         String spaceName = IfcSpaceSerializer.nameFromSpace(space);
         String floorName = IfcBuildingStoreyFloorSerializer.nameFromBuildingStorey(floor);
         if ((floorName != null) && (floorName.length() > 0) && containsFloor(floorName))
@@ -577,13 +577,7 @@ public class COBieIfcModel extends IfcModel
 
     public Long getComponentOid(String componentName)
     {
-        if (componentNameToOid.containsKey(componentName))
-        {
-            return componentNameToOid.get(componentName);
-        } else
-        {
-            return null;
-        }
+        return componentNameToOid.getOrDefault(componentName, null);
     }
 
     public IfcPersonAndOrganization getContact(String email)
@@ -599,13 +593,7 @@ public class COBieIfcModel extends IfcModel
 
     public Long getContactOid(String email)
     {
-        if (EmailToPersonAndOrganizationOid.containsKey(email))
-        {
-            return EmailToPersonAndOrganizationOid.get(email);
-        } else
-        {
-            return null;
-        }
+        return EmailToPersonAndOrganizationOid.getOrDefault(email, null);
     }
 
     public Map<KeyedCoordinateType, Long> getCoordinateToOid()
@@ -657,13 +645,7 @@ public class COBieIfcModel extends IfcModel
 
     public Long getFacilityOid(String facilityName)
     {
-        if (FacilityNameToOid.containsKey(facilityName))
-        {
-            return FacilityNameToOid.get(facilityName);
-        } else
-        {
-            return null;
-        }
+        return FacilityNameToOid.getOrDefault(facilityName, null);
     }
 
     public IfcBuilding getFirstFacility()
@@ -714,34 +696,17 @@ public class COBieIfcModel extends IfcModel
 
     public ArrayList<String> getFloorNames()
     {
-        ArrayList<String> floorNames = new ArrayList<String>();
-        for (String key : FloorNameToOid.keySet())
-        {
-            floorNames.add(key);
-        }
-        return floorNames;
+        return new ArrayList<>(FloorNameToOid.keySet());
     }
 
     public Long getFloorOid(String floorName)
     {
-        if (FloorNameToOid.containsKey(floorName))
-        {
-            return FloorNameToOid.get(floorName);
-        } else
-        {
-            return null;
-        }
+        return FloorNameToOid.getOrDefault(floorName, null);
     }
 
     public ArrayList<String> getFloorSpaceNames(String floorName)
     {
-        if (FloorNameToSpaceNames.containsKey(floorName))
-        {
-            return FloorNameToSpaceNames.get(floorName);
-        } else
-        {
-            return null;
-        }
+        return FloorNameToSpaceNames.getOrDefault(floorName, null);
     }
 
     public Map<String, Long> getGuidToOid()
@@ -762,13 +727,7 @@ public class COBieIfcModel extends IfcModel
     public Long getJobOid(JobType job)
     {
         KeyedJobType keyedJob = new KeyedJobType(job);
-        if (jobToOid.containsKey(keyedJob))
-        {
-            return jobToOid.get(keyedJob);
-        } else
-        {
-            return null;
-        }
+        return jobToOid.getOrDefault(keyedJob, null);
     }
 
     public IfcOwnerHistory getOwnerHistory(String email)
@@ -815,13 +774,7 @@ public class COBieIfcModel extends IfcModel
 
     public Long getTypeOid(String typeName)
     {
-        if (TypeNameToOid.containsKey(typeName))
-        {
-            return TypeNameToOid.get(typeName);
-        } else
-        {
-            return null;
-        }
+        return TypeNameToOid.getOrDefault(typeName, null);
     }
 
     public long getZoneOid(String zoneName)
@@ -833,7 +786,7 @@ public class COBieIfcModel extends IfcModel
     {
         if (!COBieUtility.isNA(spaceName))
         {
-            ArrayList<String> spaceComponents = new ArrayList<String>();
+            ArrayList<String> spaceComponents = new ArrayList<>();
             if (SpaceNameToOid.containsKey(spaceName))
             {
                 if (spaceNameToComponentNames.containsKey(spaceName))
@@ -841,7 +794,7 @@ public class COBieIfcModel extends IfcModel
                     spaceComponents = spaceNameToComponentNames.get(spaceName);
                 } else
                 {
-                    spaceComponents = new ArrayList<String>();
+                    spaceComponents = new ArrayList<>();
                 }
                 if (!spaceComponents.contains(componentName))
                 {
@@ -895,32 +848,32 @@ public class COBieIfcModel extends IfcModel
 
     private void initializeHashMaps()
     {
-        setEmailToIfcOwnerHistoryOid(new HashMap<String, Long>());
-        setEmailToPersonAndOrganizationOid(new HashMap<String, Long>());
-        setEnumerationNameToOid(new HashMap<String, Long>());
-        setUnitNameToOid(new HashMap<String, Long>());
-        setFacilityNameToOid(new HashMap<String, Long>());
-        setFloorNameToOid(new HashMap<String, Long>());
-        setSpaceNameToOid(new HashMap<String, Long>());
-        setTypeNameToOid(new HashMap<String, Long>());
-        setFloorNameToSpaceNames(new HashMap<String, ArrayList<String>>());
-        setComponentNameToOid(new HashMap<String, Long>());
-        setSpaceNameToComponentNames(new HashMap<String, ArrayList<String>>());
-        setTypeNameToComponentNames(new HashMap<String, ArrayList<String>>());
-        setZoneNameToOid(new HashMap<String, Long>());
-        setSystemNameCategoryToOid(new HashMap<String, Long>());
-        componentNamesNotInSpaces = new ArrayList<String>();
-        componentNamesAssignedToASpace = new ArrayList<String>();
-        setGuidToOid(new HashMap<String, Long>());
-        setResourceNameToOid(new HashMap<String, Long>());
-        setSpareNameToOid(new HashMap<String, Long>());
-        setJobKeyToOid(new HashMap<KeyedJobType, Long>());
-        setCoordinateToOid(new HashMap<KeyedCoordinateType, Long>());
-        setApplicationNameToOid(new HashMap<String, Long>());
-        setAttributeToOid(new HashMap<KeyedAttributeType, Long>());
-        setSystemNameToOid(new HashMap<String, Long>());
-        setJobNameToOid(new HashMap<String, Long>());
-        documentKeyToOid = new HashMap<String, Long>();
+        setEmailToIfcOwnerHistoryOid(new HashMap<>());
+        setEmailToPersonAndOrganizationOid(new HashMap<>());
+        setEnumerationNameToOid(new HashMap<>());
+        setUnitNameToOid(new HashMap<>());
+        setFacilityNameToOid(new HashMap<>());
+        setFloorNameToOid(new HashMap<>());
+        setSpaceNameToOid(new HashMap<>());
+        setTypeNameToOid(new HashMap<>());
+        setFloorNameToSpaceNames(new HashMap<>());
+        setComponentNameToOid(new HashMap<>());
+        setSpaceNameToComponentNames(new HashMap<>());
+        setTypeNameToComponentNames(new HashMap<>());
+        setZoneNameToOid(new HashMap<>());
+        setSystemNameCategoryToOid(new HashMap<>());
+        componentNamesNotInSpaces = new ArrayList<>();
+        componentNamesAssignedToASpace = new ArrayList<>();
+        setGuidToOid(new HashMap<>());
+        setResourceNameToOid(new HashMap<>());
+        setSpareNameToOid(new HashMap<>());
+        setJobKeyToOid(new HashMap<>());
+        setCoordinateToOid(new HashMap<>());
+        setApplicationNameToOid(new HashMap<>());
+        setAttributeToOid(new HashMap<>());
+        setSystemNameToOid(new HashMap<>());
+        setJobNameToOid(new HashMap<>());
+        documentKeyToOid = new HashMap<>();
 
     }
 
@@ -1252,5 +1205,6 @@ public class COBieIfcModel extends IfcModel
 		// TODO Auto-generated method stub
 		
 	}
+
 
 }

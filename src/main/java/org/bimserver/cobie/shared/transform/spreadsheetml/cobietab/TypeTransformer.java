@@ -147,9 +147,9 @@ public class TypeTransformer extends SpreadsheetMLTransformer
         idxWarrantyGuarantorLabor = columnDictionary.get(TypeColumnNameLiterals.WarrantyGuarantorLabor.toString());
         idxWarrantyDurationLabor = columnDictionary.get(TypeColumnNameLiterals.WarrantyDurationLabor.toString());
         idxWarrantyDurationUnit = columnDictionary.get(TypeColumnNameLiterals.WarrantyDurationUnit.toString());
-        idxExtSystem = columnDictionary.get(TypeColumnNameLiterals.ExtSystem.toString());
-        idxExtObject = columnDictionary.get(TypeColumnNameLiterals.ExtObject.toString());
-        idxExtIdentifier = columnDictionary.get(TypeColumnNameLiterals.ExtIdentifier.toString());
+        idxExtSystem = columnDictionary.get(TypeColumnNameLiterals.ExternalSystem.toString());
+        idxExtObject = columnDictionary.get(TypeColumnNameLiterals.ExternalObject.toString());
+        idxExtIdentifier = columnDictionary.get(TypeColumnNameLiterals.ExternalIdentifier.toString());
         idxReplacementCost = columnDictionary.get(TypeColumnNameLiterals.ReplacementCost.toString());
         idxExpectedLife = columnDictionary.get(TypeColumnNameLiterals.ExpectedLife.toString());
         idxDurationUnit = columnDictionary.get(TypeColumnNameLiterals.DurationUnit.toString());

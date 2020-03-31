@@ -1,7 +1,5 @@
 package org.bimserver.cobie.shared.transform.spreadsheetml.cobietab;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
@@ -10,8 +8,10 @@ import nl.fountain.xelem.excel.Row;
 import nl.fountain.xelem.excel.Workbook;
 import nl.fountain.xelem.excel.Worksheet;
 
+import org.bimserver.cobie.shared.COBieTokenUtility;
+import org.bimserver.cobie.shared.COBieTokenUtility.JobColumnNameLiterals;
 import org.bimserver.cobie.shared.utility.COBieStringHandler;
-import org.bimserver.cobie.shared.utility.COBieUtility.CobieSheetName;
+import org.bimserver.cobie.shared.utility.COBieUtility;
 import org.nibs.cobie.tab.COBIEType;
 import org.nibs.cobie.tab.JobType;
 
@@ -22,30 +22,21 @@ public class JobTransformer extends SpreadsheetMLTransformer
         super(workbook, cobie, cobieStringWriter);
     }
 
-    public static enum JobColumnNameLiterals
-    {
-        Name, CreatedBy, CreatedOn, Category, Status, TypeName, Description, Duration, DurationUnit, Start, TaskStartUnit, Frequency, FrequencyUnit, ExtSystem, ExtObject, ExtIdentifier, TaskNumber, Priors, ResourceNames
-    }
-
-    public static ArrayList<String> JobColumnNames = new ArrayList<String>(Arrays.asList("Name", "CreatedBy", "CreatedOn", "Category", "Status",
-            "TypeName", "Description", "Duration", "DurationUnit", "Start", "TaskStartUnit", "Frequency", "FrequencyUnit", "ExtSystem", "ExtObject",
-            "ExtIdentifier", "TaskNumber", "Priors", "ResourceNames"));
-
     public JobTransformer(COBIEType cobie, Workbook workbook)
     {
         super(cobie, workbook);
-    };
+    }
 
     @Override
     protected List<String> getColumnNames()
     {
-        return JobColumnNames;
+        return COBieTokenUtility.JobColumnNames;
     }
 
     @Override
     protected String getWorksheetName()
     {
-        return CobieSheetName.Job.name();
+        return COBieUtility.CobieSheetName.Job.name();
     }
 
     @Override
@@ -106,9 +97,9 @@ public class JobTransformer extends SpreadsheetMLTransformer
         idxTaskStartUnit = columnDictionary.get(JobColumnNameLiterals.TaskStartUnit.toString());
         idxFrequency = columnDictionary.get(JobColumnNameLiterals.Frequency.toString());
         idxFrequencyUnit = columnDictionary.get(JobColumnNameLiterals.FrequencyUnit.toString());
-        idxExtSystem = columnDictionary.get(JobColumnNameLiterals.ExtSystem.toString());
-        idxExtObject = columnDictionary.get(JobColumnNameLiterals.ExtObject.toString());
-        idxExtIdentifier = columnDictionary.get(JobColumnNameLiterals.ExtIdentifier.toString());
+        idxExtSystem = columnDictionary.get(JobColumnNameLiterals.ExternalSystem.toString());
+        idxExtObject = columnDictionary.get(JobColumnNameLiterals.ExternalObject.toString());
+        idxExtIdentifier = columnDictionary.get(JobColumnNameLiterals.ExternalIdentifier.toString());
         idxTaskNumber = columnDictionary.get(JobColumnNameLiterals.TaskNumber.toString());
         idxPriors = columnDictionary.get(JobColumnNameLiterals.Priors.toString());
         idxResourceNames = columnDictionary.get(JobColumnNameLiterals.ResourceNames.toString());

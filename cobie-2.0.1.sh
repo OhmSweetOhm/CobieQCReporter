@@ -1,0 +1,1 @@
+java -jar target/cobie-gui-2.0.1-SNAPSHOT-shaded.jar
