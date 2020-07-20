@@ -1,14 +1,14 @@
 package com.prairiesky.cobie.qc.gui;
+
+import ch.qos.logback.classic.spi.ILoggingEvent;
+import ch.qos.logback.core.AppenderBase;
 import javafx.application.Platform;
 import javafx.scene.control.TextArea;
-import org.apache.log4j.WriterAppender;
-import org.apache.log4j.spi.LoggingEvent;
- 
 
-public class TextAreaAppender extends WriterAppender {
- 
+public class TextAreaAppender extends AppenderBase<ILoggingEvent> {
+
     private static volatile TextArea textArea = null;
- 
+
     /**
      * Set the target TextArea for the logging information to appear.
      *
@@ -17,16 +17,17 @@ public class TextAreaAppender extends WriterAppender {
     public static void setTextArea(final TextArea textArea) {
         TextAreaAppender.textArea = textArea;
     }
- 
+
     /**
      * Format and then append the loggingEvent to the stored TextArea.
      *
      * @param loggingEvent
      */
+
     @Override
-    public void append(final LoggingEvent loggingEvent) {
-        final String message = this.layout.format(loggingEvent);
- 
+    protected void append(ILoggingEvent loggingEvent) {
+        final String message = loggingEvent.getFormattedMessage();
+
         // Append formatted message to text area using the Thread.
         try {
             Platform.runLater(new Runnable() {
@@ -38,13 +39,11 @@ public class TextAreaAppender extends WriterAppender {
                                 textArea.setText(message);
                             } else {
                                 textArea.selectEnd();
-                                textArea.insertText(textArea.getText().length(),
-                                        message);
+                                textArea.insertText(textArea.getText().length(), message);
                             }
                         }
                     } catch (final Throwable t) {
-                        System.out.println("Unable to append log to text area: "
-                                + t.getMessage());
+                        System.out.println("Unable to append log to text area: " + t.getMessage());
                     }
                 }
             });
@@ -52,4 +51,5 @@ public class TextAreaAppender extends WriterAppender {
             // ignore case when the platform hasn't yet been iniitialized
         }
     }
+
 }
