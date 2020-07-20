@@ -4,7 +4,6 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -16,9 +15,11 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
-public class AttributeListConverter {
+public class AttributeListConverter extends ExcelConverterBase {
 
     private static final String HEADER_DESCRIPTION = "Description";
     private static final String HEADER_SHEET = "Sheet";
@@ -41,11 +42,10 @@ public class AttributeListConverter {
     private static final String ATTRIBUTE_NAME_REQUIRES_VALUE = "requiresValue";
 
     private final Document document;
-    private Workbook workbook;
+    private File excelWorkbookFile;
 
-    public AttributeListConverter(File excelWorkbookFile) throws ParserConfigurationException, IOException,
-                                                                 InvalidFormatException {
-        workbook = WorkbookFactory.create(excelWorkbookFile);
+    public AttributeListConverter(File excelWorkbookFile) throws ParserConfigurationException {
+        this.excelWorkbookFile = excelWorkbookFile;
         DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
         document = docBuilder.newDocument();
@@ -53,79 +53,67 @@ public class AttributeListConverter {
         document.appendChild(rootElement);
     }
 
-    public void render(String output) throws TransformerException {
-        Sheet sheet = workbook.getSheetAt(0);
-        boolean firstRow = true;
-        Element attributeRule = null;
-        for (Row row : sheet) {
-            Cell description = row.getCell(0);
-            Cell sheetName = row.getCell(1);
-            Cell logicalOperator = row.getCell(2);
-            Cell columnName = row.getCell(3);
-            Cell columnValue = row.getCell(4);
-            Cell attributeName = row.getCell(5);
-            Cell requiresValue = row.getCell(6);
-            boolean isHeaderRow = isNotEmpty(description) && isNotEmpty(sheetName) &&
-                                  HEADER_DESCRIPTION.equalsIgnoreCase(description.getStringCellValue()) &&
-                                  HEADER_SHEET.equalsIgnoreCase(sheetName.getStringCellValue());
-            if (firstRow && isHeaderRow) {
-                firstRow = false;
-                continue;
-            }
+    public void render(String output) throws TransformerException, IOException, InvalidFormatException {
+        try (InputStream inputStream = new FileInputStream(excelWorkbookFile)) {
+            Workbook workbook = WorkbookFactory.create(inputStream);
+            Sheet sheet = workbook.getSheetAt(0);
+            boolean firstRow = true;
+            Element attributeRule = null;
+            for (Row row : sheet) {
+                Cell description = row.getCell(0);
+                Cell sheetName = row.getCell(1);
+                Cell logicalOperator = row.getCell(2);
+                Cell columnName = row.getCell(3);
+                Cell columnValue = row.getCell(4);
+                Cell attributeName = row.getCell(5);
+                Cell requiresValue = row.getCell(6);
+                boolean isHeaderRow = isNotEmpty(description) &&
+                                      isNotEmpty(sheetName) &&
+                                      HEADER_DESCRIPTION.equalsIgnoreCase(getStringValue(description)) &&
+                                      HEADER_SHEET.equalsIgnoreCase(getStringValue(sheetName));
+                if (firstRow && isHeaderRow) {
+                    firstRow = false;
+                    continue;
+                }
 
-            if (isNotEmpty(description)) {
-                attributeRule = document.createElement(ELEMENT_NAME_ATTRIBUTE_CONSTRAINT);
-                attributeRule.setAttribute(ATTRIBUTE_NAME_DESCRIPTION, description.getStringCellValue());
-                Element sheetAttributeConstraints = getSheetAttributeConstraints(sheetName.getStringCellValue());
-                sheetAttributeConstraints.appendChild(attributeRule);
-            }
-            if (attributeRule == null) {
-                continue;
-            }
-            if (isNotEmpty(columnName)) {
-                addCondition(attributeRule, columnName.getStringCellValue(), columnValue.getStringCellValue());
-            }
-            if (isNotEmpty(logicalOperator)) {
                 if (isNotEmpty(description)) {
-                    setLogicalOperator(attributeRule, logicalOperator.getStringCellValue());
-                } else {
-                    throw new RuntimeException("Logical operator may be set at the first row of a rule only");
+                    attributeRule = document.createElement(ELEMENT_NAME_ATTRIBUTE_CONSTRAINT);
+                    attributeRule.setAttribute(ATTRIBUTE_NAME_DESCRIPTION, getStringValue(description));
+                    Element sheetAttributeConstraints = getSheetAttributeConstraints(getStringValue(sheetName));
+                    sheetAttributeConstraints.appendChild(attributeRule);
+                }
+                if (attributeRule == null) {
+                    continue;
+                }
+                if (isNotEmpty(columnName)) {
+                    addCondition(attributeRule, getStringValue(columnName), getStringValue(columnValue));
+                }
+                if (isNotEmpty(logicalOperator)) {
+                    if (isNotEmpty(description)) {
+                        setLogicalOperator(attributeRule, getStringValue(logicalOperator));
+                    } else {
+                        throw new RuntimeException("Logical operator may be set at the first row of a rule only");
+                    }
+                }
+                if (isNotEmpty(attributeName)) {
+                    addAttribute(attributeRule, getStringValue(attributeName), requiresValue.getBooleanCellValue());
                 }
             }
-            if (isNotEmpty(attributeName)) {
-                addAttribute(attributeRule, attributeName.getStringCellValue(), requiresValue.getBooleanCellValue());
-            }
+
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource source = new DOMSource(document);
+            StreamResult result = new StreamResult(new File(output));
+            transformer.transform(source, result);
         }
-
-        TransformerFactory transformerFactory = TransformerFactory.newInstance();
-        Transformer transformer = transformerFactory.newTransformer();
-        DOMSource source = new DOMSource(document);
-        StreamResult result = new StreamResult(new File(output));
-        transformer.transform(source, result);
-    }
-
-    private static boolean isNotEmpty(Cell cell) {
-        return cell != null && !cell.getStringCellValue().isEmpty();
     }
 
     private Element getSheetAttributeConstraints(String sheetName) {
-        Element rootElement = (Element) document.getElementsByTagName(ELEMENT_NAME_ROOT).item(0);
-        NodeList existingSheetAttributeConstraints = rootElement.getElementsByTagName(ELEMENT_NAME_SHEET_ATTRIBUTE_CONSTRAINTS);
-
-        for (int i = 0; i < existingSheetAttributeConstraints.getLength(); i++) {
-            Node sheetAttributeConstraints = existingSheetAttributeConstraints.item(i);
-
-            if (sheetAttributeConstraints.getAttributes()
-                                         .getNamedItem(ATTRIBUTE_NAME_SHEET_NAME)
-                                         .getNodeValue()
-                                         .equalsIgnoreCase(sheetName)) {
-                return (Element) sheetAttributeConstraints;
-            }
-        }
-        Element newSheetAttributeConstraints = document.createElement(ELEMENT_NAME_SHEET_ATTRIBUTE_CONSTRAINTS);
-        newSheetAttributeConstraints.setAttribute(ATTRIBUTE_NAME_SHEET_NAME, sheetName);
-        document.getDocumentElement().appendChild(newSheetAttributeConstraints);
-        return newSheetAttributeConstraints;
+        return getOrAddElement(document,
+                               ELEMENT_NAME_ROOT,
+                               ELEMENT_NAME_SHEET_ATTRIBUTE_CONSTRAINTS,
+                               ATTRIBUTE_NAME_SHEET_NAME,
+                               sheetName);
     }
 
     private void addCondition(Element attributeRule, String columnName, String columnValue) {

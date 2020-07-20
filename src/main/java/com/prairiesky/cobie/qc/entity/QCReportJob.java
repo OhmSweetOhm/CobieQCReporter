@@ -139,7 +139,7 @@ public class QCReportJob {
         reportThread.start();
     }
 
-    private void generateReport() {
+    public void generateReport() {
         try {
             System.out.println("Generating report...\nPlease wait");
             deserializeCobieFile();

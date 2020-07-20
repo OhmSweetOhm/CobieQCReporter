@@ -5,4 +5,5 @@ target/**
 incoming.xml
 /var/application.properties
 /out
+etc/**
 

@@ -47,7 +47,9 @@ public class COBieCheckSerializer extends COBieTabXMLSerializer implements
 			File targetExportFile) throws Exception
 	{
 		init(cobieSheetXMLData);
-		writeCOBIE(new FileOutputStream(targetExportFile));
+        try (FileOutputStream outputStream = new FileOutputStream(targetExportFile)) {
+            writeCOBIE(outputStream);
+        }
 	}
 
 	@Override
