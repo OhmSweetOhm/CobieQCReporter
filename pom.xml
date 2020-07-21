@@ -363,4 +363,12 @@
         </plugins>
     </build>
 
+    <distributionManagement>
+        <repository>
+            <id>cobieqcreporter</id>
+            <name>GitHub OhmSweetOhm/CobieQcReporter Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/OhmSweetOhm/CobieQcReporter</url>
+        </repository>
+    </distributionManagement>
+
 </project>
